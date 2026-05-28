@@ -1,0 +1,36 @@
+{
+  "skill_name": "git-workflow-planner",
+  "evals": [
+    {
+      "id": "team-redesign",
+      "prompt": "We are redesigning a dashboard while another dev keeps adding features. How should we use git?",
+      "expected_output": "A dev/main or similar branch model, short-lived feature branches, PR slicing, worktree guidance, and visual-vs-behavior separation.",
+      "assertions": [
+        "Includes branch model",
+        "Addresses redesign and parallel feature work",
+        "Mentions PR slicing",
+        "Mentions worktrees or side-by-side comparison when useful"
+      ]
+    },
+    {
+      "id": "agent-in-repo",
+      "prompt": "I want Codex to help in this repo but I do not want it overwriting files my teammate is editing.",
+      "expected_output": "An agent-safe workflow with branch prefix, lock file, explicit scope, and human review.",
+      "assertions": [
+        "Includes agent branch policy",
+        "Includes lock/do-not-edit artifact",
+        "Requires human review"
+      ]
+    },
+    {
+      "id": "solo-project",
+      "prompt": "I am solo but want clean commits and deployable main for a client prototype.",
+      "expected_output": "A lightweight workflow with main/dev or protected main, conventional commits, short branches, and merge checklist.",
+      "assertions": [
+        "Keeps workflow lightweight",
+        "Includes commit convention",
+        "Includes deployable main guidance"
+      ]
+    }
+  ]
+}

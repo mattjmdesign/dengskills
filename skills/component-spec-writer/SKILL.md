@@ -1,6 +1,6 @@
 ---
 name: component-spec-writer
-description: Write a pre-implementation specification for a UI component. Use when defining a React, Vue, or component-system primitive or composed component, including purpose, variants, props, slots, states, accessibility behavior, responsive behavior, composition rules, acceptance criteria, and implementation boundaries before coding.
+description: Use this skill when defining a UI component before code. Produces a component specification for React, Vue, or design-system work: purpose, component type, variants, states, props/inputs, slots/composition, accessibility behavior, responsive behavior, design-token requirements, implementation boundaries, and acceptance criteria.
 ---
 
 # Component Spec Writer
@@ -10,42 +10,63 @@ Use this skill before generating component code. Agents produce better component
 ## Process
 
 1. Define the component purpose and where it appears.
-2. Identify whether it is a primitive, composed feature component, layout component, or page-level pattern.
+2. Classify it as primitive, composed feature component, layout component, or page-level pattern.
 3. Define variants, sizes, visual states, interaction states, and data states.
-4. Define props or inputs, including controlled/uncontrolled behavior if relevant.
-5. Define slots/composition rules.
+4. Define props/inputs, including controlled vs uncontrolled behavior if relevant.
+5. Define slots and composition rules.
 6. Define accessibility behavior: semantics, keyboard interaction, focus management, ARIA only when needed, target size, reduced motion.
 7. Define responsive behavior and token usage expectations.
 8. Write acceptance criteria for implementation and review.
 
 ## Output format
 
-```markdown
+````markdown
 ## Component specification: [Name]
 
 **Purpose:**
+**Component type:**
+**Used in:**
 
-**Type:**
+### Variants
+- [item]
 
-**Variants:**
+### States
+- [item]
 
-**States:**
-
-**Props / inputs:**
-
-**Slots / composition:**
-
-**Accessibility behavior:**
-
-**Responsive behavior:**
-
-**Design token requirements:**
-
-**Acceptance criteria:**
+### Props / inputs
+```ts
+interface ComponentProps {
+  // ...
+}
 ```
 
-## Guardrails
+### Slots / composition
+- [item]
+
+### Accessibility behavior
+- [item]
+
+### Responsive behavior
+- [item]
+
+### Design token requirements
+- [item]
+
+### Implementation boundaries
+- [item]
+
+### Acceptance criteria
+- [ ] [criterion]
+````
+
+## Common mistakes to prevent
 
 - Do not code until states and accessibility behavior are specified.
-- Prefer composition over huge variant APIs.
-- Use semantic design tokens instead of raw colors, spacing, fonts, or shadows.
+- Do not turn every visual option into a prop; prefer composition when possible.
+- Do not use raw colors, spacing, fonts, or shadows where semantic tokens should exist.
+- Do not add ARIA when semantic HTML already provides the behavior.
+
+## Validate before final
+
+- The spec includes variants, states, props, accessibility, responsive behavior, and acceptance criteria.
+- The component type explains whether it belongs in primitives or feature code.

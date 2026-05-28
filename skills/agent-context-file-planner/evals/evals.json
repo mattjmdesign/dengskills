@@ -1,0 +1,36 @@
+{
+  "skill_name": "agent-context-file-planner",
+  "evals": [
+    {
+      "id": "next-app-context",
+      "prompt": "Create an AGENTS.md for our Next.js app with Tailwind, shadcn, strict TypeScript, and Playwright.",
+      "expected_output": "A ready-to-save AGENTS.md with commands, architecture rules, design system, accessibility, testing, git, and guardrails.",
+      "assertions": [
+        "Includes commands section",
+        "Includes server/client or architecture rules",
+        "Includes design-token/styling rules",
+        "Includes testing validation"
+      ]
+    },
+    {
+      "id": "existing-repo-improve",
+      "prompt": "Our agents keep hardcoding styles and changing too many files. Improve our repo instructions.",
+      "expected_output": "Context-file guidance emphasizing token rules, scope boundaries, no broad refactors, and validation gates.",
+      "assertions": [
+        "Addresses hardcoded styles",
+        "Addresses edit scope",
+        "Includes validation before completion"
+      ]
+    },
+    {
+      "id": "unknown-commands",
+      "prompt": "Draft a CLAUDE.md for this repo. I have not told you the commands yet.",
+      "expected_output": "A draft that marks unknown commands as assumptions/questions instead of fabricating them.",
+      "assertions": [
+        "Does not invent unsupported commands as facts",
+        "Includes assumptions or questions",
+        "Still provides usable structure"
+      ]
+    }
+  ]
+}

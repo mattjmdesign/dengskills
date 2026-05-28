@@ -1,25 +1,25 @@
 ---
 name: framework-fit-advisor
-description: Recommend a frontend framework or stack based on product constraints, not preference. Use when choosing between Next.js, Nuxt, React with Vite, or similar paths for a website, SaaS app, dashboard, docs site, embedded tool, prototype, or client product, including routing, rendering, data, deployment, and handoff implications.
+description: Use this skill when choosing a frontend framework or stack for a product-grade prototype or app, especially Next.js vs Nuxt vs React + Vite. Bases the recommendation on product type, routing, rendering, SEO/metadata, auth, data ownership, interactivity, deployment, team familiarity, design-system needs, and handoff—not popularity.
 ---
 
 # Framework Fit Advisor
 
-Use this skill to make stack decisions from the product operating model. The useful question is not "which framework is best"; it is which framework makes the product constraints easiest to express, preview, maintain, and hand off.
+Use this skill to make stack decisions from the product operating model. Recommend the framework that makes product constraints easiest to express, preview, maintain, and hand off.
 
 ## Process
 
-1. Identify product type: marketing/content, SaaS/dashboard, docs, e-commerce, canvas/tool, embedded widget, internal app, or experimental prototype.
-2. Identify routing needs, auth needs, data ownership, SEO/metadata needs, interactivity level, deployment target, team familiarity, and design-system constraints.
+1. Identify product type: marketing/content, SaaS/dashboard, docs, commerce, canvas/tool, embedded widget, internal app, or experimental prototype.
+2. Identify routing, auth, data ownership, SEO/metadata, interactivity, deployment target, team familiarity, and design-system constraints.
 3. Recommend one primary path and one acceptable fallback.
 4. Explain implications for routing, rendering, data fetching, styling/tokens, testing, deployment, and AI-agent collaboration.
-5. Produce a short decision record the team can keep in docs.
+5. Produce a decision record.
 
-## Defaults
+## Decision defaults
 
-- Prefer **Next.js** for product sites, dashboards, docs, SaaS, Vercel deployment, metadata, server rendering, and mature app conventions.
-- Prefer **Nuxt** for Vue-first teams, Vue design systems, content-heavy Vue products, and teams that prefer templates/composables.
-- Prefer **React + Vite** for highly interactive tools, embedded apps, SPAs, custom runtimes, or fast exploratory prototypes where SSR conventions are not needed.
+- Prefer **Next.js** for product sites, SaaS, dashboards, docs, Vercel deployment, metadata, image handling, server rendering, and mature routing conventions.
+- Prefer **Nuxt** for Vue-first teams, Vue design systems, template-centric workflows, and content-heavy Vue products.
+- Prefer **React + Vite** for highly interactive tools, embedded apps, SPAs, custom runtimes, and fast exploratory prototypes that do not need full meta-framework conventions.
 
 ## Output format
 
@@ -27,26 +27,34 @@ Use this skill to make stack decisions from the product operating model. The use
 ## Framework decision
 
 **Recommended path:**
-
-**Why this fits:**
-
 **Fallback path:**
+**Decision confidence:** High / Medium / Low
 
-**Routing implications:**
+### Why this fits
+- [item]
 
-**Data/rendering implications:**
+### Product implications
+- Routing:
+- Data/rendering:
+- Styling/design system:
+- Testing:
+- Deployment:
+- Agent collaboration:
 
-**Design-system implications:**
+### Watch-outs
+- [item]
 
-**Testing/deployment implications:**
-
-**Watch-outs:**
-
-**Decision record:**
+### Decision record
+We choose [framework] because [product constraints]. Revisit if [condition].
 ```
 
-## Guardrails
+## Common mistakes to prevent
 
-- Do not recommend a stack based only on popularity.
-- If the user lacks product constraints, ask for or infer the minimum needed constraints and mark assumptions.
-- Include how the choice affects design-to-production workflow, not only developer experience.
+- Do not choose based only on what is trendy or familiar.
+- Do not ignore routing/data/deployment when the user asks only about UI.
+- Do not recommend Vite for product surfaces that clearly need SEO, metadata, server rendering, or app-router conventions unless those needs are intentionally out of scope.
+
+## Validate before final
+
+- The recommendation ties back to concrete product constraints.
+- It includes at least one watch-out for the chosen stack.

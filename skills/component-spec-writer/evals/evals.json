@@ -1,0 +1,37 @@
+{
+  "skill_name": "component-spec-writer",
+  "evals": [
+    {
+      "id": "status-badge",
+      "prompt": "Spec a ProjectStatusBadge component before implementation. It has active, paused, blocked, completed states.",
+      "expected_output": "A component spec with purpose, variants/states, props interface, token requirements, accessibility, and acceptance criteria.",
+      "assertions": [
+        "Includes props interface",
+        "Defines variants/states",
+        "Includes accessibility behavior",
+        "Includes token requirements"
+      ]
+    },
+    {
+      "id": "search-combobox",
+      "prompt": "Plan a reusable search combobox component for our app.",
+      "expected_output": "A component spec covering controlled input, keyboard behavior, ARIA/combobox semantics, loading/empty states, composition, and acceptance criteria.",
+      "assertions": [
+        "Includes keyboard behavior",
+        "Includes loading/empty states",
+        "Includes accessibility details",
+        "Defines composition/props"
+      ]
+    },
+    {
+      "id": "feature-card",
+      "prompt": "Define a component spec for a dashboard insight card with title, metric, trend, and CTA.",
+      "expected_output": "A spec identifying composed feature component, props, states, responsive behavior, tokens, and acceptance criteria.",
+      "assertions": [
+        "Classifies component type",
+        "Includes responsive behavior",
+        "Includes props and states"
+      ]
+    }
+  ]
+}

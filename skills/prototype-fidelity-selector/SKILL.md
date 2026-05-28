@@ -1,26 +1,26 @@
 ---
 name: prototype-fidelity-selector
-description: Select the right prototype fidelity for a product idea or feature: sketch, wireframe, clickable mockup, high-fidelity design, code prototype, pilot-ready build, or near-production implementation. Use when deciding how much to build, what to validate, what not to overbuild, or how to prepare a client demo efficiently.
+description: Use this skill when deciding how much fidelity to build for a product idea, feature, or client demo: sketch, wireframe, clickable Figma prototype, high-fidelity mockup, code prototype, pilot-ready build, or near-production implementation. Helps avoid overbuilding or underbuilding by matching fidelity to the validation question and defining exit criteria.
 ---
 
 # Prototype Fidelity Selector
 
-Use this skill to match fidelity to the question being tested. Avoid jumping to code when structure is unknown, and avoid staying in mockups when real interaction or performance must be validated.
+Use this skill to match fidelity to the question being tested. Pick the cheapest artifact that can answer the question without hiding important product risk.
 
 ## Process
 
-1. Identify the primary validation question: product desirability, IA, task flow, visual direction, technical feasibility, performance feel, or client demo readiness.
-2. Choose the lowest fidelity that can answer that question.
-3. Define what the prototype must include and what it must intentionally fake.
-4. Define exit criteria for moving to the next fidelity level.
-5. Call out risks of overbuilding or underbuilding.
-6. Recommend the next artifact or skill to use.
+1. Identify the validation question: desirability, IA, task flow, visual direction, technical feasibility, performance feel, or client/demo readiness.
+2. Choose the lowest sufficient fidelity.
+3. Define what must be real and what can be mocked.
+4. Define what not to build yet.
+5. Set exit criteria for moving to the next fidelity.
+6. Name risks of overbuilding and underbuilding.
 
-## Fidelity guidance
+## Fidelity defaults
 
-- **Sketch / whiteboard:** layout concepts, quick stakeholder alignment.
+- **Sketch / whiteboard:** rough layout and stakeholder alignment.
 - **Low-fidelity wireframe:** navigation, content hierarchy, flow coverage.
-- **Mid-fidelity clickable prototype:** task flow validation and usability testing.
+- **Clickable prototype:** task flow validation and usability testing.
 - **High-fidelity mockup:** visual review, token mapping, implementation handoff.
 - **Code prototype:** real interaction, responsive behavior, performance feel, API/data assumptions.
 - **Pilot-ready build:** client/user trial with real data paths and known limitations.
@@ -32,18 +32,35 @@ Use this skill to match fidelity to the question being tested. Avoid jumping to 
 ## Fidelity recommendation
 
 **Recommended fidelity:**
-
 **Question being tested:**
+**Why this is enough:**
 
-**Must include:**
+### Must be real
+- [item]
 
-**Can be mocked/faked:**
+### Can be mocked
+- [item]
 
-**Do not build yet:**
+### Do not build yet
+- [item]
 
-**Exit criteria:**
+### Exit criteria
+- [item]
 
-**Risks:**
+### Risks
+- Overbuilding:
+- Underbuilding:
 
 **Next step:**
 ```
+
+## Common mistakes to prevent
+
+- Do not recommend code when IA or workflow is still unknown.
+- Do not recommend static mockups when real latency, responsiveness, or interaction is the central risk.
+- Do not label a demo as production-grade unless data, auth, errors, deployment, and ownership are addressed.
+
+## Validate before final
+
+- The recommendation names the validation question and exit criteria.
+- The plan clearly separates real behavior from mocked behavior.

@@ -2,7 +2,9 @@
 
 Installable Agent Skills for product designers, design engineers, and AI-assisted teams moving from vibe-coded ideas to product-grade prototypes.
 
-These skills are intentionally narrow. Each skill guides an agent through one design-engineering process moment: clarifying intent, choosing fidelity, planning a repo, mapping IA, writing requirements, specifying components, or inventorying gap states.
+These skills are intentionally narrow. Each one guides an agent through one design-engineering process moment: clarifying intent, choosing fidelity, planning a repo, mapping IA, writing requirements, specifying components, or inventorying gap states.
+
+The skill structure follows the official Agent Skills guidance copied in `agentskillsofficial/`: concise `SKILL.md` files, specific trigger descriptions, procedural instructions, output templates, common mistakes, validation checks, `agents/openai.yaml` metadata, and lightweight eval cases.
 
 ## Skill Pack
 
@@ -28,6 +30,7 @@ skills/
   <skill-name>/
     SKILL.md
     agents/openai.yaml
+    evals/evals.json
 agentskillsofficial/
   Official Agent Skills reference docs copied for local authoring.
 ```
@@ -36,12 +39,10 @@ agentskillsofficial/
 
 Copy any folder under `skills/` into your agent's skill directory, such as `.agents/skills/` in a project or `~/.codex/skills/` for local Codex use.
 
-Example:
-
 ```bash
 cp -R skills/gap-state-inventory ~/.codex/skills/
 ```
 
 ## Philosophy
 
-These skills are based on the Design Engineering docs workflow: define product intent, map the system, plan the implementation, then build and review with production-grade quality gates.
+These skills make an AI coding agent pause at the right product-to-production step instead of jumping straight to implementation. They encode the Design Engineering workflow: clarify intent, choose fidelity, map the system, plan the implementation, then build and review with product-grade quality gates.

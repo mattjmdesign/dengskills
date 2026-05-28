@@ -1,0 +1,36 @@
+{
+  "skill_name": "content-hierarchy-planner",
+  "evals": [
+    {
+      "id": "project-overview",
+      "prompt": "Plan the content hierarchy for a project overview page with status, tasks, files, team, comments, and settings.",
+      "expected_output": "A hierarchy with project identity/status and main action prioritized, secondary/tertiary content separated, actions ranked, responsive notes.",
+      "assertions": [
+        "Names primary action/decision",
+        "Ranks content into primary/secondary/tertiary",
+        "Includes responsive priority",
+        "Includes accessibility notes"
+      ]
+    },
+    {
+      "id": "crowded-dashboard",
+      "prompt": "Our dashboard has 12 metrics, activity, alerts, recommendations, and a big create button. Help structure it.",
+      "expected_output": "A prioritized dashboard hierarchy that reduces clutter, identifies primary decision, and defers/collapses lower-priority content.",
+      "assertions": [
+        "Does not treat all metrics equally",
+        "Recommends move/defer/collapse",
+        "Identifies primary decision"
+      ]
+    },
+    {
+      "id": "marketing-page",
+      "prompt": "What should go on the homepage for an AI intake product?",
+      "expected_output": "A page hierarchy with value proposition, primary CTA, proof/secondary content, and semantic heading notes.",
+      "assertions": [
+        "Includes H1/page purpose",
+        "Identifies primary CTA",
+        "Separates supporting content"
+      ]
+    }
+  ]
+}

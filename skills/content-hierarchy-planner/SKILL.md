@@ -1,6 +1,6 @@
 ---
 name: content-hierarchy-planner
-description: Plan the content hierarchy of a page or screen before visual design or implementation. Use when deciding what belongs on a page, the primary action, secondary content, metadata, destructive actions, heading structure, layout priority, dashboard sections, or how to reduce clutter and improve user decision-making.
+description: Use this skill when planning what belongs on a page or screen before visual design or implementation. Defines page purpose, primary user decision/action, H1 and heading structure, primary/secondary/tertiary content, primary/secondary/destructive actions, responsive priority, and what to move, defer, collapse, or remove.
 ---
 
 # Content Hierarchy Planner
@@ -13,8 +13,8 @@ Use this skill before layout design. A page that cannot rank its content is usua
 2. Define the user's primary decision or action on the page.
 3. Rank content into primary, secondary, and tertiary groups.
 4. Identify primary, secondary, and destructive actions.
-5. Define recommended heading structure and semantic landmarks.
-6. Note what should be hidden, deferred, collapsed, moved to another page, or shown only conditionally.
+5. Define heading structure and semantic landmarks.
+6. Decide what should be hidden, deferred, collapsed, moved to another page, or shown conditionally.
 7. Call out responsive priority: what appears first on mobile and what can move lower.
 
 ## Output format
@@ -23,31 +23,42 @@ Use this skill before layout design. A page that cannot rank its content is usua
 ## Content hierarchy
 
 **Page purpose:**
-
 **Primary user decision/action:**
-
 **H1:**
 
-**Primary content:**
+### Primary content
+- [item]
 
-**Secondary content:**
+### Secondary content
+- [item]
 
-**Tertiary metadata:**
+### Tertiary metadata
+- [item]
 
-**Actions:**
+### Actions
 - Primary:
 - Secondary:
 - Destructive:
 
-**Responsive priority:**
+### Responsive priority
+- [item]
 
-**Move/defer/remove:**
+### Move / defer / remove
+- [item]
 
-**Accessibility notes:**
+### Accessibility notes
+- [item]
 ```
 
-## Guardrails
+## Common mistakes to prevent
 
-- Do not treat every element as equally important.
-- Prefer one primary action per page or section.
-- Preserve semantic heading order even if visual styling differs.
+- Do not give every card, metric, and CTA equal weight.
+- Do not create multiple competing primary actions in one section.
+- Do not break heading order to match visual size.
+- Do not hide essential actions on mobile.
+
+## Validate before final
+
+- The plan names one primary decision/action.
+- Content is ranked, not merely listed.
+- Responsive and accessibility implications are included.

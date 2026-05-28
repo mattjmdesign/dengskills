@@ -1,21 +1,21 @@
 ---
 name: agent-context-file-planner
-description: Plan or draft project context files for AI coding agents, including AGENTS.md, CLAUDE.md, .cursorrules, or similar repo instructions. Use when making a codebase agent-friendly by documenting stack, architecture rules, design-system constraints, accessibility requirements, testing standards, git workflow, and agent do-not-do rules.
+description: Use this skill when creating or improving AGENTS.md, CLAUDE.md, .cursorrules, or other project context files for AI coding agents. Captures project purpose, commands, stack, architecture rules, server/client boundaries, styling and design-token rules, accessibility, testing, git workflow, validation commands, and agent guardrails.
 ---
 
 # Agent Context File Planner
 
-Use this skill to create context that improves every future agent task in a repository. The file should tell agents what they would otherwise guess incorrectly.
+Use this skill to create context that improves every future agent task. Include only instructions an agent would otherwise guess incorrectly.
 
 ## Process
 
-1. Inspect or ask for the project stack, app purpose, folder structure, package manager, styling system, testing tools, and deployment target.
-2. Capture architecture rules: server/client boundaries, data fetching, routing, state management, and file ownership.
-3. Capture design-system rules: token usage, component library, variant patterns, and no hardcoded visual values.
-4. Capture accessibility and quality requirements.
-5. Capture git workflow and PR expectations.
-6. Add agent-specific guardrails: files to avoid, when to ask, validation commands, and no broad refactors unless requested.
-7. Output a ready-to-save context file.
+1. Inspect or ask for project purpose, stack, folder structure, package manager, styling system, testing tools, and deployment target.
+2. Capture commands the agent should run for development, checks, tests, and builds.
+3. Capture architecture rules: server/client boundaries, data fetching, routing, state, file ownership.
+4. Capture design-system rules: token usage, component library, variants, and no hardcoded visual values.
+5. Capture accessibility, quality, and testing expectations.
+6. Capture git workflow and PR expectations.
+7. Add agent-specific guardrails: scope control, when to ask, no broad refactors, and validation before completion.
 
 ## Output format
 
@@ -41,9 +41,15 @@ Use this skill to create context that improves every future agent task in a repo
 ## Agent guardrails
 ```
 
-## Guardrails
+## Common mistakes to prevent
 
-- Keep instructions concrete and project-specific.
-- Do not include generic advice the agent already knows.
-- Include validation commands only if they are known or provided.
-- Prefer constraints that prevent common agent failures: hardcoded tokens, unnecessary client components, broad edits, skipped states, and untested changes.
+- Do not fill the file with generic advice.
+- Do not omit design token rules; agents often hardcode colors, spacing, and shadows.
+- Do not list validation commands unless they are known or explicitly assumed.
+- Do not let the context file authorize broad edits by default.
+
+## Validate before final
+
+- The output is ready to paste into a root context file.
+- It names concrete commands, folders, and constraints when available.
+- Unknowns are marked as assumptions or questions.

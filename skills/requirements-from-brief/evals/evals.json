@@ -1,0 +1,36 @@
+{
+  "skill_name": "requirements-from-brief",
+  "evals": [
+    {
+      "id": "dashboard-brief",
+      "prompt": "We need a dashboard where managers can see project health, filter by client, and export reports. Turn this into requirements.",
+      "expected_output": "FR/NFR requirements with filters, export, project health display, dependencies, out-of-scope, assumptions, and next step.",
+      "assertions": [
+        "Uses FR-XX format",
+        "Includes NFRs",
+        "Mentions data/API dependencies",
+        "Includes open questions or assumptions"
+      ]
+    },
+    {
+      "id": "solution-language",
+      "prompt": "The page needs a table with search, badges, and a download button. Write requirements.",
+      "expected_output": "Requirements that translate the table solution into compare/find/export user needs and avoid treating UI as fixed.",
+      "assertions": [
+        "Distinguishes requirement from table solution",
+        "Produces testable requirements",
+        "Includes constraints or open questions"
+      ]
+    },
+    {
+      "id": "client-vague",
+      "prompt": "Client wants an AI portal for intake and approvals. Need frontend requirements before we design.",
+      "expected_output": "Structured requirements including workflows, auth/permissions, data states, NFRs, and open questions.",
+      "assertions": [
+        "Includes auth/permissions dependency",
+        "Includes NFRs",
+        "Includes open questions"
+      ]
+    }
+  ]
+}

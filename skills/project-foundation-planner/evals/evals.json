@@ -1,0 +1,36 @@
+{
+  "skill_name": "project-foundation-planner",
+  "evals": [
+    {
+      "id": "next-saas-setup",
+      "prompt": "We chose Next.js for a SaaS dashboard. Plan the repo structure and tooling before we start coding.",
+      "expected_output": "A Next.js-oriented foundation plan with src/app, components/ui vs feature components, TypeScript strictness, env strategy, tokens, testing, and checklist.",
+      "assertions": [
+        "Includes repo tree",
+        "Separates primitives from feature components",
+        "Includes env and TypeScript guidance",
+        "Includes ordered checklist"
+      ]
+    },
+    {
+      "id": "vibe-prototype",
+      "prompt": "I am vibe coding a client prototype but want the repo to not become trash. What foundation do we need first?",
+      "expected_output": "A pragmatic setup plan that avoids overengineering but establishes conventions, tokens, env, tests, and agent docs.",
+      "assertions": [
+        "Balances speed with conventions",
+        "Includes agent context files",
+        "Avoids unnecessary complexity"
+      ]
+    },
+    {
+      "id": "existing-unclear-stack",
+      "prompt": "We have a React app and need better organization for upcoming features.",
+      "expected_output": "A foundation plan that states assumptions, recommends feature-proximity organization, and identifies decisions to confirm.",
+      "assertions": [
+        "Marks assumptions",
+        "Recommends feature proximity",
+        "Lists decisions to confirm"
+      ]
+    }
+  ]
+}

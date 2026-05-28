@@ -1,6 +1,6 @@
 ---
 name: project-foundation-planner
-description: Plan the initial project foundation for a product-grade prototype or app repository. Use when setting up repo structure, tooling, TypeScript strictness, linting, formatting, environment variables, design token location, testing baseline, and documentation expectations before coding begins.
+description: Use this skill when setting up a new product-grade prototype or app repository before coding. Plans feature-oriented folder structure, package/tooling choices, TypeScript strictness, linting/formatting, environment variables, design token locations, primitive vs feature components, testing baseline, documentation, and agent context files.
 ---
 
 # Project Foundation Planner
@@ -9,42 +9,63 @@ Use this skill before creating many files. The goal is a foundation that lets de
 
 ## Process
 
-1. Identify selected framework and expected project type.
-2. Recommend a feature-proximity folder structure rather than a technical-layer-only structure.
-3. Define tooling defaults: package manager, TypeScript strictness, linting, formatting, test tools, and CI baseline.
-4. Define environment variable strategy, including `.env.example` and runtime validation expectations.
-5. Define where design tokens, primitives, feature components, shared utilities, and docs should live.
-6. Identify project context files needed for agents.
-7. Produce a setup checklist that can be implemented in order.
+1. Confirm framework, project type, package manager, styling approach, and deployment target when known.
+2. Recommend a feature-proximity structure, not a root full of unrelated technical buckets.
+3. Separate primitive UI components from composed feature components.
+4. Define tooling defaults: TypeScript strictness, linting, formatting, testing, and CI baseline.
+5. Define environment variable strategy, including `.env.example` and validation expectations.
+6. Define where tokens, global styles, utilities, validation schemas, and docs live.
+7. Identify required agent context files.
+8. Produce an ordered setup checklist.
 
 ## Output format
 
-```markdown
+````markdown
 ## Project foundation plan
 
-**Framework/stack assumption:**
+**Stack assumption:**
+**Package manager:**
+**Deployment target:**
 
-**Repository structure:**
-
-**Tooling defaults:**
-
-**TypeScript expectations:**
-
-**Environment strategy:**
-
-**Design system locations:**
-
-**Testing baseline:**
-
-**Agent context files:**
-
-**Setup checklist:**
-
-**Risks / decisions to confirm:**
+### Repository structure
+```text
+src/
+  ...
 ```
 
-## Guardrails
+### Tooling defaults
+- [item]
 
-- Prefer predictable defaults over novel architecture.
-- Do not create folders for hypothetical complexity unless the product needs them.
-- Make environment and token decisions explicit early; agents otherwise hardcode values.
+### TypeScript expectations
+- [item]
+
+### Environment strategy
+- [item]
+
+### Design system locations
+- [item]
+
+### Testing baseline
+- [item]
+
+### Agent context files
+- [item]
+
+### Ordered setup checklist
+- [ ] [criterion]
+
+### Decisions to confirm
+- [item]
+````
+
+## Common mistakes to prevent
+
+- Do not create abstractions for hypothetical scale.
+- Do not let feature components live in primitive UI folders.
+- Do not leave env vars undocumented or unvalidated.
+- Do not let agents infer design token locations later.
+
+## Validate before final
+
+- The plan identifies where primitives, feature components, tokens, env config, tests, and agent docs belong.
+- The setup checklist can be executed in order.

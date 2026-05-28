@@ -1,6 +1,6 @@
 ---
 name: git-workflow-planner
-description: Plan a safe Git workflow for product teams, design engineers, and AI agents working in the same repository. Use when deciding branch strategy, PR slicing, commit conventions, dev/main flow, redesign coordination, git worktrees, feature branches, agent branches, locks, review rules, or merge policy.
+description: Use this skill when planning Git collaboration for designers, developers, and AI agents in one repository. Defines branch model, dev/main flow, feature and fix branches, agent branch rules, commit conventions, PR slicing, visual-vs-behavior review separation, worktrees, lock files, feature flags, and merge policy.
 ---
 
 # Git Workflow Planner
@@ -10,10 +10,10 @@ Use this skill when multiple contributors or agents may touch the same product s
 ## Process
 
 1. Identify team shape: solo, designer+agent, small team, client team, or multi-agent workflow.
-2. Recommend branch model: production branch, integration branch, short-lived feature/fix branches, and agent branch prefix.
-3. Define PR slicing rules: visual, behavior, content, infrastructure, and data changes should be reviewable separately unless a vertical slice requires integration.
+2. Recommend branch model: production, integration, short-lived feature/fix branches, and agent branch prefix.
+3. Define PR slicing rules: visual, behavior, content, infrastructure, data, and intentional vertical slices.
 4. Recommend worktrees when old and new UI must be compared side by side.
-5. Define commit message convention and merge policy.
+5. Define commit convention and merge policy.
 6. Define agent-safe rules: allowed files, do-not-edit lock file, human review, and feature-flag expectations.
 7. Produce a workflow checklist.
 
@@ -22,27 +22,41 @@ Use this skill when multiple contributors or agents may touch the same product s
 ```markdown
 ## Git workflow plan
 
-**Recommended branch model:**
-
+**Branch model:**
 **Branch naming:**
-
-**PR slicing rules:**
-
 **Commit convention:**
 
-**Agent branch policy:**
+### PR slicing rules
+- Visual:
+- Behavior/data:
+- Content:
+- Infrastructure:
+- Vertical slice exception:
 
-**Worktree recommendation:**
+### Agent policy
+- Branch prefix:
+- Human review:
+- Lock file:
+- Allowed scope:
 
-**Review and merge policy:**
+### Worktree recommendation
 
-**Coordination artifacts:**
+### Review and merge policy
 
-**Workflow checklist:**
+### Coordination artifacts
+- [item]
+
+### Workflow checklist
+- [ ] [criterion]
 ```
 
-## Guardrails
+## Common mistakes to prevent
 
-- Keep branches short-lived; if a branch exceeds a few days, split the work.
-- Never merge agent-generated code without human review.
-- Separate visual-only changes from behavior/data changes unless the PR is an intentional vertical slice.
+- Do not let redesigns live as one long branch.
+- Do not mix visual changes and business logic unless it is an intentional, reviewable vertical slice.
+- Do not let agents edit files without explicit scope and human review.
+
+## Validate before final
+
+- The branch model keeps `main` production-safe and the integration branch deployable.
+- The PR rules explain how to split visual, behavioral, content, and infrastructure changes.

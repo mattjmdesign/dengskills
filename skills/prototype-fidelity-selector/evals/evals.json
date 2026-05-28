@@ -1,0 +1,35 @@
+{
+  "skill_name": "prototype-fidelity-selector",
+  "evals": [
+    {
+      "id": "test-navigation",
+      "prompt": "We have an idea for a marketplace but mostly need to know if users understand the categories. Should we build it in code?",
+      "expected_output": "Recommendation for low-fidelity IA/wireframe or clickable prototype, with code deferred and exit criteria around navigation validation.",
+      "assertions": [
+        "Identifies IA/category understanding as the validation question",
+        "Does not recommend starting with a code prototype",
+        "Defines exit criteria"
+      ]
+    },
+    {
+      "id": "client-demo",
+      "prompt": "I need to show a polished AI dashboard to a client next week, but the data API is not ready. What fidelity should we aim for?",
+      "expected_output": "A high-fidelity or code prototype recommendation with mocked data called out, demo scope, risks, and next step.",
+      "assertions": [
+        "States what can be mocked",
+        "Includes risks of demo-only data",
+        "Defines what must be real for the client demo"
+      ]
+    },
+    {
+      "id": "performance-risk",
+      "prompt": "The core concept is a drag and drop planning board. I need to know if it feels good on laptop and tablet.",
+      "expected_output": "A code prototype recommendation because interaction feel and responsive behavior are the risk.",
+      "assertions": [
+        "Recommends code prototype",
+        "Mentions responsive/interaction testing",
+        "Avoids staying in static mockups"
+      ]
+    }
+  ]
+}

@@ -1,18 +1,18 @@
 ---
 name: gap-state-inventory
-description: Inventory missing gap states for a screen, flow, component, or product prototype. Use when checking loading, empty, error, offline, permission denied, expired session, validation, disabled, partial data, slow network, localization, responsive, or other edge states that must be designed before a product-grade prototype or build.
+description: Use this skill when checking a screen, flow, component, or product-grade prototype for missing gap states: loading, empty, partial data, errors, retry, offline, permission denied, expired session, validation, disabled, success, destructive confirmation, slow network, localization, and responsive edge cases.
 ---
 
 # Gap State Inventory
 
-Use this skill to find the undesigned interface. Gap states are often where real users spend time: loading, empty, failed, blocked, offline, unauthorized, and partially complete.
+Use this skill to find the undesigned interface. Real users often experience products while loading, empty, failed, blocked, offline, unauthorized, or partially complete.
 
 ## Process
 
 1. Identify the screen, component, or flow being reviewed.
 2. List data dependencies, user permissions, network dependencies, and mutation points.
-3. Inventory states across loading, empty, populated, partial, error, retry, offline, permission, expired session, validation, disabled, success, and destructive confirmation.
-4. For each state, define user-visible behavior, copy needs, recovery path, and implementation owner.
+3. Inventory states: loading, empty, populated, partial, error, retry, offline, permission denied, expired session, validation, disabled, success, destructive confirmation, localization, and responsive edge cases.
+4. For each state, define user-visible behavior, copy needs, recovery path, and implementation owner if known.
 5. Prioritize states as must-have for v1, should-have, or later.
 6. Recommend tests or acceptance criteria for critical states.
 
@@ -23,18 +23,29 @@ Use this skill to find the undesigned interface. Gap states are often where real
 
 | State | Scenario | User-visible behavior | Recovery/action | Priority |
 |---|---|---|---|---|
+| Loading |  |  |  |  |
 
 ### Critical missing states
+- [item]
 
 ### Copy requirements
+- [item]
 
 ### Implementation notes
+- [item]
 
-### Test/acceptance criteria
+### Test / acceptance criteria
+- [ ] [criterion]
 ```
 
-## Guardrails
+## Common mistakes to prevent
 
 - Do not say "handle errors" generically; name the error and recovery path.
-- Include both first-load failures and refresh/mutation failures.
-- Include permission and expired-session states for authenticated products.
+- Do not include first-load failure only; include refresh and mutation failures.
+- Do not forget permission and expired-session states for authenticated products.
+- Do not design empty states without next-best action.
+
+## Validate before final
+
+- The inventory includes loading, empty, error, permission/session, and mutation states when relevant.
+- Critical states have recovery actions and test criteria.

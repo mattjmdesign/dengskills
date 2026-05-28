@@ -1,0 +1,35 @@
+{
+  "skill_name": "framework-fit-advisor",
+  "evals": [
+    {
+      "id": "saas-dashboard",
+      "prompt": "I am building a client portal with login, dashboards, docs pages, and Vercel deployment. Should I use Vite or Next?",
+      "expected_output": "A Next.js recommendation with routing, auth/data, metadata/deployment implications and Vite as fallback only if constraints change.",
+      "assertions": [
+        "Recommends Next.js",
+        "Explains routing/auth/data implications",
+        "Includes watch-outs"
+      ]
+    },
+    {
+      "id": "vue-team",
+      "prompt": "Our team already has a Vue component library and wants a content-heavy product site with some logged-in pages.",
+      "expected_output": "A Nuxt recommendation grounded in Vue-first team/design system and content workflows.",
+      "assertions": [
+        "Recommends Nuxt or explains why",
+        "Mentions Vue design system fit",
+        "Includes deployment/testing considerations"
+      ]
+    },
+    {
+      "id": "canvas-tool",
+      "prompt": "We need a fast prototype for an interactive diagramming tool embedded in another app. SEO does not matter.",
+      "expected_output": "A React + Vite recommendation due to interactivity, embed/custom runtime, and low SSR/SEO need.",
+      "assertions": [
+        "Recommends React + Vite",
+        "Mentions custom runtime/embedding",
+        "Does not overstate SSR needs"
+      ]
+    }
+  ]
+}

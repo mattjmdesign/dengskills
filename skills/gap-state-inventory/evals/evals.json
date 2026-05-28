@@ -1,0 +1,36 @@
+{
+  "skill_name": "gap-state-inventory",
+  "evals": [
+    {
+      "id": "project-list",
+      "prompt": "Inventory gap states for a project list page with filters and create project action.",
+      "expected_output": "A state table covering loading, empty, filtered empty, error, retry, permission, create mutation, and tests.",
+      "assertions": [
+        "Includes filtered empty state",
+        "Includes create mutation states",
+        "Includes recovery actions",
+        "Includes test criteria"
+      ]
+    },
+    {
+      "id": "authenticated-dashboard",
+      "prompt": "What gap states are missing from an authenticated analytics dashboard?",
+      "expected_output": "Inventory including loading, stale/partial data, API error, permission denied, expired session, offline, and refresh failure.",
+      "assertions": [
+        "Includes expired session",
+        "Includes partial/stale data",
+        "Includes API error recovery"
+      ]
+    },
+    {
+      "id": "delete-flow",
+      "prompt": "Check states for deleting a client record.",
+      "expected_output": "States for confirmation, pending, success, failure, permission denied, disabled, and recovery/undo if appropriate.",
+      "assertions": [
+        "Includes destructive confirmation",
+        "Includes pending/failure states",
+        "Includes permission state"
+      ]
+    }
+  ]
+}

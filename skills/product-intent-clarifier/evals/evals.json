@@ -1,0 +1,36 @@
+{
+  "skill_name": "product-intent-clarifier",
+  "evals": [
+    {
+      "id": "vague-saas-idea",
+      "prompt": "I want to vibe code a SaaS dashboard for small agencies to manage client projects. Help me shape it before we build.",
+      "expected_output": "A product intent brief that identifies agency users, client/project management value, first workflow, v1 scope, deferred features, constraints, assumptions, and next artifact.",
+      "assertions": [
+        "Names primary users and business/client goal",
+        "Defines a first critical workflow instead of jumping to UI",
+        "Separates v1 must-haves from deferred ideas",
+        "Lists assumptions or open questions"
+      ]
+    },
+    {
+      "id": "client-demo-app",
+      "prompt": "A client asked for an AI intake portal. I need something impressive but not random. What exactly are we building?",
+      "expected_output": "A concise brief clarifying product promise, users, workflow, demo constraints, risks, and next planning artifact.",
+      "assertions": [
+        "Includes client-facing outcome",
+        "Calls out constraints and risks",
+        "Avoids recommending implementation details as the main answer"
+      ]
+    },
+    {
+      "id": "feature-not-product",
+      "prompt": "Add a table with filters and export to CSV to our admin screen.",
+      "expected_output": "A clarified feature intent that distinguishes user need from table solution and identifies requirements or flow mapping as next step.",
+      "assertions": [
+        "Restates the underlying user job",
+        "Does not assume the table is the only solution",
+        "Recommends a next design-engineering artifact"
+      ]
+    }
+  ]
+}
