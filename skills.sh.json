@@ -1,0 +1,42 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Product Definition",
+      "description": "Clarify product intent, prototype fidelity, and buildable requirements before coding.",
+      "skills": [
+        "product-intent-clarifier",
+        "prototype-fidelity-selector",
+        "requirements-from-brief"
+      ]
+    },
+    {
+      "title": "Project Setup",
+      "description": "Choose the framework, repository foundation, and collaboration workflow for product-grade prototypes.",
+      "skills": [
+        "framework-fit-advisor",
+        "project-foundation-planner",
+        "git-workflow-planner",
+        "agent-context-file-planner"
+      ]
+    },
+    {
+      "title": "IA & Flows",
+      "description": "Map pages, routes, user journeys, and page hierarchy before visual design or implementation.",
+      "skills": [
+        "sitemap-planner",
+        "user-flow-mapper",
+        "content-hierarchy-planner"
+      ]
+    },
+    {
+      "title": "Build Readiness",
+      "description": "Prepare component specs and missing state inventories before agents generate UI code.",
+      "skills": [
+        "component-spec-writer",
+        "gap-state-inventory"
+      ]
+    }
+  ]
+}
