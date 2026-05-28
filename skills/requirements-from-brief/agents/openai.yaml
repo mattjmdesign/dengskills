@@ -1,0 +1,8 @@
+interface:
+  display_name: "Requirements From Brief"
+  short_description: "Turn product intent into testable requirements"
+  brand_color: "#2563EB"
+  default_prompt: "Use $requirements-from-brief to turn this product brief into frontend requirements."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Git Workflow Planner"
+  short_description: "Plan branches, PR slices, and agent-safe git"
+  brand_color: "#2563EB"
+  default_prompt: "Use $git-workflow-planner to define a branch and PR workflow for this team or redesign."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "User Flow Mapper"
+  short_description: "Map happy paths and edge-case branches"
+  brand_color: "#2563EB"
+  default_prompt: "Use $user-flow-mapper to map the user flow for this feature or task."
+
+policy:
+  allow_implicit_invocation: true

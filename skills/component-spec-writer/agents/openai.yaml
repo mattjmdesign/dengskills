@@ -1,0 +1,8 @@
+interface:
+  display_name: "Component Spec Writer"
+  short_description: "Specify component API, states, and a11y"
+  brand_color: "#2563EB"
+  default_prompt: "Use $component-spec-writer to write a component specification before implementation."
+
+policy:
+  allow_implicit_invocation: true

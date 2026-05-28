@@ -1,0 +1,8 @@
+interface:
+  display_name: "Product Intent Clarifier"
+  short_description: "Clarify vague product ideas before build"
+  brand_color: "#2563EB"
+  default_prompt: "Use $product-intent-clarifier to turn this rough app idea into a buildable product intent brief."
+
+policy:
+  allow_implicit_invocation: true

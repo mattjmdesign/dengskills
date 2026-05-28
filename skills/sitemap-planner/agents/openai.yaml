@@ -1,0 +1,8 @@
+interface:
+  display_name: "Sitemap Planner"
+  short_description: "Map pages, navigation, and route hierarchy"
+  brand_color: "#2563EB"
+  default_prompt: "Use $sitemap-planner to create a sitemap and route structure for this product."
+
+policy:
+  allow_implicit_invocation: true

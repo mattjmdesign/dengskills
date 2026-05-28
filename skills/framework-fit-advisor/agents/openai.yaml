@@ -1,0 +1,8 @@
+interface:
+  display_name: "Framework Fit Advisor"
+  short_description: "Choose a frontend framework from product needs"
+  brand_color: "#2563EB"
+  default_prompt: "Use $framework-fit-advisor to choose the right frontend framework for this product concept."
+
+policy:
+  allow_implicit_invocation: true

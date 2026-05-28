@@ -1,0 +1,8 @@
+interface:
+  display_name: "Project Foundation Planner"
+  short_description: "Plan repo structure, tooling, and standards"
+  brand_color: "#2563EB"
+  default_prompt: "Use $project-foundation-planner to plan the repository foundation for this product-grade prototype."
+
+policy:
+  allow_implicit_invocation: true

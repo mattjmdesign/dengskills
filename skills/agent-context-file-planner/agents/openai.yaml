@@ -1,0 +1,8 @@
+interface:
+  display_name: "Agent Context File Planner"
+  short_description: "Create repo instructions for coding agents"
+  brand_color: "#2563EB"
+  default_prompt: "Use $agent-context-file-planner to draft an AGENTS.md for this repository."
+
+policy:
+  allow_implicit_invocation: true

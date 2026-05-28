@@ -1,0 +1,8 @@
+interface:
+  display_name: "Gap State Inventory"
+  short_description: "Find missing loading, error, and edge states"
+  brand_color: "#2563EB"
+  default_prompt: "Use $gap-state-inventory to identify missing gap states for this screen or feature."
+
+policy:
+  allow_implicit_invocation: true

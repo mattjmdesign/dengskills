@@ -1,0 +1,8 @@
+interface:
+  display_name: "Prototype Fidelity Selector"
+  short_description: "Choose the right prototype fidelity"
+  brand_color: "#2563EB"
+  default_prompt: "Use $prototype-fidelity-selector to decide whether this should be a wireframe, Figma prototype, code prototype, or product-grade build."
+
+policy:
+  allow_implicit_invocation: true
