@@ -1,0 +1,38 @@
+{
+  "skill_name": "ui-layout-architect",
+  "evals": [
+    {
+        "id": "landing-skeleton",
+        "prompt": "Plan the UI skeleton for a new marketing landing page for a B2B SaaS product.",
+        "expected_output": "A landing-page skeleton with global nav/footer, section order, max widths, section padding, hero behavior, responsive rules, and reusable primitives.",
+        "assertions": [
+            "Includes section skeleton",
+            "Defines max width and padding",
+            "Mentions global header/footer",
+            "Includes responsive behavior"
+        ]
+    },
+    {
+        "id": "dashboard-shell",
+        "prompt": "Architect the initial dashboard layout for a project management app.",
+        "expected_output": "A dashboard shell plan with sidebar/header/main dimensions, CSS variables, responsive drawer behavior, and reuse of existing components.",
+        "assertions": [
+            "Defines sidebar/header dimensions",
+            "Uses variables",
+            "Audits existing components",
+            "Includes responsive collapse"
+        ]
+    },
+    {
+        "id": "existing-shadcn",
+        "prompt": "This repo already has shadcn/ui installed. Plan the skeleton for a settings area without duplicating primitives.",
+        "expected_output": "A system-aware plan that inventories shadcn/ui components, reuses primitives, and adds only missing composites/layout shells.",
+        "assertions": [
+            "Detects existing system",
+            "Avoids duplicate primitives",
+            "Defines missing composites",
+            "Plans layout shell"
+        ]
+    }
+  ]
+}

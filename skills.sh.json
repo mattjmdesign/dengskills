@@ -22,6 +22,15 @@
       ]
     },
     {
+      "title": "UI Composition",
+      "description": "Initialize design systems, architect layout skeletons, and govern UI consistency as the project evolves.",
+      "skills": [
+        "ui-system-initializer",
+        "ui-layout-architect",
+        "ui-system-governance"
+      ]
+    },
+    {
       "title": "IA & Flows",
       "description": "Map pages, routes, user journeys, and page hierarchy before visual design or implementation.",
       "skills": [

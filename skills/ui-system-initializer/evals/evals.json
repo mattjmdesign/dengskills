@@ -1,0 +1,38 @@
+{
+  "skill_name": "ui-system-initializer",
+  "evals": [
+    {
+        "id": "new-saas-foundation",
+        "prompt": "Set up the initial UI system for a new SaaS dashboard using Tailwind v4.",
+        "expected_output": "A minimal semantic token foundation with color, type, spacing, radius, shadow, focus, light/dark mode, and source-of-truth guidance.",
+        "assertions": [
+            "Includes semantic color tokens",
+            "Includes typography and spacing scales",
+            "Includes light/dark strategy",
+            "Defines token source of truth"
+        ]
+    },
+    {
+        "id": "figma-token-setup",
+        "prompt": "Plan a token foundation for a new Figma file that should later map cleanly to code.",
+        "expected_output": "A Figma-oriented token plan using semantic variables aligned with future CSS custom properties.",
+        "assertions": [
+            "Mentions Figma variables",
+            "Uses semantic names",
+            "Maps design tokens to code tokens",
+            "Avoids arbitrary values"
+        ]
+    },
+    {
+        "id": "existing-system-check",
+        "prompt": "We already have globals.css tokens. Decide how to initialize the UI system without breaking it.",
+        "expected_output": "An inventory-first plan that preserves existing tokens and only proposes documented gaps.",
+        "assertions": [
+            "Audits existing system first",
+            "Avoids replacement",
+            "Identifies gaps",
+            "Documents decisions"
+        ]
+    }
+  ]
+}

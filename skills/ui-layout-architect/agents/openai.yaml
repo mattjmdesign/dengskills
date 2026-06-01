@@ -1,0 +1,8 @@
+interface:
+  display_name: "UI Layout Architect"
+  short_description: "Plan skeletons, shells, dimensions, and primitives"
+  brand_color: "#111827"
+  default_prompt: "Use $ui-layout-architect to plan the layout skeleton and component system before building pages."
+
+policy:
+  allow_implicit_invocation: true

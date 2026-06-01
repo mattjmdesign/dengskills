@@ -1,0 +1,38 @@
+{
+  "skill_name": "ui-system-governance",
+  "evals": [
+    {
+        "id": "design-md",
+        "prompt": "Create a DESIGN.md for an existing app with tokens, shadcn/ui components, and a dashboard layout.",
+        "expected_output": "A DESIGN.md-ready governance report with token inventory, component inventory, layout shells, rules, and priority fixes.",
+        "assertions": [
+            "Includes DESIGN.md content",
+            "Inventories tokens",
+            "Inventories components",
+            "Defines future guardrails"
+        ]
+    },
+    {
+        "id": "drift-audit",
+        "prompt": "Audit this codebase for UI drift before we add another feature.",
+        "expected_output": "A governance report flagging token drift, duplicate components, layout inconsistency, missing states, and recommended fixes.",
+        "assertions": [
+            "Flags token drift",
+            "Flags component drift",
+            "Flags layout drift",
+            "Prioritizes fixes"
+        ]
+    },
+    {
+        "id": "new-component-review",
+        "prompt": "We want to add a new date range picker. Check what design system updates are required.",
+        "expected_output": "A governance plan that checks existing primitives, proposes documentation updates, and lists files/components that need updating.",
+        "assertions": [
+            "Checks existing primitives",
+            "Documents required updates",
+            "Avoids silent additions",
+            "Includes migration impact"
+        ]
+    }
+  ]
+}

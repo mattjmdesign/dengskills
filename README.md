@@ -32,6 +32,7 @@ Use it when you want an agent to help with:
 - mapping sitemap, routes, user flows, and page hierarchy
 - writing frontend requirements and acceptance-ready specs
 - preparing components and gap states before UI code is generated
+- initializing design systems, layout skeletons, and UI governance before feature work expands
 
 ## Skills
 
@@ -55,6 +56,17 @@ Skills for choosing the technical path and collaboration model.
 | `project-foundation-planner` | You are setting up repo structure, tooling, TypeScript, env, tokens, and tests. |
 | `git-workflow-planner` | Humans and agents need a safe branch, PR, worktree, and review workflow. |
 | `agent-context-file-planner` | You need `AGENTS.md`, `CLAUDE.md`, `.cursorrules`, or similar agent instructions. |
+
+
+### UI Composition
+
+Skills for setting up the visual system and page skeleton before agents build features.
+
+| Skill | Use when... |
+|---|---|
+| `ui-system-initializer` | A new codebase or Figma file needs tokens, typography, spacing, radius, shadows, and light/dark mode before UI work starts. |
+| `ui-layout-architect` | You need to plan layout shells, max widths, section rhythm, dashboard/sidebar dimensions, auth layouts, or whether to use shadcn/ui, Radix, Base UI, or custom primitives. |
+| `ui-system-governance` | An existing project needs DESIGN.md, token/component/layout inventories, drift audits, or guardrails before more UI is added. |
 
 ### IA & Flows
 
