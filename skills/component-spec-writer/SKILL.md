@@ -1,6 +1,6 @@
 ---
 name: component-spec-writer
-description: Use this skill when defining a UI component before code. Produces a component specification for React, Vue, or design-system work: purpose, component type, variants, states, props/inputs, slots/composition, accessibility behavior, responsive behavior, design-token requirements, implementation boundaries, and acceptance criteria.
+description: Use this skill when defining a UI component before code. Produces a component specification for React, Vue, or design-system work covering purpose, component type, variants, states, props/inputs, slots/composition, accessibility behavior, responsive behavior, design-token requirements, implementation boundaries, and acceptance criteria.
 ---
 
 # Component Spec Writer

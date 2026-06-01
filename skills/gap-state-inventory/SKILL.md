@@ -1,6 +1,6 @@
 ---
 name: gap-state-inventory
-description: Use this skill when checking a screen, flow, component, or product-grade prototype for missing gap states: loading, empty, partial data, errors, retry, offline, permission denied, expired session, validation, disabled, success, destructive confirmation, slow network, localization, and responsive edge cases.
+description: Use this skill when checking a screen, flow, component, or product-grade prototype for missing gap states including loading, empty, partial data, errors, retry, offline, permission denied, expired session, validation, disabled, success, destructive confirmation, slow network, localization, and responsive edge cases.
 ---
 
 # Gap State Inventory

@@ -1,6 +1,6 @@
 ---
 name: prototype-fidelity-selector
-description: Use this skill when deciding how much fidelity to build for a product idea, feature, or client demo: sketch, wireframe, clickable Figma prototype, high-fidelity mockup, code prototype, pilot-ready build, or near-production implementation. Helps avoid overbuilding or underbuilding by matching fidelity to the validation question and defining exit criteria.
+description: Use this skill when deciding how much fidelity to build for a product idea, feature, or client demo. Covers sketch, wireframe, clickable Figma prototype, high-fidelity mockup, code prototype, pilot-ready build, and near-production implementation. Helps avoid overbuilding or underbuilding by matching fidelity to the validation question and defining exit criteria.
 ---
 
 # Prototype Fidelity Selector
