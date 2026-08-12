@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.2.0 — Production readiness + revisit
+
+- Added `$production-readiness-review` (QA & Delivery). Scores a running slice as demo / pilot / production and lists UI-owned risks.
+- Skills now explicitly revisit existing work: `$product-intent-clarifier` and `$gap-state-inventory` include after-preview guidance.
+- Pack scope is no longer “pre-code only.” Testing, deploy, and observability remain guide-only.
+
 ## v1.1.0 — Guide pairing, trigger discipline, worked examples
 
 The pack is now explicitly paired with the [Design Engineering guide](https://frontendguide.dev/docs): every skill names its corresponding guide page, and the guide links back to its skills.

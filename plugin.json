@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "dengskills",
-  "version": "1.1.0",
-  "description": "Product-to-production design engineering skills for coding agents: clarify product intent, choose prototype fidelity, write requirements, pick a framework, plan repo foundations and git workflows, map sitemaps and user flows, initialize and govern UI systems, specify components, and inventory gap states before code is generated.",
+  "version": "1.2.0",
+  "description": "Product-to-production design engineering skills for coding agents: clarify product intent, choose fidelity, write requirements, plan repos and flows, specify components, inventory gap states, and review a running slice for demo vs production honesty.",
   "author": {
     "name": "Matt J.M. Design",
     "url": "https://github.com/mattjmdesign"

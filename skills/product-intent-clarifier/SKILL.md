@@ -89,6 +89,7 @@ Use this skill before recommending screens, components, frameworks, or implement
 
 - Do not use when intent is clear and the open question is *how polished* to build — use `$prototype-fidelity-selector`.
 - Do not use when an agreed brief already exists and needs testable requirements — use `$requirements-from-brief`.
+- Do use again after a preview exists: compare the live slice to the original brief and list keep / fix / defer. Do not invent a new product.
 
 ## Validate before final
 

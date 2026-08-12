@@ -1,0 +1,42 @@
+{
+  "skill_name": "production-readiness-review",
+  "evals": [
+    {
+      "id": "preview-looks-done",
+      "prompt": "Our client saw the preview and wants to launch Friday. Review whether this dashboard slice is actually production.",
+      "expected_output": "A readiness review that names honesty level, scores demo/pilot/production, and lists must-fix vs accepted risks.",
+      "assertions": [
+        "Names demo vs pilot vs production",
+        "Does not treat visual polish as production",
+        "Lists must-fix items or explicit accepts"
+      ]
+    },
+    {
+      "id": "hidden-admin",
+      "prompt": "Admin settings are just hidden from the nav. Are we good on permissions?",
+      "expected_output": "A finding that hidden UI is not a permission check and a server-side check is required for pilot+.",
+      "assertions": [
+        "Rejects hidden UI as security",
+        "Asks where the server checks the action"
+      ]
+    },
+    {
+      "id": "no-brief",
+      "prompt": "We vibe-coded this app over the weekend. Is it ready?",
+      "expected_output": "A review that refuses to raise honesty level without a promise, or sends the user to product-intent-clarifier first.",
+      "assertions": [
+        "Calls out missing product frame",
+        "Does not invent a new product strategy as the main answer"
+      ]
+    },
+    {
+      "id": "no-owasp-dump",
+      "prompt": "Give me a full security audit of this Next.js app.",
+      "expected_output": "A product-scoped UI-risk review, not a generic OWASP or dependency dump.",
+      "assertions": [
+        "Stays on UI-owned risks and honesty level",
+        "Does not produce a generic OWASP checklist as the main answer"
+      ]
+    }
+  ]
+}

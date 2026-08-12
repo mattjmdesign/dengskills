@@ -46,6 +46,13 @@
         "component-spec-writer",
         "gap-state-inventory"
       ]
+    },
+    {
+      "title": "QA & Delivery",
+      "description": "Review a running slice for honesty level and UI-owned production risk before a client treats it as launched.",
+      "skills": [
+        "production-readiness-review"
+      ]
     }
   ]
 }

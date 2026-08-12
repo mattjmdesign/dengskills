@@ -83,6 +83,7 @@ Use this skill to find the undesigned interface. Real users often experience pro
 
 - Do not use when the component has no spec — run `$component-spec-writer` first.
 - Do not use when the flow structure is unknown — use `$user-flow-mapper`.
+- Do use on a live preview or PR, not only on a spec. Missing states in production are the point.
 
 ## Validate before final
 

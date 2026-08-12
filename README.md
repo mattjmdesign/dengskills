@@ -2,13 +2,13 @@
 
 Give your AI assistant product-to-production judgement for building product-grade prototypes — not just vibe-coded screens.
 
-Design Engineering Skills help coding agents pause at the right moment in the workflow: clarify product intent, choose the right prototype fidelity, plan the repo, map IA and flows, write requirements, specify components, and inventory missing states before code is generated.
+Design Engineering Skills help coding agents pause at the right moment: clarify intent, choose fidelity, plan the repo, map flows, specify components, inventory missing states — and review a running slice when the first idea may have drifted.
 
 The pack pairs with the [Design Engineering guide](https://frontendguide.dev/docs) — every skill is the executable form of a guide page, and the guide links back to its skill.
 
 ## Scope
 
-This pack covers the pre-code planning phases of the workflow: Product Definition through Build Readiness. The Quality Assurance and Delivery phases of the paired guide (testing strategy, deployment, observability) do not have skills yet — they remain guide-only. Post-build skills (testing strategy, pre-launch readiness) are on the roadmap for a future pack version.
+This pack covers Product Definition through Build Readiness, plus `$production-readiness-review` after a preview exists. Testing strategy, deployment pipelines, and observability remain guide-only. Skills are for starting work *and* for revisiting work that already exists.
 
 ## Install
 
@@ -99,6 +99,14 @@ Skills for preparing implementation so the agent does not guess the product shap
 | `component-spec-writer` | You need component purpose, variants, states, props, accessibility, and acceptance criteria before code. |
 | `gap-state-inventory` | You need missing loading, empty, error, offline, permission, expired-session, validation, and mutation states. |
 
+### QA & Delivery
+
+Skills for interrogating a running slice.
+
+| Skill | Use when... |
+|---|---|
+| `production-readiness-review` | A preview might be treated as a product. Score demo vs pilot vs production and list UI-owned risks. |
+
 ## Choosing the right skill
 
 Several skills trigger on overlapping moments. Use this routing table when the right skill is unclear:
@@ -119,7 +127,8 @@ Several skills trigger on overlapping moments. Use this routing table when the r
 | Layout shells and page skeleton for an existing project | `ui-layout-architect` | After the UI system exists or the library decision is made. |
 | Design-system documentation, drift audits, guardrails | `ui-system-governance` | Recurring — before larger PRs or after new UI additions. |
 | A component definition before code | `component-spec-writer` | After tokens and primitives are established. |
-| Missing loading/empty/error/edge states | `gap-state-inventory` | After component specs, before code generation. |
+| Missing loading/empty/error/edge states | `gap-state-inventory` | After component specs, before code generation, or on a live preview. |
+| A slice that “looks done” | `production-readiness-review` | After a preview exists. Do not raise honesty level because the UI is pretty. |
 
 The only fixed rule: skills whose output depends on another skill's output run after it. Within a phase there is no linear chain — but human review should gate every handoff between phases.
 
@@ -143,6 +152,7 @@ Each skill is the executable form of a page in the [Design Engineering guide](ht
 | `content-hierarchy-planner` | Layout Patterns & Scale |
 | `component-spec-writer` | Component Architecture |
 | `gap-state-inventory` | Error Handling |
+| `production-readiness-review` | Production Risks the UI Owns |
 
 ## Example prompts
 
