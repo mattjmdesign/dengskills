@@ -31,6 +31,15 @@
         "Includes pending/failure states",
         "Includes permission state"
       ]
+    },
+    {
+      "id": "no-generic-errors",
+      "prompt": "Check our project list screen for missing states.",
+      "expected_output": "Named states with specific recovery actions, not generic 'handle errors'.",
+      "assertions": [
+        "Names specific states and recovery actions",
+        "Does not say 'handle errors' generically"
+      ]
     }
   ]
 }

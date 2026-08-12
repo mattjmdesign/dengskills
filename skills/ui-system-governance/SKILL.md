@@ -55,6 +55,47 @@ Use this skill once a UI system exists or starts evolving. Its job is to keep hu
 - [rule]
 ````
 
+## Worked example
+
+## UI system governance report
+
+**Documentation status:** No DESIGN.md exists
+**System maturity:** Evolving — tokens + 40 components, no registry
+**Primary source of truth:** `src/styles/globals.css` (tokens) + `src/components/ui/` (components)
+
+### Token inventory
+- Colors: complete semantic set; 2 stray hex values in feature code
+- Typography: `--text-*` scale defined; 1 hardcoded `text-[15px]`
+- Spacing: 4px scale in use; 3 arbitrary values
+
+### Component inventory
+| Component | Layer | Location | Variants / states | Notes |
+| --- | --- | --- | --- | --- |
+| Button | Primitive | components/ui/button | 4 variants, 3 sizes, loading | Matches spec |
+| Badge | Primitive | components/ui/badge | 4 statuses | Missing empty-state guidance |
+| LegacyCard | Primitive | components/ui/legacy-card | 2 variants | Duplicates Card — deprecate |
+
+### Layout shell inventory
+- DashboardLayout: 256px sidebar, 56px header; one page defines its own gutters (drift)
+
+### Drift and consistency issues
+| Issue | Severity | Evidence | Recommended fix |
+| --- | --- | --- | --- |
+| Inline hex in feature code | High | `#3b82f6` × 2 in features/reports | Replace with `--color-primary` |
+| LegacyCard duplicates Card | Medium | 2 callers | Deprecate with migration path |
+| Page-specific gutters | Low | dashboard/settings | Use shell gutter `px-6` |
+
+### DESIGN.md update
+(Concrete DESIGN.md content listing token groups, the component inventory, and usage rules.)
+
+### Priority fixes
+1. Replace stray hex values
+2. Deprecate LegacyCard
+3. Align settings page gutters
+
+### Guardrails for future agents
+- New components register in the inventory before merge; new tokens need light/dark pairs
+
 ## Common mistakes to prevent
 
 - Do not treat documentation as a one-time setup file. It must change when tokens, components, or layout shells change.
@@ -63,6 +104,11 @@ Use this skill once a UI system exists or starts evolving. Its job is to keep hu
 - Do not rename or remove tokens/components without noting migration impact.
 - Do not let agents create visual exceptions without documenting the reason.
 
+## Boundaries
+
+- Do not use on a brand-new project with no UI yet — use `$ui-system-initializer`.
+- Do not use when the question is one component's behaviour — use `$component-spec-writer`.
+
 ## Validate before final
 
 - The report identifies the current token, component, and layout sources of truth.
@@ -70,3 +116,7 @@ Use this skill once a UI system exists or starts evolving. Its job is to keep hu
 - Drift issues include evidence and recommended fixes, not vague criticism.
 - Priority fixes distinguish urgent consistency problems from optional polish.
 - Future additions have clear guardrails for when to reuse, extend, or add new primitives.
+
+## See also
+
+- [Design Engineering guide: Design System Governance](https://frontendguide.dev/docs/design-system-governance)

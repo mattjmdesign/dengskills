@@ -55,6 +55,43 @@ Use this skill before building page features. Its job is to decide where UI will
 - [item]
 ````
 
+## Worked example
+
+## UI layout architecture plan
+
+**Surface type:** Dashboard (plus public marketing site)
+**Existing UI system found:** shadcn/ui already installed; Tailwind tokens exist
+**Design system/library decision:** Reuse shadcn/ui; no new primitives
+**Primary layout shells:** `MarketingLayout`, `DashboardLayout`, `AuthLayout`
+
+### Existing primitives to reuse
+- shadcn Button, Dialog, Sheet, Select — use as-is with token styling
+
+### Missing primitives or composites
+- `ProjectTable` composite (in features, not primitives) — needed on 3 pages
+
+### Layout dimensions
+| Dimension | Value | Variable / Tailwind | Used by |
+| --- | --- | --- | --- |
+| Content max width | 1280px | --width-content | Marketing pages |
+| Sidebar width | 256px | --width-sidebar | DashboardLayout |
+| Header height | 56px | --height-header | DashboardLayout |
+| Page gutters | 24px / 16px | px-6 / px-4 | All shells |
+
+### Page skeleton
+- Dashboard: sidebar → header → main; marketing: nav → hero → proof → features → pricing → footer
+
+### Responsive behavior
+- Sidebar collapses to a Sheet below lg; marketing sections single-column below md
+
+### Implementation sketch
+```tsx
+// app/(dashboard)/layout.tsx — grid with var(--width-sidebar) 1fr
+```
+
+### Decisions to confirm
+- Collapsed sidebar width (64px icon-only?) — default yes
+
 ## Common mistakes to prevent
 
 - Do not start with a full page when the shell, max width, and section structure are undecided.
@@ -63,6 +100,11 @@ Use this skill before building page features. Its job is to decide where UI will
 - Do not let every page define its own header, footer, sidebar, gutters, or section spacing.
 - Do not design only the happy path; include loading, empty, error, and responsive states in the skeleton.
 
+## Boundaries
+
+- Do not use when per-page content priority is undecided — run `$content-hierarchy-planner` for key pages first.
+- Do not use when no UI system or library decision exists — resolve with `$ui-system-initializer` or the existing-library audit first.
+
 ## Validate before final
 
 - The plan states what already exists and what should be reused.
@@ -70,3 +112,7 @@ Use this skill before building page features. Its job is to decide where UI will
 - Core dimensions are centralized as variables or theme values.
 - The skeleton reduces future agent decisions instead of adding vague options.
 - The plan explains how page content should sit inside the shell at mobile, tablet, and desktop sizes.
+
+## See also
+
+- [Design Engineering guide: Layout Patterns](https://frontendguide.dev/docs/layout-patterns)

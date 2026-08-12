@@ -31,6 +31,15 @@
         "Explains route vs state distinction",
         "Avoids encoding auth/session in URL"
       ]
+    },
+    {
+      "id": "no-session-in-url",
+      "prompt": "Plan routes for a dashboard app with role-based views.",
+      "expected_output": "Routes and auth boundaries where role/session state never appears in URLs.",
+      "assertions": [
+        "Defines auth boundaries as route groups",
+        "Does not encode session or role state in URLs"
+      ]
     }
   ]
 }

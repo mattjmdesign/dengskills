@@ -48,13 +48,49 @@ Use this skill to make stack decisions from the product operating model. Recomme
 We choose [framework] because [product constraints]. Revisit if [condition].
 ```
 
+## Worked example
+
+## Framework decision
+
+**Recommended path:** Next.js (App Router)
+**Fallback path:** React + Vite SPA with a thin API
+**Decision confidence:** High
+
+### Why this fits
+- Marketing site + authenticated dashboard in one product
+- SEO and shared metadata matter for the marketing surface
+- Team deploys on Vercel and wants per-PR previews
+
+### Product implications
+- Routing: app/ directory with (marketing) and (dashboard) route groups
+- Data/rendering: server components for initial data; TanStack Query for client freshness
+- Styling/design system: Tailwind v4 @theme tokens
+- Testing: Vitest + Testing Library; Playwright for critical flows
+- Deployment: Vercel with preview environments
+- Agent collaboration: App Router conventions are well-represented in agent training data
+
+### Watch-outs
+- Server/client boundary discipline — avoid "use client" creep in the marketing surface
+
+### Decision record
+We choose Next.js because SEO, auth, and one deploy target matter more than instant HMR. Revisit if the dashboard grows into a canvas-heavy tool.
+
 ## Common mistakes to prevent
 
 - Do not choose based only on what is trendy or familiar.
 - Do not ignore routing/data/deployment when the user asks only about UI.
 - Do not recommend Vite for product surfaces that clearly need SEO, metadata, server rendering, or app-router conventions unless those needs are intentionally out of scope.
 
+## Boundaries
+
+- Do not use when product intent or requirements are unresolved — a stack decision without them is speculative.
+- Do not use when the user needs only a quick throwaway prototype — defer to `$prototype-fidelity-selector`.
+
 ## Validate before final
 
 - The recommendation ties back to concrete product constraints.
 - It includes at least one watch-out for the chosen stack.
+
+## See also
+
+- [Design Engineering guide: Tech Decisions](https://frontendguide.dev/docs/tech-decisions)

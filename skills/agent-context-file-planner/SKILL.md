@@ -41,6 +41,41 @@ Use this skill to create context that improves every future agent task. Include 
 ## Agent guardrails
 ```
 
+## Worked example
+
+# AGENTS.md
+
+## Project
+Next.js 16 App Router dashboard for a construction scheduling client. pnpm.
+
+## Commands
+- `pnpm dev` — local dev server
+- `pnpm check` — Biome lint + format
+- `pnpm test` — Vitest
+
+## App structure
+- `src/app/` routes; `src/components/ui/` primitives; `src/components/features/` feature components
+
+## Architecture rules
+- Server components by default; "use client" only at leaves
+- Data fetching via TanStack Query hooks in `src/lib/data/`
+
+## Styling and design system
+- Tokens only from `src/styles/globals.css`; no inline hex or arbitrary values
+- Components from `src/components/ui/`; no new primitives without review
+
+## Accessibility
+- WCAG 2.2 AA; visible focus ring on all interactive elements; 44px touch targets
+
+## Testing and validation
+- Component tests for primitives; Playwright smoke for critical flows; `pnpm check` before PRs
+
+## Git workflow
+- feat/* branches from dev; squash merge after human review
+
+## Agent guardrails
+- Ask before refactoring; never edit pnpm-lock.yaml; state assumptions in PR description
+
 ## Common mistakes to prevent
 
 - Do not fill the file with generic advice.
@@ -48,8 +83,17 @@ Use this skill to create context that improves every future agent task. Include 
 - Do not list validation commands unless they are known or explicitly assumed.
 - Do not let the context file authorize broad edits by default.
 
+## Boundaries
+
+- Do not use when repo conventions do not exist yet — run `$project-foundation-planner` first.
+- Do not invent validation commands; mark unknown commands as assumptions.
+
 ## Validate before final
 
 - The output is ready to paste into a root context file.
 - It names concrete commands, folders, and constraints when available.
 - Unknowns are marked as assumptions or questions.
+
+## See also
+
+- [Design Engineering guide: Project Context Files](https://frontendguide.dev/docs/project-context-files)

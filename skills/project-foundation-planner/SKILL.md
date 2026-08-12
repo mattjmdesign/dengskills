@@ -58,6 +58,55 @@ src/
 - [item]
 ````
 
+## Worked example
+
+## Project foundation plan
+
+**Stack assumption:** Next.js App Router, TypeScript, Tailwind v4
+**Package manager:** pnpm
+**Deployment target:** Vercel
+
+### Repository structure
+```text
+src/
+  app/            — routes and layouts
+  components/
+    ui/           — primitives only
+    features/     — one folder per feature
+  lib/            — data access, validation schemas, utils
+  styles/         — tokens and global css
+```
+
+### Tooling defaults
+- Biome for lint + format; TypeScript strict: true
+- Vitest + Testing Library; Playwright for critical flows
+
+### TypeScript expectations
+- strict mode; no `any` outside escape-hatch helpers
+
+### Environment strategy
+- `.env.example` checked in; zod-validated `env.ts` at startup
+
+### Design system locations
+- Tokens in `src/styles/globals.css` (@theme inline); primitives in `src/components/ui/`
+
+### Testing baseline
+- Smoke test per route; component tests for primitives with a11y checks
+
+### Agent context files
+- AGENTS.md with commands, structure, token rules, guardrails
+
+### Ordered setup checklist
+- [ ] Scaffold app + src layout
+- [ ] Add Biome + strict TS
+- [ ] Add .env.example + env validation
+- [ ] Create token globals.css
+- [ ] First primitive (Button) + test
+- [ ] AGENTS.md
+
+### Decisions to confirm
+- Whether the client wants preview deploys per PR
+
 ## Common mistakes to prevent
 
 - Do not create abstractions for hypothetical scale.
@@ -65,7 +114,16 @@ src/
 - Do not leave env vars undocumented or unvalidated.
 - Do not let agents infer design token locations later.
 
+## Boundaries
+
+- Do not use before the framework decision is made — run `$framework-fit-advisor` first.
+- Do not use on an existing repo — audit it first; this skill plans greenfield foundations.
+
 ## Validate before final
 
 - The plan identifies where primitives, feature components, tokens, env config, tests, and agent docs belong.
 - The setup checklist can be executed in order.
+
+## See also
+
+- [Design Engineering guide: Project Setup](https://frontendguide.dev/docs/project-setup)

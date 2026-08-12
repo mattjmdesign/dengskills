@@ -31,6 +31,15 @@
         "Does not assume the table is the only solution",
         "Recommends a next design-engineering artifact"
       ]
+    },
+    {
+      "id": "no-premature-stack",
+      "prompt": "We have a rough idea for a booking app. What should we build it with?",
+      "expected_output": "A brief clarifying users, workflow, and scope \u2014 with the stack choice deferred to a later artifact.",
+      "assertions": [
+        "Clarifies users and workflow first",
+        "Does not recommend a framework or stack as the main answer"
+      ]
     }
   ]
 }

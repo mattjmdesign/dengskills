@@ -50,6 +50,39 @@ Use this skill before layout design. A page that cannot rank its content is usua
 - [item]
 ```
 
+## Worked example
+
+## Content hierarchy
+
+**Page purpose:** Convince a visiting construction foreman to start a free trial.
+**Primary user decision/action:** Start free trial
+**H1:** Know where your crew is this week
+
+### Primary content
+- 3-step value explanation (schedule → assign → notify)
+- Screenshot of the weekly board
+
+### Secondary content
+- Feature bullets (offline mode, SMS notifications)
+- Customer quote
+
+### Tertiary metadata
+- Pricing link, FAQ link, legal links
+
+### Actions
+- Primary: Start free trial
+- Secondary: See pricing
+- Destructive: none
+
+### Responsive priority
+- Mobile first: H1 → CTA → screenshot → steps → features
+
+### Move / defer / remove
+- Move feature deep-dives to a separate features page; remove the second hero CTA (competes with trial)
+
+### Accessibility notes
+- Single h1; h2 per section; CTA is a real link, not a div
+
 ## Common mistakes to prevent
 
 - Do not give every card, metric, and CTA equal weight.
@@ -57,8 +90,17 @@ Use this skill before layout design. A page that cannot rank its content is usua
 - Do not break heading order to match visual size.
 - Do not hide essential actions on mobile.
 
+## Boundaries
+
+- Do not use when the page shell or dimensions are the question — use `$ui-layout-architect`.
+- Do not use when whole-site IA is undecided — use `$sitemap-planner`.
+
 ## Validate before final
 
 - The plan names one primary decision/action.
 - Content is ranked, not merely listed.
 - Responsive and accessibility implications are included.
+
+## See also
+
+- [Design Engineering guide: Layout Patterns](https://frontendguide.dev/docs/layout-patterns)

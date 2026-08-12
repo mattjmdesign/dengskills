@@ -41,6 +41,37 @@ Use this skill to make the path through a product explicit before designing scre
 ### Open questions
 ````
 
+## Worked example
+
+## User flow: Create project
+
+**User:** Project manager (authenticated)
+**Entry point:** Dashboard "New project" button
+**Success outcome:** Project created; user lands on its detail page
+
+```text
+[Dashboard] → [Create form] → validation pass → POST /api/projects → [Project detail]
+```
+
+### Branches and edge cases
+- Validation error → inline field errors; keep all input
+- API failure (network/500) → toast + retry; form state preserved
+- Name already exists → 409 with field error
+- Cancel/back → discard draft, confirm if fields are non-empty
+- Expired session → redirect to login with return URL; restore draft from localStorage
+
+### Required UI states
+- Create form: idle, submitting (spinner + disabled), error banner; button copy "Create project" → "Creating…"
+
+### Data/API/auth touchpoints
+- POST /api/projects (auth required, Zod schema: name, teamId from session)
+
+### V1 scope / deferred paths
+- Deferred: project templates, bulk import
+
+### Open questions
+- Should create auto-invite team members?
+
 ## Common mistakes to prevent
 
 - Do not show only the happy path.
@@ -48,7 +79,16 @@ Use this skill to make the path through a product explicit before designing scre
 - Do not ignore what persists if the user cancels, navigates back, or retries.
 - Do not forget permission and expired-session branches for authenticated products.
 
+## Boundaries
+
+- Do not use when page/route structure is the question — use `$sitemap-planner`.
+- Do not use when the flow needs component-level behaviour — use `$component-spec-writer`.
+
 ## Validate before final
 
 - The flow has an entry point, success destination, at least one failure branch, and required UI states.
 - Any data mutation includes pending, success, and failure behavior.
+
+## See also
+
+- [Design Engineering guide: Information Architecture](https://frontendguide.dev/docs/information-architecture)

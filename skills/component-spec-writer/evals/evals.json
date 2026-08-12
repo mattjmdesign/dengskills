@@ -32,6 +32,15 @@
         "Includes responsive behavior",
         "Includes props and states"
       ]
+    },
+    {
+      "id": "no-aria-overuse",
+      "prompt": "Spec an accordion disclosure component.",
+      "expected_output": "A spec using semantic HTML with ARIA only where needed.",
+      "assertions": [
+        "Uses semantic HTML approach",
+        "Does not add ARIA where native semantics suffice"
+      ]
     }
   ]
 }

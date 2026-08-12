@@ -30,6 +30,15 @@
         "Mentions responsive/interaction testing",
         "Avoids staying in static mockups"
       ]
+    },
+    {
+      "id": "no-fake-production",
+      "prompt": "We built a demo with mocked data for a client pitch. How ready is it to go live?",
+      "expected_output": "A fidelity assessment that does not call the demo production-grade until auth, data, errors, deployment, and ownership are addressed.",
+      "assertions": [
+        "Does not label the demo production-ready",
+        "Names what must become real before production"
+      ]
     }
   ]
 }

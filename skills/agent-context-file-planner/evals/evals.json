@@ -31,6 +31,15 @@
         "Includes assumptions or questions",
         "Still provides usable structure"
       ]
+    },
+    {
+      "id": "no-generic-filler",
+      "prompt": "Write an AGENTS.md for a Next.js dashboard repo (we use pnpm and Vitest).",
+      "expected_output": "Concrete sections naming the actual stack, folders, and commands \u2014 no generic advice.",
+      "assertions": [
+        "Names concrete commands and folders",
+        "Does not fill the file with generic advice"
+      ]
     }
   ]
 }

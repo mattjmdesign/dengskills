@@ -31,6 +31,15 @@
         "Includes back/cancel behavior",
         "Includes mutation states"
       ]
+    },
+    {
+      "id": "no-happy-path-only",
+      "prompt": "Map the invite-a-member flow.",
+      "expected_output": "Happy path plus failure branches: invalid email, already invited, API failure, expired session, cancellation.",
+      "assertions": [
+        "Includes failure branches with recovery",
+        "Does not show only the happy path"
+      ]
     }
   ]
 }

@@ -30,6 +30,15 @@
         "Mentions custom runtime/embedding",
         "Does not overstate SSR needs"
       ]
+    },
+    {
+      "id": "no-popularity-default",
+      "prompt": "Everyone uses Next.js, so we'll use Next.js, right?",
+      "expected_output": "A decision record grounded in the product's routing, rendering, SEO, data, and deployment constraints \u2014 not popularity.",
+      "assertions": [
+        "Ties recommendation to product constraints",
+        "Does not justify the choice by popularity alone"
+      ]
     }
   ]
 }

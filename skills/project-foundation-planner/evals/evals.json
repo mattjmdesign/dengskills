@@ -31,6 +31,15 @@
         "Recommends feature proximity",
         "Lists decisions to confirm"
       ]
+    },
+    {
+      "id": "no-overengineering",
+      "prompt": "Set up a repo for a 3-page marketing site.",
+      "expected_output": "A lean foundation without enterprise abstractions, monorepo tooling, or hypothetical-scale layering.",
+      "assertions": [
+        "Keeps structure minimal for the scope",
+        "Does not add abstractions for hypothetical scale"
+      ]
     }
   ]
 }

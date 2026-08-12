@@ -54,13 +54,51 @@ Use this skill to match fidelity to the question being tested. Pick the cheapest
 **Next step:**
 ```
 
+## Worked example
+
+## Fidelity recommendation
+
+**Recommended fidelity:** Clickable Figma prototype
+**Question being tested:** Does the approval flow match how managers actually sign off?
+**Why this is enough:** IA is settled; the open risk is task-flow comprehension, testable with a clickable prototype.
+
+### Must be real
+- The full 6-step approval sequence and its status labels
+- Real role separation (requester vs approver)
+
+### Can be mocked
+- Backend data — prototype shows sample requests
+- Notifications and email digests
+
+### Do not build yet
+- Auth integration, permission enforcement, audit log
+
+### Exit criteria
+- 4 of 5 test users complete the flow without help
+- No test user asks "where do I approve?"
+
+### Risks
+- Overbuilding: coding the flow before validation would waste ~2 weeks
+- Underbuilding: static mockups would not reveal step-ordering confusion
+
+**Next step:** User flow mapping for the approval branches.
+
 ## Common mistakes to prevent
 
 - Do not recommend code when IA or workflow is still unknown.
 - Do not recommend static mockups when real latency, responsiveness, or interaction is the central risk.
 - Do not label a demo as production-grade unless data, auth, errors, deployment, and ownership are addressed.
 
+## Boundaries
+
+- Do not use when the product and users are still vague — run `$product-intent-clarifier` first.
+- Do not use when the question is one specific task flow — use `$user-flow-mapper`.
+
 ## Validate before final
 
 - The recommendation names the validation question and exit criteria.
 - The plan clearly separates real behavior from mocked behavior.
+
+## See also
+
+- [Design Engineering guide: Prototyping Validation](https://frontendguide.dev/docs/prototyping-validation)

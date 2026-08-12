@@ -31,6 +31,15 @@
         "Includes NFRs",
         "Includes open questions"
       ]
+    },
+    {
+      "id": "no-ui-prescription",
+      "prompt": "Write requirements for a project list view.",
+      "expected_output": "Testable FR/NFR requirements describing what the system must do, without prescribing specific components.",
+      "assertions": [
+        "Writes testable FR-XX requirements",
+        "Does not prescribe specific UI components"
+      ]
     }
   ]
 }

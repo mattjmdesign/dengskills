@@ -31,6 +31,15 @@
         "Includes commit convention",
         "Includes deployable main guidance"
       ]
+    },
+    {
+      "id": "solo-prototype",
+      "prompt": "I'm building a solo weekend prototype. Set up a git workflow.",
+      "expected_output": "A lightweight workflow (short branches, simple commits) without heavy PR machinery or agent policies.",
+      "assertions": [
+        "Keeps workflow lightweight",
+        "Does not impose multi-agent review machinery"
+      ]
     }
   ]
 }

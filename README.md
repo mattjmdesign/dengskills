@@ -4,6 +4,12 @@ Give your AI assistant product-to-production judgement for building product-grad
 
 Design Engineering Skills help coding agents pause at the right moment in the workflow: clarify product intent, choose the right prototype fidelity, plan the repo, map IA and flows, write requirements, specify components, and inventory missing states before code is generated.
 
+The pack pairs with the [Design Engineering guide](https://frontendguide.dev/docs) — every skill is the executable form of a guide page, and the guide links back to its skill.
+
+## Scope
+
+This pack covers the pre-code planning phases of the workflow: Product Definition through Build Readiness. The Quality Assurance and Delivery phases of the paired guide (testing strategy, deployment, observability) do not have skills yet — they remain guide-only. Post-build skills (testing strategy, pre-launch readiness) are on the roadmap for a future pack version.
+
 ## Install
 
 Install the full skill pack with the skills CLI:
@@ -19,6 +25,12 @@ You can also browse the repository on skills.sh after the repo has been indexed 
 ```text
 https://skills.sh/mattjmdesign/dengskills
 ```
+
+## Agent Plugins packaging
+
+This repository is also a valid [Agent Plugins](https://agent-plugins.org/) package (v1.0.0 format). The root `plugin.json` is the portable manifest and `skills/` is the standard fixed location for Agent Skills — so any client that supports Agent Plugins can load this repo as a plugin directly, no skills CLI required.
+
+The two formats share one source of truth: every `SKILL.md` conforms to the [Agent Skills specification](https://agentskills.io/specification). The skills.sh-specific files (`skills.sh.json` groupings, `agents/openai.yaml` client config, `evals/evals.json` test cases) live alongside the portable core and are ignored by Agent Plugins clients.
 
 ## What this is for
 
@@ -87,6 +99,51 @@ Skills for preparing implementation so the agent does not guess the product shap
 | `component-spec-writer` | You need component purpose, variants, states, props, accessibility, and acceptance criteria before code. |
 | `gap-state-inventory` | You need missing loading, empty, error, offline, permission, expired-session, validation, and mutation states. |
 
+## Choosing the right skill
+
+Several skills trigger on overlapping moments. Use this routing table when the right skill is unclear:
+
+| If you need... | Use | Before/after... |
+|---|---|---|
+| The product is still vague — users, promise, workflow unknown | `product-intent-clarifier` | Always first. Do not start IA, design, or code while this is unresolved. |
+| A clear idea, but you are unsure how polished to make it | `prototype-fidelity-selector` | After intent is clarified. Do not pick fidelity before knowing the validation question. |
+| Agreed direction that needs testable requirements | `requirements-from-brief` | After intent + fidelity. Requirements say *what*, not which component. |
+| A framework/stack decision | `framework-fit-advisor` | After requirements or alongside them, before repo setup. |
+| Repo conventions before many files exist | `project-foundation-planner` | After the framework decision. |
+| A safe human + agent git collaboration model | `git-workflow-planner` | With or after project foundation. |
+| AGENTS.md / CLAUDE.md / cursor rules | `agent-context-file-planner` | After the repo conventions are known. |
+| Pages, routes, navigation | `sitemap-planner` | After requirements; before visual design. |
+| How a user completes one task, with failure branches | `user-flow-mapper` | With or after the sitemap. |
+| What belongs on one page, ranked | `content-hierarchy-planner` | After the sitemap, before layout design. |
+| Tokens/typography/light-dark for a new codebase | `ui-system-initializer` | Before components exist. Audit first if a system already exists. |
+| Layout shells and page skeleton for an existing project | `ui-layout-architect` | After the UI system exists or the library decision is made. |
+| Design-system documentation, drift audits, guardrails | `ui-system-governance` | Recurring — before larger PRs or after new UI additions. |
+| A component definition before code | `component-spec-writer` | After tokens and primitives are established. |
+| Missing loading/empty/error/edge states | `gap-state-inventory` | After component specs, before code generation. |
+
+The only fixed rule: skills whose output depends on another skill's output run after it. Within a phase there is no linear chain — but human review should gate every handoff between phases.
+
+## Guide pairing
+
+Each skill is the executable form of a page in the [Design Engineering guide](https://frontendguide.dev/docs):
+
+| Skill | Guide page |
+|---|---|
+| `product-intent-clarifier` | Product Designer First |
+| `prototype-fidelity-selector` | Prototyping & Validation |
+| `requirements-from-brief` | Requirements Analysis |
+| `framework-fit-advisor` | Tech Decisions |
+| `project-foundation-planner` | Project Setup |
+| `git-workflow-planner` | Collaborative Repository Workflow |
+| `agent-context-file-planner` | Project Context Files |
+| `ui-system-initializer` | Design System |
+| `ui-layout-architect` | Layout Patterns & Scale |
+| `ui-system-governance` | Design System Governance |
+| `sitemap-planner` / `user-flow-mapper` | Information Architecture |
+| `content-hierarchy-planner` | Layout Patterns & Scale |
+| `component-spec-writer` | Component Architecture |
+| `gap-state-inventory` | Error Handling |
+
 ## Example prompts
 
 ```text
@@ -109,8 +166,10 @@ Use $gap-state-inventory to identify missing states before we let an agent build
 
 ```txt
 skills.sh.json
+plugin.json
 LICENSE
 README.md
+CHANGELOG.md
 skills/
   <skill-name>/
     SKILL.md
@@ -118,7 +177,7 @@ skills/
     evals/evals.json
 ```
 
-`skills.sh.json` groups the skills on the skills.sh repository page. It does not change how the CLI installs skills or change the contents of any `SKILL.md` file.
+`skills.sh.json` groups the skills on the skills.sh repository page. It does not change how the CLI installs skills or change the contents of any `SKILL.md` file. `plugin.json` is the Agent Plugins manifest — the portable package layer that any Agent Plugins-compatible client can load. `CHANGELOG.md` records pack versions; bump it whenever a skill's behaviour, triggers, or examples change.
 
 ## Local authoring notes
 

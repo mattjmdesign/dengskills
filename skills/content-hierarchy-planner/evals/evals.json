@@ -31,6 +31,15 @@
         "Identifies primary CTA",
         "Separates supporting content"
       ]
+    },
+    {
+      "id": "no-equal-weight",
+      "prompt": "Plan content for a pricing page with 20 feature cards.",
+      "expected_output": "Ranked tiers and one primary action; low-value cards moved or removed.",
+      "assertions": [
+        "Ranks content instead of listing",
+        "Names one primary action"
+      ]
     }
   ]
 }
