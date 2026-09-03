@@ -1,5 +1,23 @@
 # Changelog
 
+## v1.3.0 — Claude Code packaging + release tooling
+
+Packaging only. No `SKILL.md` changed, and no client's view of the skills changed except Claude Code's, which previously had none.
+
+### Claude Code support
+- Added `.claude-plugin/plugin.json`. Claude Code reads its plugin manifest from that path exclusively and ignores a root `plugin.json`, so the Agent Plugins manifest alone left the repo invisible to Claude Code even though every `SKILL.md` was already compatible. Verified: `claude plugin details dengskills` reports all 16 skills.
+- Added `.claude-plugin/marketplace.json` listing this repo as a one-plugin marketplace with `source: "./"`, so `claude plugin marketplace add mattjmdesign/dengskills` + `claude plugin install dengskills@dengskills` works without a separate marketplace repository.
+- The Claude Code manifest omits the Agent Plugins `$schema` and carries only fields Claude Code reads. Both manifests hold the same metadata; `check-sync.sh` fails if they disagree.
+
+### Packaging model
+- README now states the rule the repo follows: `skills/` is the portable core, every root file is packaging for one client, and supporting another client means adding a manifest beside the others — never forking a skill. The packaging table lists Agent Skills, Agent Plugins, skills.sh, and Claude Code as peer layers.
+
+### Release tooling
+- Added `scripts/bump-version.sh`: sets the version across every manifest at once, accepts `major` / `minor` / `patch` or an explicit version, and prints the remaining release steps. Version duplication across client manifests is now a one-command edit rather than three hand-edits that can drift.
+- `scripts/check-sync.sh` gained manifest checks: the manifests must agree on version, homepage, repository, and license; the marketplace entry must point at the repo root; and both Claude Code manifests are run through `claude plugin validate --strict` when the CLI is present.
+- README gained a "Releasing a change" section with a per-client refresh table. Documents the non-obvious part: most clients cache a version-keyed copy rather than reading the repo live, so `claude plugin update` picks up nothing — new skills included — unless the version changed. Verified both ways: adding a skill without a bump was ignored, with a bump it appeared.
+- Ignored eval output, local agent-tool state, and `node_modules/`.
+
 ## v1.2.0 — Production readiness + revisit
 
 - Added `$production-readiness-review` (QA & Delivery). Scores a running slice as demo / pilot / production and lists UI-owned risks.

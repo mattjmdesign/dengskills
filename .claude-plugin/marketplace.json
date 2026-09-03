@@ -1,0 +1,20 @@
+{
+  "name": "dengskills",
+  "owner": {
+    "name": "Matt J.M. Design",
+    "url": "https://github.com/mattjmdesign"
+  },
+  "metadata": {
+    "description": "Design Engineering Skills \u2014 product-to-production judgement for coding agents, paired with the Design Engineering guide at frontendguide.dev.",
+    "version": "1.3.0"
+  },
+  "plugins": [
+    {
+      "name": "dengskills",
+      "source": "./",
+      "description": "Product-to-production design engineering skills: clarify product intent, choose fidelity, write requirements, plan repos and flows, specify components, inventory gap states, and review a running slice for demo vs production honesty.",
+      "category": "design",
+      "homepage": "https://frontendguide.dev/docs/dengskills"
+    }
+  ]
+}

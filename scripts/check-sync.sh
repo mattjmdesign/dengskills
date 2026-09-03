@@ -7,8 +7,13 @@
 #   3. every evals/evals.json skill_name matches its directory
 #   4. README.md mentions every skill name
 #   5. plugin.json exists with a valid Agent Plugins manifest
+#   6. .claude-plugin/plugin.json exists and agrees with plugin.json (Claude Code)
+#   7. .claude-plugin/marketplace.json lists the plugin at the repo root
 #
 # Usage: ./scripts/check-sync.sh   (exit 0 = all good, 1 = problems found)
+#
+# If the `claude` CLI is on PATH, both Claude Code manifests are additionally
+# validated with `claude plugin validate --strict`.
 
 set -u
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -96,10 +101,67 @@ try:
 except FileNotFoundError:
     problems.append("plugin.json missing")
 
+# 6. Claude Code plugin manifest agrees with the portable manifest
+cc_path = os.path.join(root, ".claude-plugin", "plugin.json")
+try:
+    cc = json.load(open(cc_path))
+except FileNotFoundError:
+    cc = None
+    problems.append(".claude-plugin/plugin.json missing (Claude Code will not load this repo as a plugin)")
+except json.JSONDecodeError as e:
+    cc = None
+    problems.append(f".claude-plugin/plugin.json is not valid JSON: {e}")
+
+if cc is not None:
+    if cc.get("name") != "dengskills":
+        problems.append(".claude-plugin/plugin.json name is not 'dengskills'")
+    if not re.fullmatch(r"[a-z][a-z0-9]*(-[a-z0-9]+)*", cc.get("name", "")):
+        problems.append(".claude-plugin/plugin.json name is not kebab-case")
+    if not re.fullmatch(r"\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?", cc.get("version", "")):
+        problems.append(".claude-plugin/plugin.json version is not semver MAJOR.MINOR.PATCH")
+    if "$schema" in cc:
+        problems.append(".claude-plugin/plugin.json must not carry the Agent Plugins $schema")
+    for field in ("version", "homepage", "repository", "license"):
+        if plugin.get(field) != cc.get(field):
+            problems.append(f"plugin.json and .claude-plugin/plugin.json disagree on {field}")
+    if not cc.get("description"):
+        problems.append(".claude-plugin/plugin.json description missing")
+
+# 7. Claude Code marketplace manifest points at the repo root
+mk_path = os.path.join(root, ".claude-plugin", "marketplace.json")
+try:
+    mk = json.load(open(mk_path))
+except FileNotFoundError:
+    mk = None
+    problems.append(".claude-plugin/marketplace.json missing (repo is not self-installable)")
+except json.JSONDecodeError as e:
+    mk = None
+    problems.append(f".claude-plugin/marketplace.json is not valid JSON: {e}")
+
+if mk is not None and cc is not None:
+    entries = mk.get("plugins", [])
+    entry = next((p for p in entries if p.get("name") == cc.get("name")), None)
+    if entry is None:
+        problems.append(f"marketplace.json has no entry named {cc.get('name')}")
+    elif entry.get("source") not in ("./", "."):
+        problems.append("marketplace.json entry source must be './' (the repo is the plugin)")
+    mk_version = (mk.get("metadata") or {}).get("version")
+    if mk_version != cc.get("version"):
+        problems.append("marketplace.json metadata.version does not match the plugin version")
+
 for p in problems:
     print(p)
 sys.exit(1 if problems else 0)
 PYEOF
-check "${PY_FAIL:-0}" "skill metadata is in sync (groupings, frontmatter, evals, README, plugin.json)"
+check "${PY_FAIL:-0}" "skill metadata is in sync (groupings, frontmatter, evals, README, both manifests)"
+
+if command -v claude > /dev/null 2>&1; then
+  claude plugin validate "$REPO_ROOT" --strict > /dev/null 2>&1
+  check "$?" "claude plugin validate --strict (.claude-plugin/plugin.json)"
+  claude plugin validate "$REPO_ROOT/.claude-plugin/marketplace.json" --strict > /dev/null 2>&1
+  check "$?" "claude plugin validate --strict (.claude-plugin/marketplace.json)"
+else
+  echo "SKIP claude CLI not on PATH — Claude Code manifests not validated by the runtime"
+fi
 
 exit $FAIL
