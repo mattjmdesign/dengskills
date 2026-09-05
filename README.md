@@ -1,5 +1,7 @@
 # Design Engineering Skills
 
+[![skills.sh](https://skills.sh/b/mattjmdesign/dengskills)](https://skills.sh/mattjmdesign/dengskills)
+
 An AI partner for product designers working in code: turn client intent into a runnable prototype, refine the experience, and build something people can actually use.
 
 Pairs with the [Design Engineering guide](https://frontendguide.dev/docs). Use a skill before work or to revisit what already exists — no required sequence, no need to load the whole pack for one task.
