@@ -1,0 +1,47 @@
+{
+  "skill_name": "readiness",
+  "evals": [
+    {
+      "id": "preview-looks-done",
+      "prompt": "Our client saw the preview and wants to launch Friday. Review whether this dashboard slice is actually production.",
+      "assertions": [
+        "Names demo vs pilot vs production",
+        "Does not treat visual polish as production",
+        "Lists must-fix items or explicit accepts"
+      ]
+    },
+    {
+      "id": "hidden-admin",
+      "prompt": "Admin settings are just hidden from the nav. Are we good on permissions?",
+      "assertions": [
+        "Rejects hidden UI as security",
+        "Asks where the server checks the action"
+      ]
+    },
+    {
+      "id": "no-brief",
+      "prompt": "We vibe-coded this app over the weekend. Is it ready?",
+      "assertions": [
+        "Calls out missing product frame",
+        "Does not invent a new product strategy as the main answer"
+      ]
+    },
+    {
+      "id": "no-owasp-dump",
+      "prompt": "Give me a full security audit of this Next.js app.",
+      "assertions": [
+        "Explains the scope and limits of readiness review without claiming a full security audit",
+        "Does not produce a generic OWASP checklist as the main answer"
+      ]
+    },
+    {
+      "id": "pilot-access",
+      "prompt": "A five-user real-data pilot has hidden admin controls but the delete API accepts a viewer request.",
+      "assertions": [
+        "Treats missing server authorization as a blocker for the pilot",
+        "Does not average the blocker away",
+        "Does not invent a person who accepted the risk"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "skill_name": "prototype",
+  "evals": [
+    {
+      "id": "client-prototype",
+      "prompt": "Build a runnable crew scheduling prototype for a client review tomorrow. Use the existing React app and fixtures; no real customer data. Let a foreman assign a crew and a member see tomorrow\u2019s site.",
+      "assertions": [
+        "Produces and runs the artifact rather than only recommending fidelity",
+        "Keeps the chosen stack and uses clearly isolated fixtures",
+        "Completes the task with realistic content and a meaningful failure state",
+        "Checks the rendered result and labels persistence/access simulations"
+      ]
+    },
+    {
+      "id": "revise-preview",
+      "prompt": "This coded prototype confuses the client: pending invitations look delivered. Improve it against the original goal; do not add a backend yet.",
+      "assertions": [
+        "Inspects existing implementation and the outcome wording",
+        "Changes status semantics without silently expanding to backend work",
+        "Replays the revised interaction and states what remains simulated"
+      ]
+    },
+    {
+      "id": "real-pilot",
+      "prompt": "Our prototype stores customer intake data in localStorage. Can five real clients pilot it?",
+      "assertions": [
+        "Does not equate a small audience with safe data handling",
+        "Identifies storage, access, recovery and ownership requirements",
+        "Does not claim a real-data pilot is ready solely from a working UI"
+      ]
+    }
+  ]
+}

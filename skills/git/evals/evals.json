@@ -1,0 +1,50 @@
+{
+  "skill_name": "git",
+  "evals": [
+    {
+      "id": "team-redesign",
+      "prompt": "We are redesigning a dashboard while another dev keeps adding features. How should we use git?",
+      "assertions": [
+        "Includes branch model",
+        "Addresses redesign and parallel feature work",
+        "Mentions PR slicing",
+        "Mentions worktrees or side-by-side comparison when useful"
+      ]
+    },
+    {
+      "id": "agent-in-repo",
+      "prompt": "I want Codex to help in this repo but I do not want it overwriting files my teammate is editing.",
+      "assertions": [
+        "Includes agent branch policy",
+        "Coordinates shared-file ownership without pretending notes enforce locks",
+        "Follows the repository review policy without inventing extra approval gates"
+      ]
+    },
+    {
+      "id": "solo-project",
+      "prompt": "I am solo but want clean commits and deployable main for a client prototype.",
+      "assertions": [
+        "Keeps workflow lightweight",
+        "Includes commit convention",
+        "Includes deployable main guidance"
+      ]
+    },
+    {
+      "id": "solo-prototype",
+      "prompt": "I'm building a solo weekend prototype. Set up a git workflow.",
+      "assertions": [
+        "Keeps workflow lightweight",
+        "Does not impose multi-agent review machinery"
+      ]
+    },
+    {
+      "id": "dependency-change",
+      "prompt": "The user authorized a Fumadocs upgrade. Our manifest and lockfile must agree; another contributor has unrelated edits.",
+      "assertions": [
+        "Updates the lockfile through the package manager",
+        "Preserves unrelated edits",
+        "Does not invent a blanket dependency or local-edit approval ban"
+      ]
+    }
+  ]
+}

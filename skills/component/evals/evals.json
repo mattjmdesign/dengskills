@@ -1,0 +1,51 @@
+{
+  "skill_name": "component",
+  "evals": [
+    {
+      "id": "status-badge",
+      "prompt": "Spec a ProjectStatusBadge component before implementation. It has active, paused, blocked, completed states.",
+      "assertions": [
+        "Includes props interface",
+        "Defines variants/states",
+        "Includes accessibility behavior",
+        "Includes token requirements"
+      ]
+    },
+    {
+      "id": "search-combobox",
+      "prompt": "Plan a reusable search combobox component for our app.",
+      "assertions": [
+        "Includes keyboard behavior",
+        "Includes loading/empty states",
+        "Includes accessibility details",
+        "Defines composition/props"
+      ]
+    },
+    {
+      "id": "feature-card",
+      "prompt": "Define a component spec for a dashboard insight card with title, metric, trend, and CTA.",
+      "assertions": [
+        "Classifies component type",
+        "Includes responsive behavior",
+        "Includes props and states"
+      ]
+    },
+    {
+      "id": "no-aria-overuse",
+      "prompt": "Spec an accordion disclosure component.",
+      "assertions": [
+        "Uses semantic HTML approach",
+        "Does not add ARIA where native semantics suffice"
+      ]
+    },
+    {
+      "id": "existing-domain-component",
+      "prompt": "Revise our existing ProjectStatus so a long translated status stays readable. Keep the domain model.",
+      "assertions": [
+        "Inspects consumers and changes the existing component",
+        "Keeps domain mapping in feature ownership",
+        "Does not silently truncate essential status or create a duplicate"
+      ]
+    }
+  ]
+}

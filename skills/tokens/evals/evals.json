@@ -1,0 +1,43 @@
+{
+  "skill_name": "tokens",
+  "evals": [
+    {
+      "id": "new-saas-foundation",
+      "prompt": "Set up the initial UI system for a new SaaS dashboard using Tailwind v4.",
+      "assertions": [
+        "Includes semantic color tokens",
+        "Includes typography and spacing scales",
+        "Defines supported themes without imposing unnecessary dark mode",
+        "Defines token source of truth"
+      ]
+    },
+    {
+      "id": "figma-token-setup",
+      "prompt": "Plan a token foundation for a new Figma file that should later map cleanly to code.",
+      "assertions": [
+        "Mentions Figma variables",
+        "Uses semantic names",
+        "Maps design tokens to code tokens",
+        "Uses roles where they clarify reuse without banning legitimate literal source values"
+      ]
+    },
+    {
+      "id": "existing-system-check",
+      "prompt": "We already have globals.css tokens. Decide how to initialize the UI system without breaking it.",
+      "assertions": [
+        "Audits existing system first",
+        "Avoids replacement",
+        "Identifies gaps",
+        "Documents decisions"
+      ]
+    },
+    {
+      "id": "no-token-replacement",
+      "prompt": "Our app already has tokens in globals.css. Initialize the UI system.",
+      "assertions": [
+        "Audits existing tokens first",
+        "Does not introduce a second token source"
+      ]
+    }
+  ]
+}

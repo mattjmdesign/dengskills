@@ -1,0 +1,22 @@
+{
+  "from": "1.x",
+  "to": "2.0.0",
+  "renames": {
+    "product-intent-clarifier": "intent",
+    "prototype-fidelity-selector": "prototype",
+    "requirements-from-brief": "requirements",
+    "framework-fit-advisor": "stack",
+    "project-foundation-planner": "setup",
+    "git-workflow-planner": "git",
+    "agent-context-file-planner": "context",
+    "ui-system-initializer": "tokens",
+    "ui-layout-architect": "layout",
+    "ui-system-governance": "system",
+    "sitemap-planner": "sitemap",
+    "user-flow-mapper": "flow",
+    "content-hierarchy-planner": "hierarchy",
+    "component-spec-writer": "component",
+    "gap-state-inventory": "states",
+    "production-readiness-review": "readiness"
+  }
+}

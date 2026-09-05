@@ -4,54 +4,56 @@
   "groupings": [
     {
       "title": "Product Definition",
-      "description": "Clarify product intent, prototype fidelity, and buildable requirements before coding.",
+      "description": "Frame client goals and build a prototype that makes the next decision concrete.",
       "skills": [
-        "product-intent-clarifier",
-        "prototype-fidelity-selector",
-        "requirements-from-brief"
+        "intent",
+        "prototype",
+        "requirements"
       ]
     },
     {
       "title": "Project Setup",
       "description": "Choose the framework, repository foundation, and collaboration workflow for product-grade prototypes.",
       "skills": [
-        "framework-fit-advisor",
-        "project-foundation-planner",
-        "git-workflow-planner",
-        "agent-context-file-planner"
+        "stack",
+        "setup",
+        "git",
+        "context"
       ]
     },
     {
       "title": "UI Composition",
       "description": "Initialize design systems, architect layout skeletons, and govern UI consistency as the project evolves.",
       "skills": [
-        "ui-system-initializer",
-        "ui-layout-architect",
-        "ui-system-governance"
+        "tokens",
+        "layout",
+        "system",
+        "craft"
       ]
     },
     {
       "title": "IA & Flows",
       "description": "Map pages, routes, user journeys, and page hierarchy before visual design or implementation.",
       "skills": [
-        "sitemap-planner",
-        "user-flow-mapper",
-        "content-hierarchy-planner"
+        "sitemap",
+        "flow",
+        "hierarchy"
       ]
     },
     {
-      "title": "Build Readiness",
-      "description": "Prepare component specs and missing state inventories before agents generate UI code.",
+      "title": "Build & Iterate",
+      "description": "Specify useful components, recover missing states, and implement real end-to-end workflows.",
       "skills": [
-        "component-spec-writer",
-        "gap-state-inventory"
+        "component",
+        "states",
+        "slice"
       ]
     },
     {
       "title": "QA & Delivery",
       "description": "Review a running slice for honesty level and UI-owned production risk before a client treats it as launched.",
       "skills": [
-        "production-readiness-review"
+        "readiness"
       ]
     }
   ]

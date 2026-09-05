@@ -1,0 +1,41 @@
+{
+  "skill_name": "setup",
+  "evals": [
+    {
+      "id": "next-saas-setup",
+      "prompt": "We chose Next.js for a SaaS dashboard. Plan the repo structure and tooling before we start coding.",
+      "assertions": [
+        "Includes repo tree",
+        "Separates primitives from feature components",
+        "Includes env and TypeScript guidance",
+        "Includes ordered checklist"
+      ]
+    },
+    {
+      "id": "vibe-prototype",
+      "prompt": "I am vibe coding a client prototype but want the repo to not become trash. What foundation do we need first?",
+      "assertions": [
+        "Balances speed with conventions",
+        "Includes agent context files",
+        "Avoids unnecessary complexity"
+      ]
+    },
+    {
+      "id": "existing-unclear-stack",
+      "prompt": "We have a React app and need better organization for upcoming features.",
+      "assertions": [
+        "Marks assumptions",
+        "Recommends feature proximity",
+        "Lists decisions to confirm"
+      ]
+    },
+    {
+      "id": "no-overengineering",
+      "prompt": "Set up a repo for a 3-page marketing site.",
+      "assertions": [
+        "Keeps structure minimal for the scope",
+        "Does not add abstractions for hypothetical scale"
+      ]
+    }
+  ]
+}

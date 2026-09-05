@@ -1,0 +1,8 @@
+interface:
+  display_name: "Design tokens"
+  short_description: "Set up tokens, type, spacing, and themes"
+  brand_color: "#111827"
+  default_prompt: "Use $tokens to create a minimal design system foundation before UI work begins."
+
+policy:
+  allow_implicit_invocation: true

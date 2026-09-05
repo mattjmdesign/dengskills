@@ -1,0 +1,35 @@
+{
+  "skill_name": "slice",
+  "evals": [
+    {
+      "id": "inherited-feature",
+      "prompt": "Add project renaming to this existing client app. It already has organization membership and an API. Editors may rename, viewers may not. The new name must survive reload.",
+      "assertions": [
+        "Inspects and reuses existing contracts and components",
+        "Enforces permission and organization scope on the server",
+        "Validates input and verifies persistence after reload",
+        "Tests denied direct requests and a consequential failure case"
+      ]
+    },
+    {
+      "id": "timeout",
+      "prompt": "Our create-project request sometimes times out, and retry produces duplicate projects. Fix the actual behavior.",
+      "assertions": [
+        "Distinguishes unknown write outcome from confirmed rejection",
+        "Inspects service and database contract before choosing idempotency or reconciliation",
+        "Does not rely only on disabling a button",
+        "Verifies one logical operation cannot cause duplicate effects"
+      ]
+    },
+    {
+      "id": "service-blocked",
+      "prompt": "Connect the prototype to our real scheduling API. The credentials are not available in this checkout.",
+      "assertions": [
+        "Completes safe local integration work with explicit boundaries",
+        "Does not fabricate a working real service",
+        "Names the missing dependency and limits of local verification",
+        "Does not expose or invent credentials"
+      ]
+    }
+  ]
+}

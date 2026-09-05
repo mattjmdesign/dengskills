@@ -1,0 +1,8 @@
+interface:
+  display_name: "Design system review"
+  short_description: "Document, audit, and maintain UI consistency"
+  brand_color: "#111827"
+  default_prompt: "Use $system to audit UI consistency and update DESIGN.md as the system evolves."
+
+policy:
+  allow_implicit_invocation: true

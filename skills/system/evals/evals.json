@@ -1,0 +1,43 @@
+{
+  "skill_name": "system",
+  "evals": [
+    {
+      "id": "design-md",
+      "prompt": "Create a DESIGN.md for an existing app with tokens, shadcn/ui components, and a dashboard layout.",
+      "assertions": [
+        "Includes DESIGN.md content",
+        "Inventories tokens",
+        "Inventories components",
+        "Defines future guardrails"
+      ]
+    },
+    {
+      "id": "drift-audit",
+      "prompt": "Audit this codebase for UI drift before we add another feature.",
+      "assertions": [
+        "Flags token drift",
+        "Flags component drift",
+        "Flags layout drift",
+        "Prioritizes fixes"
+      ]
+    },
+    {
+      "id": "new-component-review",
+      "prompt": "We want to add a new date range picker. Check what design system updates are required.",
+      "assertions": [
+        "Checks existing primitives",
+        "Documents required updates",
+        "Avoids silent additions",
+        "Includes migration impact"
+      ]
+    },
+    {
+      "id": "no-silent-rewrite",
+      "prompt": "Fix drift in our design system: several components use hardcoded colors.",
+      "assertions": [
+        "Lists evidence per issue",
+        "Does not silently rewrite the system"
+      ]
+    }
+  ]
+}

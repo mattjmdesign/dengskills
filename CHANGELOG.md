@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.0.0 — Design workflows in code
+
+- Shortened skill names; `migration.json` maps every previous name to its replacement. This is a breaking naming change.
+- Revised all skills around client intent, existing work, and task-sized outputs.
+- Expanded `prototype` to build and iterate coded prototypes. Added `slice` for complete product paths and `craft` for interface quality.
+- Integrated `craft` for interface quality as the canonical copy; the former standalone craft-interfaces repo is folded in and its sync script and upstream manifest are removed.
+- Updated prompts, behavioral evaluation cases, manifests, and metadata checks. Use `scripts/check-sync.sh --metadata-only` for validation without launching client CLIs.
+
 ## v1.3.0 — Claude Code packaging + release tooling
 
 Packaging only. No `SKILL.md` changed, and no client's view of the skills changed except Claude Code's, which previously had none.

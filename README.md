@@ -1,263 +1,100 @@
 # Design Engineering Skills
 
-Give your AI assistant product-to-production judgement for building product-grade prototypes — not just vibe-coded screens.
+A practical AI partner for product designers working in code: turn client intent into a runnable prototype, refine the experience, and build something people can actually use.
 
-Design Engineering Skills help coding agents pause at the right moment: clarify intent, choose fidelity, plan the repo, map flows, specify components, inventory missing states — and review a running slice when the first idea may have drifted.
+The pack pairs with the [Design Engineering guide](https://frontendguide.dev/docs). Use a skill before work or to revisit what already exists. There is no required sequence and no need to load the entire pack for one task.
 
-The pack pairs with the [Design Engineering guide](https://frontendguide.dev/docs) — every skill is the executable form of a guide page, and the guide links back to its skill.
+## Start with your work
 
-## Scope
+```text
+Use $prototype to build a client scheduling demo in this existing app.
+Use $craft to improve this screen, then inspect the rendered result.
+Use $slice to connect this workflow to real data and server permissions.
+Use $readiness to assess whether this preview can support a real pilot.
+```
 
-This pack covers Product Definition through Build Readiness, plus `$production-readiness-review` after a preview exists. Testing strategy, deployment pipelines, and observability remain guide-only. Skills are for starting work *and* for revisiting work that already exists.
+`$intent` helps when the goal is unclear. Planning and system skills support the work when a specific uncertainty needs them. An authorized build request should produce working artifacts, not end with another plan.
 
 ## Install
-
-The skills themselves are client-agnostic — every `SKILL.md` conforms to the [Agent Skills specification](https://agentskills.io/specification), and `skills/` is the standard fixed location. Only the packaging differs per client.
-
-### Any agent (skills CLI)
 
 ```bash
 npx skills add mattjmdesign/dengskills
 ```
 
-Installs into whichever agent directories the CLI detects. Once installed, your assistant can load the relevant skill when a task matches one of the design-engineering moments below.
+For a local checkout before a release is published:
 
-You can also browse the repository on skills.sh after the repo has been indexed by the telemetry service:
-
-```text
-https://skills.sh/mattjmdesign/dengskills
+```bash
+npx skills add /path/to/dengskills
 ```
 
-### Agent Plugins clients
+Choose the relevant agents and project/global scope in the installer. Invocation syntax depends on the client; the examples use `$skill`. Ask by name when the client does not expose that syntax.
 
-The root `plugin.json` is an [Agent Plugins](https://agent-plugins.org/) v1.0.0 manifest, so any compatible client can load this repo as a plugin directly — point it at the repository, no CLI required.
-
-### Claude Code
-
-Claude Code uses its own manifest location, so it installs through this repository's own plugin marketplace:
+Claude Code plugin installation is also supported by the existing marketplace manifests:
 
 ```bash
 claude plugin marketplace add mattjmdesign/dengskills
-```
-
-```bash
 claude plugin install dengskills@dengskills
 ```
 
-Or from inside Claude Code, `/plugin marketplace add mattjmdesign/dengskills` followed by `/plugin install dengskills@dengskills`.
-
-Installed this way the skills are namespaced (`dengskills:sitemap-planner`) and load automatically when a task matches. Verify with `claude plugin details dengskills`.
-
-Pick one method, not both. If you previously ran `npx skills add`, remove those copies before installing the plugin — otherwise every skill loads twice and the always-on description cost doubles. `npx skills remove` opens an interactive picker; deselect the dengskills entries there, or delete the installed symlinks directly.
-
-## Packaging
-
-One portable core, plus a thin packaging layer per client. No `SKILL.md` changes between clients; adding a client means adding a manifest, never forking the skills.
-
-| Layer | Files | Read by |
-|---|---|---|
-| Agent Skills | `skills/<name>/SKILL.md` | Every client — the portable core |
-| Agent Plugins v1.0.0 | `plugin.json` | Any [Agent Plugins](https://agent-plugins.org/) client |
-| skills.sh | `skills.sh.json`, `agents/openai.yaml`, `evals/evals.json` | skills CLI and skills.sh |
-| Claude Code | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | Claude Code |
-
-Claude Code needs its own manifest because it reads `.claude-plugin/plugin.json` specifically and ignores a root `plugin.json` — hence two manifests carrying the same metadata. `scripts/check-sync.sh` fails if they disagree on version, homepage, repository, or license, so the duplication cannot drift. Clients that ignore a layer ignore it harmlessly.
-
-Adding support for another client should follow the same rule: a new manifest beside the others, the portable `skills/` tree untouched.
-
-## What this is for
-
-This skill pack is for product designers, design engineers, and AI-assisted teams who want to move from a rough idea or client request to a product-grade prototype with a professional workflow.
-
-Use it when you want an agent to help with:
-
-- clarifying a product or feature before implementation
-- choosing the right framework or prototype fidelity
-- setting up a repo that will not collapse under vibe-coded changes
-- mapping sitemap, routes, user flows, and page hierarchy
-- writing frontend requirements and acceptance-ready specs
-- preparing components and gap states before UI code is generated
-- initializing design systems, layout skeletons, and UI governance before feature work expands
+Use one installation method to avoid duplicate discovery. Claude plugin skill names are namespaced by the pack.
 
 ## Skills
 
-### Product Definition
+| Skill | Use it to |
+| --- | --- |
+| `$intent` | Clarify the client goal or revisit the original promise. |
+| `$prototype` | Build and refine a runnable prototype with honest simulations. |
+| `$craft` | Compose, build, improve, or audit the visible interface. |
+| `$slice` | Implement one real workflow through UI, data, permissions, and recovery. |
+| `$states` | Find and resolve missing or misleading states. |
+| `$readiness` | Assess intended real use with evidence, blockers, and unknowns. |
+| `$requirements` | Turn a brief or feature into testable behavior. |
+| `$flow` | Trace a task through decisions, interruptions, and recovery. |
+| `$sitemap` | Organize routes, navigation, URL state, and access boundaries. |
+| `$hierarchy` | Rank one page’s content and actions. |
+| `$layout` | Define or revisit regions, widths, scroll, and responsive structure. |
+| `$tokens` | Create or extend the smallest useful visual vocabulary. |
+| `$component` | Define or revise a component’s API and behavior. |
+| `$system` | Maintain shared UI decisions and plan consumer migrations. |
+| `$stack` | Compare technical paths when the existing choice is unresolved. |
+| `$setup` | Establish or improve a runnable repository foundation. |
+| `$git` | Coordinate reviewable changes and shared-file ownership. |
+| `$context` | Keep verified agent instructions concise and current. |
 
-Skills for turning vague product ideas into buildable direction.
+## Craft is included
 
-| Skill | Use when... |
-|---|---|
-| `product-intent-clarifier` | A product/client idea is still vague. |
-| `prototype-fidelity-selector` | You need to decide whether to sketch, wireframe, mock up, code prototype, or build near-production. |
-| `requirements-from-brief` | A brief needs testable functional and non-functional frontend requirements. |
+`$craft` covers the whole visible experience — composition, type, responsive structure, interaction, and rendered critique — with references and deterministic helpers loaded as needed. Focused skills such as `$layout` or `$component` suit narrower decisions.
 
-### Project Setup
+## Upgrading from 1.x
 
-Skills for choosing the technical path and collaboration model.
+Version 2 uses shorter canonical names. This is a naming migration: old names are not aliases. Update saved prompts and installed copies; use the installer’s removal workflow to remove obsolete skills from the intended scope. Do not manually delete unrelated skills.
 
-| Skill | Use when... |
-|---|---|
-| `framework-fit-advisor` | You need to choose Next.js, Nuxt, React + Vite, or another frontend path from product constraints. |
-| `project-foundation-planner` | You are setting up repo structure, tooling, TypeScript, env, tokens, and tests. |
-| `git-workflow-planner` | Humans and agents need a safe branch, PR, worktree, and review workflow. |
-| `agent-context-file-planner` | You need `AGENTS.md`, `CLAUDE.md`, `.cursorrules`, or similar agent instructions. |
+| Previous name | New name |
+| --- | --- |
+| `product-intent-clarifier` | `intent` |
+| `prototype-fidelity-selector` | `prototype` |
+| `requirements-from-brief` | `requirements` |
+| `framework-fit-advisor` | `stack` |
+| `project-foundation-planner` | `setup` |
+| `git-workflow-planner` | `git` |
+| `agent-context-file-planner` | `context` |
+| `ui-system-initializer` | `tokens` |
+| `ui-layout-architect` | `layout` |
+| `ui-system-governance` | `system` |
+| `sitemap-planner` | `sitemap` |
+| `user-flow-mapper` | `flow` |
+| `content-hierarchy-planner` | `hierarchy` |
+| `component-spec-writer` | `component` |
+| `gap-state-inventory` | `states` |
+| `production-readiness-review` | `readiness` |
 
+`craft` and `slice` are new to this pack. `prototype` replaces a fidelity recommendation with an executable prototyping workflow. [migration.json](migration.json) is the machine-readable mapping.
 
-### UI Composition
+## Quality and maintenance
 
-Skills for setting up the visual system and page skeleton before agents build features.
+Instructions distinguish evidence from assumptions, preserve user scope, and scale planning and verification to the task. A mock is not a real integration, an automated check is not complete accessibility evaluation, and a readiness review does not authorize deployment or client messages.
 
-| Skill | Use when... |
-|---|---|
-| `ui-system-initializer` | A new codebase or Figma file needs tokens, typography, spacing, radius, shadows, and light/dark mode before UI work starts. |
-| `ui-layout-architect` | You need to plan layout shells, max widths, section rhythm, dashboard/sidebar dimensions, auth layouts, or whether to use shadcn/ui, Radix, Base UI, or custom primitives. |
-| `ui-system-governance` | An existing project needs DESIGN.md, token/component/layout inventories, drift audits, or guardrails before more UI is added. |
+- `bash scripts/check-sync.sh` checks names, groupings, eval metadata, references, invocation prompts, and package manifests.
+- `bash scripts/bump-version.sh major|minor|patch` updates all version manifests together.
 
-### IA & Flows
-
-Skills for mapping the product before visual design or implementation.
-
-| Skill | Use when... |
-|---|---|
-| `sitemap-planner` | You need pages, routes, navigation, auth boundaries, and URL conventions. |
-| `user-flow-mapper` | You need happy paths, failure branches, permission paths, and data touchpoints. |
-| `content-hierarchy-planner` | You need to prioritize page content, actions, headings, and responsive order. |
-
-### Build Readiness
-
-Skills for preparing implementation so the agent does not guess the product shape.
-
-| Skill | Use when... |
-|---|---|
-| `component-spec-writer` | You need component purpose, variants, states, props, accessibility, and acceptance criteria before code. |
-| `gap-state-inventory` | You need missing loading, empty, error, offline, permission, expired-session, validation, and mutation states. |
-
-### QA & Delivery
-
-Skills for interrogating a running slice.
-
-| Skill | Use when... |
-|---|---|
-| `production-readiness-review` | A preview might be treated as a product. Score demo vs pilot vs production and list UI-owned risks. |
-
-## Choosing the right skill
-
-Several skills trigger on overlapping moments. Use this routing table when the right skill is unclear:
-
-| If you need... | Use | Before/after... |
-|---|---|---|
-| The product is still vague — users, promise, workflow unknown | `product-intent-clarifier` | Always first. Do not start IA, design, or code while this is unresolved. |
-| A clear idea, but you are unsure how polished to make it | `prototype-fidelity-selector` | After intent is clarified. Do not pick fidelity before knowing the validation question. |
-| Agreed direction that needs testable requirements | `requirements-from-brief` | After intent + fidelity. Requirements say *what*, not which component. |
-| A framework/stack decision | `framework-fit-advisor` | After requirements or alongside them, before repo setup. |
-| Repo conventions before many files exist | `project-foundation-planner` | After the framework decision. |
-| A safe human + agent git collaboration model | `git-workflow-planner` | With or after project foundation. |
-| AGENTS.md / CLAUDE.md / cursor rules | `agent-context-file-planner` | After the repo conventions are known. |
-| Pages, routes, navigation | `sitemap-planner` | After requirements; before visual design. |
-| How a user completes one task, with failure branches | `user-flow-mapper` | With or after the sitemap. |
-| What belongs on one page, ranked | `content-hierarchy-planner` | After the sitemap, before layout design. |
-| Tokens/typography/light-dark for a new codebase | `ui-system-initializer` | Before components exist. Audit first if a system already exists. |
-| Layout shells and page skeleton for an existing project | `ui-layout-architect` | After the UI system exists or the library decision is made. |
-| Design-system documentation, drift audits, guardrails | `ui-system-governance` | Recurring — before larger PRs or after new UI additions. |
-| A component definition before code | `component-spec-writer` | After tokens and primitives are established. |
-| Missing loading/empty/error/edge states | `gap-state-inventory` | After component specs, before code generation, or on a live preview. |
-| A slice that “looks done” | `production-readiness-review` | After a preview exists. Do not raise honesty level because the UI is pretty. |
-
-The only fixed rule: skills whose output depends on another skill's output run after it. Within a phase there is no linear chain — but human review should gate every handoff between phases.
-
-## Guide pairing
-
-Each skill is the executable form of a page in the [Design Engineering guide](https://frontendguide.dev/docs):
-
-| Skill | Guide page |
-|---|---|
-| `product-intent-clarifier` | Product Designer First |
-| `prototype-fidelity-selector` | Prototyping & Validation |
-| `requirements-from-brief` | Requirements Analysis |
-| `framework-fit-advisor` | Tech Decisions |
-| `project-foundation-planner` | Project Setup |
-| `git-workflow-planner` | Collaborative Repository Workflow |
-| `agent-context-file-planner` | Project Context Files |
-| `ui-system-initializer` | Design System |
-| `ui-layout-architect` | Layout Patterns & Scale |
-| `ui-system-governance` | Design System Governance |
-| `sitemap-planner` / `user-flow-mapper` | Information Architecture |
-| `content-hierarchy-planner` | Layout Patterns & Scale |
-| `component-spec-writer` | Component Architecture |
-| `gap-state-inventory` | Error Handling |
-| `production-readiness-review` | Production Risks the UI Owns |
-
-## Example prompts
-
-```text
-Use $product-intent-clarifier to turn this rough app idea into a buildable product intent brief.
-```
-
-```text
-Use $framework-fit-advisor to choose the right frontend framework for this client dashboard.
-```
-
-```text
-Use $user-flow-mapper to map onboarding, including validation errors, API failures, and cancellation paths.
-```
-
-```text
-Use $gap-state-inventory to identify missing states before we let an agent build this screen.
-```
-
-## Repository layout
-
-```txt
-skills/                         the portable core — client-agnostic
-  <skill-name>/
-    SKILL.md                    Agent Skills specification
-    agents/openai.yaml          skills.sh client config
-    evals/evals.json            skills.sh test cases
-plugin.json                     Agent Plugins v1.0.0 manifest
-skills.sh.json                  skills.sh page groupings
-.claude-plugin/
-  plugin.json                   Claude Code plugin manifest
-  marketplace.json              Claude Code marketplace (this repo, one plugin)
-scripts/
-  check-sync.sh                 metadata + manifest sync check
-  bump-version.sh               set the version across all manifests
-LICENSE
-README.md
-CHANGELOG.md
-```
-
-`skills/` is the only directory that matters to an agent at runtime; everything at the root is packaging for one client or another. `skills.sh.json` groups the skills on the skills.sh repository page and changes neither installs nor any `SKILL.md`. `plugin.json` is the portable Agent Plugins manifest. `.claude-plugin/` holds the Claude Code equivalents, which Claude Code reads exclusively from that directory. `CHANGELOG.md` records pack versions; bump it whenever a skill's behaviour, triggers, or examples change.
-
-Run `./scripts/check-sync.sh` before releasing. It checks that frontmatter names, README tables, skills.sh groupings, evals, and both plugin manifests all agree, and runs `claude plugin validate --strict` on the Claude Code manifests when the `claude` CLI is available.
-
-## Releasing a change
-
-Most clients cache an installed copy rather than reading the repository live, so a change only reaches installs once the version changes. Bump the version for every published change, including adding a skill.
-
-1. Edit `skills/` — change a `SKILL.md`, or add `skills/<new-skill>/SKILL.md` with `name` matching the directory.
-2. For a **new** skill, also add it to a `skills.sh.json` grouping and to the README Skills, routing, and guide-pairing tables. `check-sync.sh` fails until you do.
-3. `./scripts/bump-version.sh patch` — or `minor` / `major` / an explicit `1.4.0`. Sets the version in every manifest at once; run it with no argument to print the current version.
-4. Add the release to `CHANGELOG.md`.
-5. `./scripts/check-sync.sh`
-6. `git commit -am "Release v1.4.0" && git tag v1.4.0 && git push --follow-tags`
-
-Semver for this pack: **patch** for wording and eval fixes, **minor** for a new skill or changed triggers, **major** for removing or renaming a skill, which breaks any reference to the old name.
-
-### Refreshing an install
-
-| Client | Command |
-|---|---|
-| skills CLI | `npx skills update` |
-| Claude Code | `claude plugin marketplace update dengskills && claude plugin update dengskills`, then restart the session |
-
-Claude Code installs are snapshot copies in a version-keyed directory, so `claude plugin update` reports "already at the latest version" and picks up nothing — new skills included — unless the manifest version changed. Step 3 is what makes it work.
-
-`claude plugin tag . --push` is an optional extra for Claude Code consumers: it creates a `dengskills--v<version>` tag and refuses to run if the two manifests or the marketplace entry disagree on the version. Use it alongside the plain `v<version>` tag, not instead of it.
-
-## Local authoring notes
-
-The official Agent Skills docs may be kept locally in `agentskillsofficial/` for reference while authoring, but that folder is intentionally ignored and not published in this repository.
-
-## License
-
-MIT © 2026 Matt J.M. Design
+Each skill includes realistic evaluation cases in `evals/evals.json`. Metadata validation does not prove behavioral quality; exercise cases against actual task artifacts and record observed outcomes when evaluating releases.

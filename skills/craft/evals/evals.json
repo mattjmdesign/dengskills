@@ -1,0 +1,24 @@
+{
+  "skill_name": "craft",
+  "evals": [
+    {
+      "id": "existing-docs",
+      "prompt": "Improve this existing documentation homepage. It has a centered heading and decorative animation. Readers need to find a guide for their current task. Keep existing routes.",
+      "assertions": [
+        "Inventories routes and existing content before editing",
+        "Chooses a task-led hierarchy and uses real links",
+        "Renders and critiques the result at narrow and wide sizes",
+        "Does not fabricate metrics or testimonials"
+      ]
+    },
+    {
+      "id": "audit-only",
+      "prompt": "Audit this screenshot of a dashboard. Do not edit the repository.",
+      "assertions": [
+        "Reports evidence-backed findings without editing",
+        "Separates visible observations from unverified behavior",
+        "Does not claim keyboard or responsive verification from one screenshot"
+      ]
+    }
+  ]
+}

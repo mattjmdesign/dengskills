@@ -1,0 +1,43 @@
+{
+  "skill_name": "layout",
+  "evals": [
+    {
+      "id": "landing-skeleton",
+      "prompt": "Plan the UI skeleton for a new marketing landing page for a B2B SaaS product.",
+      "assertions": [
+        "Includes section skeleton",
+        "Defines max width and padding",
+        "Mentions global header/footer",
+        "Includes responsive behavior"
+      ]
+    },
+    {
+      "id": "dashboard-shell",
+      "prompt": "Architect the initial dashboard layout for a project management app.",
+      "assertions": [
+        "Defines task-appropriate regions and responsive behavior",
+        "Uses variables",
+        "Audits existing components",
+        "Includes responsive collapse"
+      ]
+    },
+    {
+      "id": "existing-shadcn",
+      "prompt": "This repo already has shadcn/ui installed. Plan the skeleton for a settings area without duplicating primitives.",
+      "assertions": [
+        "Detects existing system",
+        "Avoids duplicate primitives",
+        "Defines missing composites",
+        "Plans layout shell"
+      ]
+    },
+    {
+      "id": "no-hardcoded-dims",
+      "prompt": "Plan layout shells for a dashboard and marketing site.",
+      "assertions": [
+        "Centralizes dimensions as variables",
+        "Does not hardcode widths in multiple places"
+      ]
+    }
+  ]
+}

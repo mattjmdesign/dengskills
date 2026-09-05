@@ -5,14 +5,14 @@
     "url": "https://github.com/mattjmdesign"
   },
   "metadata": {
-    "description": "Design Engineering Skills \u2014 product-to-production judgement for coding agents, paired with the Design Engineering guide at frontendguide.dev.",
-    "version": "1.3.0"
+    "description": "Design engineering for product designers working with AI: build client prototypes, craft interfaces, implement real workflows, and verify delivery.",
+    "version": "2.0.0"
   },
   "plugins": [
     {
       "name": "dengskills",
       "source": "./",
-      "description": "Product-to-production design engineering skills: clarify product intent, choose fidelity, write requirements, plan repos and flows, specify components, inventory gap states, and review a running slice for demo vs production honesty.",
+      "description": "Design engineering for product designers working with AI: build client prototypes, craft interfaces, implement real workflows, and verify delivery.",
       "category": "design",
       "homepage": "https://frontendguide.dev/docs/dengskills"
     }

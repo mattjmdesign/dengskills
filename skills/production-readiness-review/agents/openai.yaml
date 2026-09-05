@@ -1,8 +1,0 @@
-interface:
-  display_name: "Production Readiness Review"
-  short_description: "Score a live slice: demo, pilot, or production"
-  brand_color: "#2563EB"
-  default_prompt: "Use $production-readiness-review on this preview and tell me if it is a demo, a pilot, or production."
-
-policy:
-  allow_implicit_invocation: true

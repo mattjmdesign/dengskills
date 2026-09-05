@@ -1,10 +1,10 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "dengskills",
-  "version": "1.3.0",
-  "description": "Product-to-production design engineering skills for coding agents: clarify product intent, choose fidelity, write requirements, plan repos and flows, specify components, inventory gap states, and review a running slice for demo vs production honesty.",
+  "version": "2.0.0",
+  "description": "Design engineering for product designers working with AI: build client prototypes, craft interfaces, implement real workflows, and verify delivery.",
   "author": {
-    "name": "Matt J.M. Design",
+    "name": "Matt Mitchell",
     "url": "https://github.com/mattjmdesign"
   },
   "homepage": "https://frontendguide.dev/docs/dengskills",

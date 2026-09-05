@@ -1,0 +1,49 @@
+{
+  "skill_name": "stack",
+  "evals": [
+    {
+      "id": "saas-dashboard",
+      "prompt": "I am building a client portal with login, dashboards, docs pages, and Vercel deployment. Should I use Vite or Next?",
+      "assertions": [
+        "Compares viable options against concrete rendering, hosting and data constraints",
+        "Explains routing/auth/data implications",
+        "Includes watch-outs"
+      ]
+    },
+    {
+      "id": "vue-team",
+      "prompt": "Our team already has a Vue component library and wants a content-heavy product site with some logged-in pages.",
+      "assertions": [
+        "Respects the existing Vue ecosystem and explains the technical tradeoff",
+        "Mentions Vue design system fit",
+        "Includes deployment/testing considerations"
+      ]
+    },
+    {
+      "id": "canvas-tool",
+      "prompt": "We need a fast prototype for an interactive diagramming tool embedded in another app. SEO does not matter.",
+      "assertions": [
+        "Evaluates embedding and interaction constraints without assuming one framework",
+        "Mentions custom runtime/embedding",
+        "Does not overstate SSR needs"
+      ]
+    },
+    {
+      "id": "no-popularity-default",
+      "prompt": "Everyone uses Next.js, so we'll use Next.js, right?",
+      "assertions": [
+        "Ties recommendation to product constraints",
+        "Does not justify the choice by popularity alone"
+      ]
+    },
+    {
+      "id": "existing-stack",
+      "prompt": "Our existing Vue app fits the client host. An agent suggests migrating it to Next.js for a small new filter.",
+      "assertions": [
+        "Evaluates retaining the existing stack and migration cost",
+        "Does not recommend a framework based on popularity",
+        "Keeps a small feature scoped"
+      ]
+    }
+  ]
+}

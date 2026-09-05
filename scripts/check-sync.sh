@@ -77,6 +77,40 @@ for d in dirs:
     if data.get("skill_name") != d:
         problems.append(f"{d}: evals skill_name mismatch ({data.get('skill_name')})")
 
+# Portable skill references and invocation metadata.
+for d in dirs:
+    base = os.path.join(skills_dir, d)
+    ui_path = os.path.join(base, "agents", "openai.yaml")
+    if not os.path.isfile(ui_path):
+        problems.append(f"{d}: agents/openai.yaml missing")
+    else:
+        ui = open(ui_path).read()
+        if f"${d}" not in ui:
+            problems.append(f"{d}: default prompt does not invoke this skill")
+    for directory, _, files in os.walk(base):
+        for filename in files:
+            if not filename.endswith(".md"):
+                continue
+            path = os.path.join(directory, filename)
+            body = open(path).read()
+            for name in re.findall(r"\$([a-z][a-z0-9]*(?:-[a-z0-9]+)*)", body):
+                if name not in dirs and name not in {"schema", "type", "value", "description", "extensions"}:
+                    problems.append(f"{d}: unresolved skill invocation ${name} in {filename}")
+            for link in re.findall(r"\[[^\]]*\]\(([^)]+)\)", body):
+                if re.match(r"(?:[a-z]+:|#|/)", link):
+                    continue
+                target = link.split("#")[0]
+                if target and not os.path.exists(os.path.join(directory, target)):
+                    problems.append(f"{d}: broken local reference {link} in {filename}")
+    eval_path = os.path.join(base, "evals", "evals.json")
+    if os.path.isfile(eval_path):
+        cases = json.load(open(eval_path)).get("evals", [])
+        ids = [case.get("id") for case in cases]
+        if len(ids) != len(set(ids)) or not cases:
+            problems.append(f"{d}: empty evaluations or duplicate IDs")
+        if any(not case.get("prompt") or not case.get("assertions") for case in cases):
+            problems.append(f"{d}: evaluations need prompts and assertions")
+
 # 4. README mentions every skill name
 readme = open(os.path.join(root, "README.md")).read()
 for d in dirs:
@@ -155,13 +189,13 @@ sys.exit(1 if problems else 0)
 PYEOF
 check "${PY_FAIL:-0}" "skill metadata is in sync (groupings, frontmatter, evals, README, both manifests)"
 
-if command -v claude > /dev/null 2>&1; then
+if [ "${1:-}" != "--metadata-only" ] && command -v claude > /dev/null 2>&1; then
   claude plugin validate "$REPO_ROOT" --strict > /dev/null 2>&1
   check "$?" "claude plugin validate --strict (.claude-plugin/plugin.json)"
   claude plugin validate "$REPO_ROOT/.claude-plugin/marketplace.json" --strict > /dev/null 2>&1
   check "$?" "claude plugin validate --strict (.claude-plugin/marketplace.json)"
 else
-  echo "SKIP claude CLI not on PATH — Claude Code manifests not validated by the runtime"
+  echo "SKIP Claude runtime validation (metadata-only or CLI unavailable)"
 fi
 
 exit $FAIL
