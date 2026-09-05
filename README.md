@@ -1,8 +1,8 @@
 # Design Engineering Skills
 
-A practical AI partner for product designers working in code: turn client intent into a runnable prototype, refine the experience, and build something people can actually use.
+An AI partner for product designers working in code: turn client intent into a runnable prototype, refine the experience, and build something people can actually use.
 
-The pack pairs with the [Design Engineering guide](https://frontendguide.dev/docs). Use a skill before work or to revisit what already exists. There is no required sequence and no need to load the entire pack for one task.
+Pairs with the [Design Engineering guide](https://frontendguide.dev/docs). Use a skill before work or to revisit what already exists — no required sequence, no need to load the whole pack for one task.
 
 ## Start with your work
 
@@ -13,7 +13,59 @@ Use $slice to connect this workflow to real data and server permissions.
 Use $readiness to assess whether this preview can support a real pilot.
 ```
 
-`$intent` helps when the goal is unclear. Planning and system skills support the work when a specific uncertainty needs them. An authorized build request should produce working artifacts, not end with another plan.
+`$intent` helps when the goal itself is unclear. An authorized build request should produce working artifacts, not end with another plan.
+
+## Skills
+
+**Product definition** — frame the goal, build the prototype, pin the behavior:
+
+| Skill | Use it to |
+| --- | --- |
+| `$intent` | Clarify the client goal or revisit the original promise. |
+| `$prototype` | Build and refine a runnable prototype with honest simulations. |
+| `$requirements` | Turn a brief or feature into testable behavior. |
+
+**Project setup** — foundation, stack, collaboration, and agent instructions:
+
+| Skill | Use it to |
+| --- | --- |
+| `$stack` | Compare technical paths when the existing choice is unresolved. |
+| `$setup` | Establish or improve a runnable repository foundation. |
+| `$git` | Coordinate reviewable changes and shared-file ownership. |
+| `$context` | Keep verified agent instructions concise and current. |
+
+**UI composition** — tokens, structure, system health, and overall craft:
+
+| Skill | Use it to |
+| --- | --- |
+| `$tokens` | Create or extend the smallest useful visual vocabulary. |
+| `$layout` | Define or revisit regions, widths, scroll, and responsive structure. |
+| `$system` | Maintain shared UI decisions and plan consumer migrations. |
+| `$craft` | Compose, build, improve, or audit the visible interface. |
+
+**IA and flows** — where things live and how tasks run:
+
+| Skill | Use it to |
+| --- | --- |
+| `$sitemap` | Organize routes, navigation, URL state, and access boundaries. |
+| `$flow` | Trace a task through decisions, interruptions, and recovery. |
+| `$hierarchy` | Rank one page's content and actions. |
+
+**Build and iterate** — components, states, and one real workflow:
+
+| Skill | Use it to |
+| --- | --- |
+| `$component` | Define or revise a component's API and behavior. |
+| `$states` | Find and resolve missing or misleading states. |
+| `$slice` | Implement one real workflow through UI, data, permissions, and recovery. |
+
+**QA and delivery** — the go/no-go question:
+
+| Skill | Use it to |
+| --- | --- |
+| `$readiness` | Assess intended real use with evidence, blockers, and unknowns. |
+
+`$craft` covers the whole visible experience; `$layout`, `$tokens`, and `$component` suit narrower decisions. Each skill's `Boundaries` section says what it does not own.
 
 ## Install
 
@@ -21,93 +73,31 @@ Use $readiness to assess whether this preview can support a real pilot.
 npx skills add mattjmdesign/dengskills
 ```
 
-For a local checkout before a release is published:
+For a local checkout:
 
 ```bash
 npx skills add /path/to/dengskills
 ```
 
-Choose the relevant agents and project/global scope in the installer. Invocation syntax depends on the client; the examples use `$skill`. Ask by name when the client does not expose that syntax.
+One skill only: `npx skills add mattjmdesign/dengskills --skill craft`. Choose agents and project/global scope in the installer; use one installation method to avoid duplicate discovery. Invocation syntax depends on the client — the examples use `$skill`; otherwise ask for the skill by name.
 
-Claude Code plugin installation is also supported by the existing marketplace manifests:
+Claude Code and Codex plugin installs:
 
 ```bash
 claude plugin marketplace add mattjmdesign/dengskills
 claude plugin install dengskills@dengskills
-```
-
-Codex installation uses the native plugin manifest:
-
-```bash
 codex plugin marketplace add mattjmdesign/dengskills
 codex plugin add dengskills
 ```
 
-Or install skills into Codex via the skills CLI:
+Claude plugin skill names are namespaced by the pack.
 
-```bash
-npx skills add mattjmdesign/dengskills --agent codex
-```
+## Maintain
 
-Use one installation method to avoid duplicate discovery. Claude plugin skill names are namespaced by the pack.
+- `bash scripts/check-sync.sh` — metadata, groupings, evals, manifests.
+- `python3 scripts/audit-security.py` — static security scan.
+- `bash scripts/bump-version.sh major|minor|patch` — version all manifests together.
+- `docs/SKILL-AUTHORING.md` — rules for changing skills.
+- `CHANGELOG.md` — release history.
 
-## Skills
-
-| Skill | Use it to |
-| --- | --- |
-| `$intent` | Clarify the client goal or revisit the original promise. |
-| `$prototype` | Build and refine a runnable prototype with honest simulations. |
-| `$craft` | Compose, build, improve, or audit the visible interface. |
-| `$slice` | Implement one real workflow through UI, data, permissions, and recovery. |
-| `$states` | Find and resolve missing or misleading states. |
-| `$readiness` | Assess intended real use with evidence, blockers, and unknowns. |
-| `$requirements` | Turn a brief or feature into testable behavior. |
-| `$flow` | Trace a task through decisions, interruptions, and recovery. |
-| `$sitemap` | Organize routes, navigation, URL state, and access boundaries. |
-| `$hierarchy` | Rank one page’s content and actions. |
-| `$layout` | Define or revisit regions, widths, scroll, and responsive structure. |
-| `$tokens` | Create or extend the smallest useful visual vocabulary. |
-| `$component` | Define or revise a component’s API and behavior. |
-| `$system` | Maintain shared UI decisions and plan consumer migrations. |
-| `$stack` | Compare technical paths when the existing choice is unresolved. |
-| `$setup` | Establish or improve a runnable repository foundation. |
-| `$git` | Coordinate reviewable changes and shared-file ownership. |
-| `$context` | Keep verified agent instructions concise and current. |
-
-## Craft is included
-
-`$craft` covers the whole visible experience — composition, type, responsive structure, interaction, and rendered critique — with references and deterministic helpers loaded as needed. Focused skills such as `$layout` or `$component` suit narrower decisions.
-
-## Upgrading from 1.x
-
-Version 2 uses shorter canonical names. This is a naming migration: old names are not aliases. Update saved prompts and installed copies; use the installer’s removal workflow to remove obsolete skills from the intended scope. Do not manually delete unrelated skills.
-
-| Previous name | New name |
-| --- | --- |
-| `product-intent-clarifier` | `intent` |
-| `prototype-fidelity-selector` | `prototype` |
-| `requirements-from-brief` | `requirements` |
-| `framework-fit-advisor` | `stack` |
-| `project-foundation-planner` | `setup` |
-| `git-workflow-planner` | `git` |
-| `agent-context-file-planner` | `context` |
-| `ui-system-initializer` | `tokens` |
-| `ui-layout-architect` | `layout` |
-| `ui-system-governance` | `system` |
-| `sitemap-planner` | `sitemap` |
-| `user-flow-mapper` | `flow` |
-| `content-hierarchy-planner` | `hierarchy` |
-| `component-spec-writer` | `component` |
-| `gap-state-inventory` | `states` |
-| `production-readiness-review` | `readiness` |
-
-`craft` and `slice` are new to this pack. `prototype` replaces a fidelity recommendation with an executable prototyping workflow. [migration.json](migration.json) is the machine-readable mapping.
-
-## Quality and maintenance
-
-Instructions distinguish evidence from assumptions, preserve user scope, and scale planning and verification to the task. A mock is not a real integration, an automated check is not complete accessibility evaluation, and a readiness review does not authorize deployment or client messages.
-
-- `bash scripts/check-sync.sh` checks names, groupings, eval metadata, references, invocation prompts, and package manifests.
-- `bash scripts/bump-version.sh major|minor|patch` updates all version manifests together.
-
-Each skill includes realistic evaluation cases in `evals/evals.json`. Metadata validation does not prove behavioral quality; exercise cases against actual task artifacts and record observed outcomes when evaluating releases.
+A mock is not a real integration, an automated check is not complete accessibility evaluation, and a readiness review does not authorize deployment or client messages.
