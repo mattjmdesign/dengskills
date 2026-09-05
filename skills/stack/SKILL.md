@@ -11,6 +11,7 @@ Recommend a stack from the product's operating needs. Inspect an existing reposi
 
 - Establish public discovery needs, interactive workload, offline needs, data ownership, authentication, integrations, hosting constraints, and who maintains it.
 - Separate browser UI, server/API, database, and deployment decisions. A frontend framework does not provide the whole product architecture.
+- Map every dependency category to the question it must answer: runtime (where code executes), framework (routing/rendering), API layer (browser-to-server exchange), data access (storage, schema, queries), auth (identity, sessions, checks), hosting (build, deploy, previews). Prefer a scaffolder's current compatibility rules over memory when naming products.
 - Compare a primary option and a credible alternative against those constraints. Include keeping the existing stack when applicable.
 - Check current official documentation for version-sensitive APIs, support, deployment adapters, licensing, or pricing that affect the recommendation.
 - Explain the hardest tradeoff and the condition that would change the decision. Avoid claims about training-data popularity or universal performance advantages.

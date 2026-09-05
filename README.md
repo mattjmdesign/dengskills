@@ -92,6 +92,12 @@ codex plugin add dengskills
 
 Claude plugin skill names are namespaced by the pack.
 
+OpenCode (including the desktop app) uses skills rather than plugin manifests — install the skills for it:
+
+```bash
+npx skills add mattjmdesign/dengskills --agent opencode
+```
+
 ## Maintain
 
 - `bash scripts/check-sync.sh` — metadata, groupings, evals, manifests.
