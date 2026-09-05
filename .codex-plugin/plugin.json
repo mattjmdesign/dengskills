@@ -1,0 +1,39 @@
+{
+  "author": {
+    "name": "Matt J.M. Design",
+    "url": "https://github.com/mattjmdesign"
+  },
+  "description": "Design engineering for product designers working with AI: build client prototypes, craft interfaces, implement real workflows, and verify delivery.",
+  "homepage": "https://frontendguide.dev/docs/dengskills",
+  "interface": {
+    "brandColor": "#2563EB",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "category": "Productivity",
+    "defaultPrompt": [
+      "Use $prototype to build a client scheduling demo in this existing app.",
+      "Use $craft to improve this screen, then inspect the rendered result.",
+      "Use $slice to connect this workflow to real data and server permissions."
+    ],
+    "developerName": "Matt J.M. Design",
+    "displayName": "Design Engineering Skills",
+    "shortDescription": "Build client prototypes, craft interfaces, implement real workflows, and verify delivery.",
+    "websiteURL": "https://frontendguide.dev/docs/dengskills"
+  },
+  "keywords": [
+    "design-engineering",
+    "design-system",
+    "prototyping",
+    "frontend",
+    "product",
+    "requirements",
+    "information-architecture"
+  ],
+  "license": "MIT",
+  "name": "dengskills",
+  "repository": "https://github.com/mattjmdesign/dengskills",
+  "skills": "./skills/",
+  "version": "2.1.0"
+}

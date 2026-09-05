@@ -1,6 +1,6 @@
 ---
 name: craft
-description: Build, improve, or audit interfaces through product-specific composition, responsive layout, interaction states, accessibility, and rendered verification. Use for visible UI work on web, mobile, or desktop.
+description: "Build, improve, or audit interfaces through product-specific composition, responsive layout, interaction states, accessibility, and rendered verification. Use for visible UI work on web, mobile, or desktop. Use when repairing scanning on a dense screen, refining hierarchy before review, or auditing a flow for state and keyboard support."
 ---
 
 # Craft Interfaces
@@ -78,3 +78,14 @@ Do not perform real payments, messages, deletions, publication, or permission ch
 Lead with the material result. For implementation, state visible decisions, behavior/system changes, scope covered, rendered checks, and remaining gaps. Link a coverage artifact when detail would swamp the answer. For audits, use **observation → evidence → user impact → cause → fix → verification**, ordered by consequence; keep severity separate from confidence.
 
 Completion requires the intended task to work, the requested visual improvement to be visible, and the relevant resilience/interaction checks to pass. Mark blocked or unverified areas explicitly. Source inspection, a successful build, or a numerical score alone cannot establish visual quality or accessibility conformance.
+
+## Worked example
+
+Repair scanning on a day-scheduling screen: technicians missed reassigned shifts in a 40-row list. Left-align start times in a fixed-width slot, place the change badge above the assignment title, keep row actions in a fixed trailing slot, and preserve DOM and focus order. Check narrow/wide renders, keyboard traversal, and text enlargement. Remaining gap: filter no-results copy still needs operations approval.
+
+## Boundaries
+
+- Do not use when the question is page shells, reading order, or responsive structure only — use `$layout` instead.
+- Do not use when the question is token roles or theme pairs only — use `$tokens` instead.
+- Do not use when the question is one component API or contract only — use `$component` instead.
+- Do not use when the question is missing-state coverage only — use `$states` instead.

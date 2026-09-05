@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.1.0 — Skill depth and Codex plugin
+
+- Restored worked examples, output templates, and use-instead routing guardrails across all 18 skills, with trigger phrases in every description. Bodies stay lean (400–700 words); variant detail remains in references.
+- Added `.codex-plugin/plugin.json` so the pack installs natively in Codex (`codex plugin marketplace add mattjmdesign/dengskills`, `codex plugin add dengskills`). Version bumps and sync checks now cover all four manifests.
+
 ## v2.0.0 — Design workflows in code
 
 - Shortened skill names; `migration.json` maps every previous name to its replacement. This is a breaking naming change.

@@ -5,6 +5,7 @@
 #   plugin.json                        Agent Plugins manifest (portable)
 #   .claude-plugin/plugin.json         Claude Code plugin manifest
 #   .claude-plugin/marketplace.json    metadata.version
+#   .codex-plugin/plugin.json          Codex plugin manifest
 #
 # Adding another client's manifest? Add it to `paths` below so it bumps too.
 #
@@ -24,6 +25,7 @@ paths = {
     "root":        f"{root}/plugin.json",
     "claude":      f"{root}/.claude-plugin/plugin.json",
     "marketplace": f"{root}/.claude-plugin/marketplace.json",
+    "codex":       f"{root}/.codex-plugin/plugin.json",
 }
 manifests = {k: json.load(open(p)) for k, p in paths.items()}
 

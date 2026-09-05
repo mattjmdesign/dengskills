@@ -1,6 +1,6 @@
 ---
 name: slice
-description: "Implement or harden one real product workflow end to end in an existing or new codebase, connecting interface, data, permissions, recovery, and verification."
+description: "Implement or harden one real product workflow end to end in an existing or new codebase, connecting interface, data, permissions, recovery, and verification. Use when hardening a prototype path, implementing a client feature, or proving auth, recovery, and persistence."
 ---
 
 # Build a real slice
@@ -29,6 +29,33 @@ Use isolated test identities/data. Replay the critical path, reload to verify pe
 
 Run applicable repository checks and inspect the rendered narrow/wide result. Confirm where failures can be diagnosed without logging secrets or raw sensitive payloads.
 
-Deliver the working change, evidence, contract/migration notes, and any operational dependency that remains unverified. Do not label a mock as a completed real integration. If a service is unavailable, complete the safe local boundary and state exactly what blocks end-to-end proof.
+## Deliver
+
+State the working change, evidence, contract/migration notes, and any operational dependency that remains unverified. Do not label a mock as a completed real integration. If a service is unavailable, complete the safe local boundary and state exactly what blocks end-to-end proof.
+
+```markdown
+## Slice
+
+**Change:**
+**Evidence:**
+**Contract / migration:**
+**Unverified dependency:**
+```
+
+## Worked example
+
+## Slice
+
+**Change:** Editor renames a project; viewer requests are rejected server-side; rename persists across reload and respects organization scope
+**Evidence:** Replay as editor and viewer with isolated test orgs; reload shows the stored name; direct viewer POST returns 403 and leaves the name unchanged; narrow/wide render checked; repo checks pass
+**Contract / migration:** `PATCH /projects/:id` accepts `{name}` only, validates length server-side, enforces membership plus editor role, returns 403/404 without disclosing membership; no migration — existing rows unchanged; 409 on stale revision with client reload
+**Unverified dependency:** Audit export to the client's SIEM remains unproven — endpoint unavailable in this environment; local audit row writes and is shown as pending export
+
+## Boundaries
+
+- Do not use to explore options without persistence or enforcement — use `$prototype` instead.
+- Do not use for missing-state coverage alone — use `$states` instead.
+- Do not use for visual refinement alone — use `$craft` instead.
+- Do not use to judge whether the result supports demo, pilot, or production use — use `$readiness` instead.
 
 Use `$readiness` when the result needs a release assessment. Do not publish, merge, message clients, or change account permissions solely to demonstrate completion.

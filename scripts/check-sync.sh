@@ -9,6 +9,7 @@
 #   5. plugin.json exists with a valid Agent Plugins manifest
 #   6. .claude-plugin/plugin.json exists and agrees with plugin.json (Claude Code)
 #   7. .claude-plugin/marketplace.json lists the plugin at the repo root
+#   8. .codex-plugin/plugin.json exists and agrees with plugin.json (Codex)
 #
 # Usage: ./scripts/check-sync.sh   (exit 0 = all good, 1 = problems found)
 #
@@ -183,11 +184,39 @@ if mk is not None and cc is not None:
     if mk_version != cc.get("version"):
         problems.append("marketplace.json metadata.version does not match the plugin version")
 
+# 8. Codex plugin manifest agrees with the portable manifest
+cx_path = os.path.join(root, ".codex-plugin", "plugin.json")
+try:
+    cx = json.load(open(cx_path))
+except FileNotFoundError:
+    cx = None
+    problems.append(".codex-plugin/plugin.json missing (Codex has no native plugin manifest)")
+except json.JSONDecodeError as e:
+    cx = None
+    problems.append(f".codex-plugin/plugin.json is not valid JSON: {e}")
+
+if cx is not None:
+    if cx.get("name") != "dengskills":
+        problems.append(".codex-plugin/plugin.json name is not 'dengskills'")
+    if not re.fullmatch(r"[a-z][a-z0-9]*(-[a-z0-9]+)*", cx.get("name", "")):
+        problems.append(".codex-plugin/plugin.json name is not kebab-case")
+    if not re.fullmatch(r"\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?", cx.get("version", "")):
+        problems.append(".codex-plugin/plugin.json version is not semver MAJOR.MINOR.PATCH")
+    if "$schema" in cx:
+        problems.append(".codex-plugin/plugin.json must not carry the Agent Plugins $schema")
+    for field in ("version", "homepage", "repository", "license"):
+        if plugin.get(field) != cx.get(field):
+            problems.append(f"plugin.json and .codex-plugin/plugin.json disagree on {field}")
+    if cx.get("skills") != "./skills/":
+        problems.append('.codex-plugin/plugin.json skills pointer is not "./skills/"')
+    if not (cx.get("interface") or {}).get("displayName"):
+        problems.append(".codex-plugin/plugin.json interface.displayName missing")
+
 for p in problems:
     print(p)
 sys.exit(1 if problems else 0)
 PYEOF
-check "${PY_FAIL:-0}" "skill metadata is in sync (groupings, frontmatter, evals, README, both manifests)"
+check "${PY_FAIL:-0}" "skill metadata is in sync (groupings, frontmatter, evals, README, all manifests)"
 
 if [ "${1:-}" != "--metadata-only" ] && command -v claude > /dev/null 2>&1; then
   claude plugin validate "$REPO_ROOT" --strict > /dev/null 2>&1

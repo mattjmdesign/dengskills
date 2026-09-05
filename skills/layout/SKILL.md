@@ -1,6 +1,6 @@
 ---
 name: layout
-description: "Design or revisit page shells, reading order, responsive structure, and scroll ownership using real content."
+description: "Design or revisit page shells, reading order, responsive structure, and scroll ownership using real content. Use when planning landing, dashboard, auth, or docs shells, or when responsive behavior and scroll ownership diverge."
 ---
 
 # Layout
@@ -20,6 +20,33 @@ Choose the structure that serves the user's task. Inventory actual routes, share
 
 A region map or implementation with responsive behavior, shared ownership, and acceptance checks. Do not invent testimonials, metrics, or pricing to fill a section skeleton.
 
+```markdown
+## Layout plan
+
+**Surface:**
+**Shells:**
+**Regions in reading order:**
+**Shared dimensions:**
+**Responsive behavior:**
+**Acceptance checks:**
+```
+
 Test real long labels, sparse and dense content, narrow/intermediate/wide sizes, and text enlargement. At a fixed width, compare short and long routes and open overlays for movement of persistent regions.
 
 A planning request needs a clear structure; a build request needs a rendered result. Use `$craft` when composition, typography, and visual character also need development. It is not required for a small sizing repair.
+
+## Worked example
+
+## Layout plan
+
+**Surface:** Dashboard plus public marketing site; shadcn/ui primitives already installed
+**Shells:** `MarketingLayout`, `DashboardLayout`, `AuthLayout`
+**Regions in reading order:** Dashboard: sidebar → header → main; marketing: nav → hero → proof → features → pricing → footer; auth: centered card with no nav chrome
+**Shared dimensions:** Content 1280px; sidebar 256px; header 56px; gutters 24px desktop / 16px mobile
+**Responsive behavior:** Sidebar becomes a Sheet below lg; marketing sections stack below md; tables scroll locally with shrinkable cells
+**Acceptance checks:** Long labels wrap without breaking headers; empty, loading, and error states hold shell dimensions; persistent regions do not shift when overlays open
+
+## Boundaries
+
+- Do not use when per-page content priority is undecided — use `$hierarchy` for key pages first.
+- Do not use when no token or library decision exists — use `$tokens` or the existing-library audit first.

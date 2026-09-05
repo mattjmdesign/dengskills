@@ -36,6 +36,19 @@ claude plugin marketplace add mattjmdesign/dengskills
 claude plugin install dengskills@dengskills
 ```
 
+Codex installation uses the native plugin manifest:
+
+```bash
+codex plugin marketplace add mattjmdesign/dengskills
+codex plugin add dengskills
+```
+
+Or install skills into Codex via the skills CLI:
+
+```bash
+npx skills add mattjmdesign/dengskills --agent codex
+```
+
 Use one installation method to avoid duplicate discovery. Claude plugin skill names are namespaced by the pack.
 
 ## Skills

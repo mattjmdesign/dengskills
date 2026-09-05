@@ -1,6 +1,6 @@
 ---
 name: git
-description: "Plan or refine Git collaboration, reviewable changes, worktrees, and dependency-update ownership."
+description: "Plan or refine Git collaboration, reviewable changes, worktrees, and dependency-update ownership. Use when planning branches, slicing reviewable PRs, coordinating parallel agents, or assigning lockfile ownership."
 ---
 
 # Git workflow
@@ -20,6 +20,33 @@ Keep concurrent work understandable and the integration branch usable. Read the 
 
 A compact plan naming base branch, change boundaries, shared-file ownership, checks, preview/review path, and integration order. Do not execute pushes, merges, or branch deletion merely because a planning request mentions them.
 
+```markdown
+## Git workflow plan
+
+**Base / integration branches:**
+**Change boundaries:**
+**Shared-file ownership:**
+**Checks:**
+**Preview / review path:**
+**Integration order:**
+```
+
 For a redesign, a shared token change may affect every route: review its consumers together before splitting page-specific work. A small feature may be clearest as one vertical slice.
 
 Validate that the plan preserves others' work and lets a reviewer reproduce the relevant behavior. Use `$context` only if the resulting conventions need durable documentation.
+
+## Worked example
+
+## Git workflow plan
+
+**Base / integration branches:** `main` (production) from `dev` (integration); short `feat/*` and `fix/*` branches
+**Change boundaries:** Token and component changes separate from behavior/data; content and tooling separate; small demoable work ships as one vertical slice
+**Shared-file ownership:** Design lead owns tokens during the redesign; each agent states its scope in the PR; never hand-edit `pnpm-lock.yaml`
+**Checks:** `pnpm check` plus Playwright smoke on the touched flow
+**Preview / review path:** Per-PR preview; squash merge to `dev` after human review; `dev` stays deployable
+**Integration order:** Shared token change first with consumer review, then page-specific work
+
+## Boundaries
+
+- Do not use for a solo throwaway prototype — keep git trivial with no branch or review policy.
+- Do not use to write context-file content — use `$context` for AGENTS.md or CLAUDE.md.

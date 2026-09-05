@@ -1,6 +1,6 @@
 ---
 name: prototype
-description: "Build or revise a runnable prototype for a client goal, using realistic content and explicit real/mock boundaries to learn through interaction."
+description: "Build or revise a runnable prototype for a client goal, using realistic content and explicit real/mock boundaries to learn through interaction. Use when matching fidelity to the validation question, testing a task flow, or judging layout, motion, or latency in code."
 ---
 
 # Prototype in code
@@ -25,6 +25,39 @@ Use code when real layout, content, keyboard input, motion, or latency behavior 
 
 Open the result, replay the task, and inspect narrow and wide sizes plus the relevant content or state stress. Compare it to the client's goal. Revise a high-value issue revealed by the rendered result or task replay; do not invent user research.
 
-Deliver the artifact or preview, how to try it, what is real/simulated, what the iteration taught you, and the next decision. Mark unverified behavior honestly.
+## Deliver
 
-When real people or data will use the result, do not treat the prototype label as a safety exemption. Use `$slice` to implement a real path and `$readiness` to assess the intended use. A deployment or client message requires the user's actual authorization, not merely completion of the prototype.
+State the artifact, how to try it, what is real/simulated/deferred, what the iteration taught, and the next decision. Mark unverified behavior honestly.
+
+```markdown
+## Prototype
+
+**Artifact:**
+**Try it:**
+**Real:**
+**Simulated:**
+**Deferred:**
+**What the iteration taught:**
+**Next decision:**
+```
+
+## Worked example
+
+## Prototype
+
+**Artifact:** `/prototype/crew-assign` — crew lead finds tomorrow's site assignment on a phone
+**Try it:** Open the preview, select the Crew role, search "Rivera," open the 06:00 assignment, acknowledge the shift change
+**Real:** Layout, keyboard search, acknowledge interaction, narrow/wide responsive behavior, stale-assignment banner from fixture timestamps
+**Simulated:** Roster from isolated fixtures; role switch changes the view only; acknowledge writes to local state
+**Deferred:** Auth, push notifications, offline cache, supervisor approval chain
+**What the iteration taught:** The change banner was missed below the map; moving it above the assignment card made the task recognizable in replay
+**Next decision:** Confirm the change-acknowledgement rule with operations; use `$slice` if this path now needs real persistence and enforcement
+
+## Boundaries
+
+- Do not use when the user, outcome, or scope is vague — use `$intent` first.
+- Do not use when the open question is testable behavior or acceptance rules — use `$requirements` instead.
+- Do not use when the path needs real persistence, authorization, or recovery — use `$slice` instead.
+- Do not use to judge whether a build supports demo, pilot, or production use — use `$readiness` instead.
+
+When real people or data will use the result, do not treat the prototype label as a safety exemption. A deployment or client message requires the user's actual authorization, not merely completion of the prototype.

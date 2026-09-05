@@ -1,6 +1,6 @@
 ---
 name: system
-description: "Audit or maintain existing tokens, components, and shared layouts; resolve drift with evidence and a migration path."
+description: "Audit or maintain existing tokens, components, and shared layouts; resolve drift with evidence and a migration path. Use when auditing drift, deduplicating components, fixing theme or focus gaps, or updating DESIGN.md before new UI."
 ---
 
 # Design system review
@@ -20,6 +20,51 @@ Keep a useful system coherent without treating every exception as a defect. Insp
 
 For audit: **finding → evidence → impact → suggested fix → verification**, with confirmed facts separated from hypotheses. For implementation: make scoped fixes, update consumers/docs, and recheck affected siblings.
 
+```markdown
+## System review
+
+**Sources:** token, component, layout, docs locations
+**Maturity:** ...
+
+### Drift issues
+| Issue | Evidence | Impact | Fix | Verification |
+|---|---|---|---|---|
+|  |  |  |  |  |
+
+### Priority fixes
+1. ...
+
+### Guardrails
+- ...
+```
+
 Example: two dialog wrappers may legitimately differ in destructive confirmation behavior. Consolidate their shared focus and surface treatment without erasing the distinction.
 
 Verify representative consumers across supported themes, sizes, and states. Do not claim visual improvement from source checks alone. Use `$tokens` for a missing token foundation and `$component` for one component's contract.
+
+## Worked example
+
+## System review
+
+**Sources:** Tokens in `src/styles/globals.css`; components in `src/components/ui/`; no DESIGN.md yet.
+**Maturity:** Evolving — tokens plus 40 components with no registry.
+
+### Drift issues
+| Issue | Evidence | Impact | Fix | Verification |
+|---|---|---|---|---|
+| Inline hex in feature code | `#3b82f6` twice in `features/reports` | Breaks theming | Replace with `--color-primary` | Render both themes; search for remaining hex |
+| LegacyCard duplicates Card | Two callers | Divergent behavior | Deprecate LegacyCard with migration path | Update callers; confirm no visual regression |
+| Page-specific gutters | `dashboard/settings` uses custom padding | Inconsistent rhythm | Use shell gutter `px-6` | Compare routes at fixed width |
+
+### Priority fixes
+1. Replace stray hex values
+2. Deprecate LegacyCard
+3. Align settings page gutters
+
+### Guardrails
+- Register new components in the inventory before merge; new tokens need light/dark pairs.
+
+## Boundaries
+
+- Do not use on a brand-new project with no UI yet — use `$tokens` instead.
+- Do not use when the question is one component's behavior — use `$component` instead.
