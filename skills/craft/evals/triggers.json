@@ -1,0 +1,65 @@
+{
+  "cases": [
+    {
+      "id": "repair-scanning",
+      "query": "Repair scanning on our day-scheduling screen \u2014 technicians miss reassigned shifts in the 40-row list.",
+      "should_trigger": true
+    },
+    {
+      "id": "refine-hierarchy",
+      "query": "Refine the hierarchy on this dashboard before client review while preserving intent and brand constraints.",
+      "should_trigger": true
+    },
+    {
+      "id": "responsive-audit",
+      "query": "This marketing page breaks at narrow sizes \u2014 fix the grouping, alignment, and wrapping with rendered checks.",
+      "should_trigger": true
+    },
+    {
+      "id": "keyboard-access",
+      "query": "Audit this flow for keyboard support, focus order, and contrast, then fix the blockers you find.",
+      "should_trigger": true
+    },
+    {
+      "id": "visual-critique",
+      "query": "Critique the rendered result at thumbnail and actual size and revise the highest-value residual issue.",
+      "should_trigger": true
+    },
+    {
+      "expected_skill": "layout",
+      "id": "mediocre-ui",
+      "near_miss": true,
+      "query": "Plan the dashboard shell, reading order, and scroll ownership for narrow and wide sizes \u2014 structure only, no visual treatment yet.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "tokens",
+      "id": "token-roles",
+      "near_miss": true,
+      "query": "Define just the semantic color roles and theme pairs for our foundation \u2014 tokens only, no screen work.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "component",
+      "id": "missing-states",
+      "near_miss": true,
+      "query": "Specify the props, variants, and keyboard contract for a combobox before we build it.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "states",
+      "id": "states-coverage",
+      "query": "Inventory the missing loading, empty, and error states on this screen \u2014 coverage table only, no redesign.",
+      "should_trigger": false,
+      "near_miss": false
+    },
+    {
+      "expected_skill": "readiness",
+      "id": "pilot-safety",
+      "query": "The client wants to launch Friday \u2014 judge whether this build supports pilot or production use.",
+      "should_trigger": false,
+      "near_miss": false
+    }
+  ],
+  "skill_name": "craft"
+}

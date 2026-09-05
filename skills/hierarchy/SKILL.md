@@ -48,6 +48,14 @@ Responsive priority: H1 → CTA → screenshot → steps → features.
 Move / defer / remove: Move deep-dives to a features page; remove the second hero CTA.
 Accessibility notes: single h1; h2 per section; CTA is a real link.
 
+## Gotchas
+
+- Do not choose heading levels by visual size; keep semantic order aligned with visual and keyboard sequence.
+- Do not add cards, borders, or emphasis to fix competition; regroup, reposition, and rewrite copy first.
+- Do not fabricate quotes, metrics, or capabilities to fill a thin page.
+- Do not hide essential content on narrow screens without a retrieval path.
+- Do not separate consequential actions from their consequence explanation.
+
 ## Boundaries
 
 - Do not use when region sizing or page shell is the question — use `$layout` instead.

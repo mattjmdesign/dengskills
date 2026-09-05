@@ -41,6 +41,14 @@ Assumptions: activity data is server-side and queryable by date range.
 Open questions: past 30 days — paginate or show a summary?
 Next: `$sitemap` for the app shell and dashboard routes.
 
+## Gotchas
+
+- Do not treat a hidden button as access control; require server rejection with unchanged data.
+- Do not invent endpoints or imply they exist; list undocumented contracts as unknowns.
+- Do not write "fast," "secure," or "accessible" without scoped verification criteria.
+- Do not specify UI solutions; define observable behavior and defer interaction to flow or component.
+- Do not present proposed latency or quality targets as committed guarantees.
+
 ## Boundaries
 
 - Do not use when the idea is still vague — run `$intent` first.

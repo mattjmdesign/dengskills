@@ -44,21 +44,29 @@ Use `$context` to record durable repository facts and `$git` for collaboration p
 
 ## Foundation plan
 
-**Stack assumption:** Next.js App Router, TypeScript, Tailwind v4
-**Package manager:** pnpm
-**Deploy target:** Vercel
-**Structure:** `src/app/` routes; `src/components/ui/` primitives; `src/components/features/` per feature; `src/lib/` data and validation; `src/styles/globals.css` tokens
-**Commands:** `pnpm install`, `pnpm dev`, `pnpm check` (Biome), `pnpm test` (Vitest)
-**Env:** `.env.example` checked in; `env.ts` validates with zod at startup; secrets stay server-side
-**Tokens / data / checks:** Tokens in `src/styles/globals.css`; data hooks in `src/lib/data/`; `pnpm check` before PRs
+**Stack assumption:** Detected Vue 3 + Vite from manifest; preserved
+**Package manager:** Detected npm from lockfile; preserved
+**Deploy target:** Detected host from repo config; preserved
+**Structure:** `app/` routes; `ui/` primitives; `features/` per feature; `lib/` data and validation; existing token file preserved
+**Commands:** Detected install, dev, check, test from manifest; no new tooling added
+**Env:** `.env.example` checked in; server-side validation module; secrets stay server-side
+**Tokens / data / checks:** Reuse detected token file; data in `lib/data/`; detected check before PRs
 
 ### Setup sequence
-1. Scaffold app + layout
-2. Add Biome + strict TS
-3. Add env example + validation
-4. Create token globals
-5. Build first primitive + test
-6. Record facts with `$context`
+1. Record detected stack and commands
+2. Repair missing env example
+3. Reuse token source
+4. Build first slice + check
+5. Record facts with `$context`
+
+## Gotchas
+
+- Repair the detected foundation; do not propose a new stack when the task is foundation repair.
+- Verify runtime, package manager, and commands from manifests and lockfiles; do not invent tooling.
+- Preserve existing conventions and user edits; change only the implicated foundation.
+- Place code near its owner; do not create empty folders for hypothetical scale.
+- Keep secrets server-side; do not import secret-bearing env objects into browser code.
+- Reuse one token source and existing primitives; do not add a second system without need.
 
 ## Boundaries
 

@@ -73,6 +73,14 @@ Next.js 16 App Router dashboard for a construction scheduling client. pnpm.
 ## Agent guardrails
 - Ask before refactoring; never edit `pnpm-lock.yaml`; state assumptions in the PR description
 
+## Gotchas
+
+- Verify every command and path in the workspace; do not invent commands or components.
+- Keep one authoritative home per rule; do not duplicate guidance across files.
+- Record durable conventions only; do not embed task plans or full manuals.
+- Mark unknowns as assumptions; do not present unverified tooling as fact.
+- Match the client and file format in use; do not claim every client loads every filename.
+
 ## Boundaries
 
 - Do not use when repository conventions do not exist yet — use `$setup` first to establish structure, commands, and env strategy.

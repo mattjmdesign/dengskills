@@ -50,6 +50,14 @@ Data/permission contract: POST /api/projects requires auth; validate name and te
 V1 scope: defer templates and bulk import.
 Open questions: auto-invite team members on create?
 
+## Gotchas
+
+- Do not offer blind retry after an unknown write outcome; check the result or require idempotency first.
+- Do not treat a disabled button as duplicate-write protection.
+- Do not persist sensitive drafts in localStorage by default; match lifetime to shared-device risk.
+- Do not enumerate unreachable states; cover relevant validation, auth, timeout, conflict, cancel, session, and back branches.
+- Do not collapse pending, committed, rejected, and outcome-unknown into one generic error.
+
 ## Boundaries
 
 - Do not use when page or route structure is the question — use `$sitemap` instead.

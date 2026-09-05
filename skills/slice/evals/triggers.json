@@ -1,0 +1,65 @@
+{
+  "cases": [
+    {
+      "id": "harden-rename",
+      "query": "Add project renaming to this client app \u2014 editors may rename, viewers may not, and the name must survive reload with server enforcement.",
+      "should_trigger": true
+    },
+    {
+      "id": "duplicate-retry",
+      "query": "Our create-project request times out and retry makes duplicates \u2014 fix the write so one logical operation can't have duplicate effects.",
+      "should_trigger": true
+    },
+    {
+      "id": "persisted-flow",
+      "query": "Take this intake flow from fixtures to a real end-to-end slice with validation, scoped persistence, and verified recovery.",
+      "should_trigger": true
+    },
+    {
+      "id": "authz-scope",
+      "query": "Wire this viewer and editor flow through with organization-scoped authorization checks on every mutation.",
+      "should_trigger": true
+    },
+    {
+      "id": "blocked-service",
+      "query": "Connect this prototype to our scheduling API and name exactly what blocks end-to-end proof if the service is unreachable.",
+      "should_trigger": true
+    },
+    {
+      "expected_skill": "prototype",
+      "id": "mock-to-real",
+      "near_miss": true,
+      "query": "Build a quick clickable mock of the assignment flow with fixtures for tomorrow's review \u2014 no backend yet, just something we can try.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "readiness",
+      "id": "pilot-safety",
+      "near_miss": true,
+      "query": "The preview looks done and the client wants to launch Friday \u2014 judge whether this supports pilot or production use.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "states",
+      "id": "missing-states",
+      "near_miss": true,
+      "query": "List the missing loading, empty, and error states on this project list \u2014 coverage only, no code changes yet.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "craft",
+      "id": "mediocre-ui",
+      "query": "This dashboard looks mediocre \u2014 improve the composition, hierarchy, and polish before the demo.",
+      "should_trigger": false,
+      "near_miss": false
+    },
+    {
+      "expected_skill": "tokens",
+      "id": "token-drift",
+      "query": "Define the semantic color roles and spacing scales for our new dashboard foundation.",
+      "should_trigger": false,
+      "near_miss": false
+    }
+  ],
+  "skill_name": "slice"
+}

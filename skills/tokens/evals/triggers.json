@@ -1,0 +1,65 @@
+{
+  "cases": [
+    {
+      "id": "new-foundation",
+      "query": "Set up the initial token foundation for our new dashboard \u2014 semantic color roles, theme pairs, and type and spacing scales.",
+      "should_trigger": true
+    },
+    {
+      "id": "multiplying-colors",
+      "query": "Our colors and spacing are multiplying across screens \u2014 give them a shared home with clear roles.",
+      "should_trigger": true
+    },
+    {
+      "id": "theme-pairs",
+      "query": "Define the surface, action, border, focus, and status roles with verified pairs for the themes we actually ship.",
+      "should_trigger": true
+    },
+    {
+      "id": "extend-system",
+      "query": "Extend our token system with the missing status pairs and show one primitive and one screen consuming them.",
+      "should_trigger": true
+    },
+    {
+      "id": "figma-to-code",
+      "query": "Plan a token foundation that maps cleanly from Figma variables to code without duplicating the system.",
+      "should_trigger": true
+    },
+    {
+      "expected_skill": "system",
+      "id": "token-drift",
+      "near_miss": true,
+      "query": "Audit our existing tokens and components for drift and propose a migration that keeps consumers working.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "system",
+      "id": "dedupe-components",
+      "near_miss": true,
+      "query": "We have three button variants drifting apart \u2014 deduplicate them against the existing system with evidence.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "system",
+      "id": "theme-focus-gaps",
+      "near_miss": true,
+      "query": "Our dark theme and focus states diverged from the spec \u2014 review the gaps without replacing the whole system.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "layout",
+      "id": "mediocre-ui",
+      "query": "Plan the landing page shell, reading order, and scroll ownership for narrow and wide sizes.",
+      "should_trigger": false,
+      "near_miss": false
+    },
+    {
+      "expected_skill": "craft",
+      "id": "visual-polish",
+      "query": "This dashboard looks flat \u2014 refine the composition and visual treatment before review.",
+      "should_trigger": false,
+      "near_miss": false
+    }
+  ],
+  "skill_name": "tokens"
+}

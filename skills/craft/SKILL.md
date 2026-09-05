@@ -83,6 +83,15 @@ Completion requires the intended task to work, the requested visual improvement 
 
 Repair scanning on a day-scheduling screen: technicians missed reassigned shifts in a 40-row list. Left-align start times in a fixed-width slot, place the change badge above the assignment title, keep row actions in a fixed trailing slot, and preserve DOM and focus order. Check narrow/wide renders, keyboard traversal, and text enlargement. Remaining gap: filter no-results copy still needs operations approval.
 
+## Gotchas
+
+- Verify actual foreground/background pairs; a semantic token name does not guarantee contrast.
+- Treat a pending response as unconfirmed; it is not proof of a failed write — respect the server contract on retry.
+- Confirm stable client routing by checking the runtime stays attached in the same document; a full reload is not evidence.
+- Do not hide page overflow or truncate essential content to disguise a sizing defect.
+- Keep DOM, reading, and focus order aligned; do not reorder visually without reordering semantically.
+- Treat scanner output as candidates, not confirmed defects; do not fabricate evidence to satisfy a scorecard.
+
 ## Boundaries
 
 - Do not use when the question is page shells, reading order, or responsive structure only — use `$layout` instead.

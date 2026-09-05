@@ -48,6 +48,14 @@ Check that someone could use the brief to reject an attractive but irrelevant sc
 **Acceptance check:** A crew member finds tomorrow's site and recognizes a last-minute change; offline access is a resolved requirement, not an assumed feature.
 **Next artifact:** `$requirements` for the assignment workflow.
 
+## Gotchas
+
+- Do not list screens when the brief needs one complete job from entry to result.
+- Do not replace user-requested features with preferred alternatives without explaining tradeoffs.
+- Do not demand a full interview before a well-specified implementation task; proceed with labeled assumptions.
+- Do not invent research numbers or success targets in the acceptance check.
+- Do not reframe the product after a slice exists; compare running work to the brief instead.
+
 ## Boundaries
 
 - Do not use when intent is clear and the question is build polish — use `$prototype` instead.

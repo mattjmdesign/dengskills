@@ -45,6 +45,14 @@ Do not scaffold or migrate a project when the request only asks for advice. Use 
 **Uncertainty:** Dashboard interactivity may outgrow server rendering; run a small client-island spike if canvas editing appears.
 **Revisit if:** The dashboard becomes a canvas-heavy tool where instant HMR and a custom runtime matter more than SEO.
 
+## Gotchas
+
+- Advise only when asked; do not scaffold or migrate without authorization.
+- Inspect the existing repository before proposing replacement; account for migration cost and maintainer knowledge.
+- Separate browser UI, server/API, database, and deployment decisions; do not let one framework dictate all four.
+- Verify version-sensitive claims in current official docs; do not justify by popularity or universal performance.
+- State the hardest tradeoff and revisit trigger; do not present the recommendation as unconditional.
+
 ## Boundaries
 
 - Do not use when product intent or requirements are unresolved — clarify with `$intent` or `$requirements` first; a stack choice without them is speculative.

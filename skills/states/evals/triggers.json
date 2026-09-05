@@ -1,0 +1,65 @@
+{
+  "cases": [
+    {
+      "id": "project-list-gaps",
+      "query": "Inventory the gap states for our project list with filters and create action \u2014 loading, empty, errors, and retry.",
+      "should_trigger": true
+    },
+    {
+      "id": "delete-recovery",
+      "query": "Check states for deleting a client record \u2014 what confirms, what recovers, and what happens on failure?",
+      "should_trigger": true
+    },
+    {
+      "id": "offline-timeout",
+      "query": "Our form times out on save and retry sometimes duplicates \u2014 specify the recovery that keeps input safe.",
+      "should_trigger": true
+    },
+    {
+      "id": "permission-session",
+      "query": "What do viewers see on admin settings, and what happens when the session expires mid-task?",
+      "should_trigger": true
+    },
+    {
+      "id": "refresh-partial",
+      "query": "Review this dashboard for stale refresh, partial data, and failed loads \u2014 name the trigger and recovery for each gap.",
+      "should_trigger": true
+    },
+    {
+      "expected_skill": "component",
+      "id": "missing-states",
+      "near_miss": true,
+      "query": "Define the props, variants, and acceptance criteria for a reusable empty-state component before we build it.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "flow",
+      "id": "flow-unknown",
+      "near_miss": true,
+      "query": "Map the entry-to-outcome steps for project creation \u2014 we don't know the flow yet, just the screens.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "readiness",
+      "id": "pilot-safety",
+      "near_miss": true,
+      "query": "Client wants to pilot with real users Friday \u2014 judge whether this build is safe for pilot use.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "slice",
+      "id": "harden-flow",
+      "query": "Harden this intake flow with real persistence, scoped authorization, and reload-proof writes.",
+      "should_trigger": false,
+      "near_miss": false
+    },
+    {
+      "expected_skill": "craft",
+      "id": "mediocre-ui",
+      "query": "This list looks mediocre \u2014 refine the visual hierarchy and polish before review.",
+      "should_trigger": false,
+      "near_miss": false
+    }
+  ],
+  "skill_name": "states"
+}

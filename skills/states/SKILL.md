@@ -57,6 +57,15 @@ Check that errors stay visible where action is needed, pending work is distingui
 - Refresh error: "We couldn't refresh your projects. Data from 09:41." — action "Try again"
 - Empty: "No projects yet — create your first one."
 
+## Gotchas
+
+- Give never-created empty and filtered no-results different copy and recovery; one explains how to start, the other how to adjust the filter.
+- Give rejected writes and unknown outcomes different recovery; retry only when the contract makes it safe.
+- Separate initial loading from refresh; keep stale data visible with a retry instead of replacing it with a spinner.
+- Distinguish missing optional data from failed data; do not show an error where there is simply nothing.
+- Preserve user input across failure and retry; do not clear a form to display an error.
+- Reproduce states with safe test data; do not claim a state was observed without rendering it.
+
 ## Boundaries
 
 - Do not use when the component contract is undefined — use `$component` first.

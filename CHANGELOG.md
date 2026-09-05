@@ -1,5 +1,18 @@
 # Changelog
 
+## v3.0.0 (unreleased — Phase 1 hardening)
+
+- [x] Deterministic repo validator (`scripts/validate-repo.py`) with `check-sync.sh` as thin wrapper
+- [x] Static security scan (`scripts/audit-security.py`) + `validate.yml` / `security.yml` CI
+- [x] Example-leakage fixes: `$setup`, `$git`, `$layout`, `$tokens` worked examples are evidence-bound
+- [x] `## Gotchas` sections across all 18 skills (bodies stay lean: max 806 words outside `$craft`)
+- [x] `evals/triggers.json` routing data for all 18 skills (10 cases each; runner deferred)
+- [x] `docs/SKILL-AUTHORING.md` canonical model
+- [x] `allow_implicit_invocation` explicit in all 18 `agents/openai.yaml`
+- [ ] Trigger runner + confusion matrix (needs model runs — deferred)
+- [ ] Execution fixtures + graders for `$craft` / `$slice` / `$context` (deferred)
+- [ ] Baseline benchmark vs v2.1.0 (deferred)
+
 ## v2.1.0 — Skill depth and Codex plugin
 
 - Restored worked examples, output templates, and use-instead routing guardrails across all 18 skills, with trigger phrases in every description. Bodies stay lean (400–700 words); variant detail remains in references.

@@ -1,0 +1,65 @@
+{
+  "cases": [
+    {
+      "id": "crew-runnable",
+      "query": "Build a runnable crew scheduling prototype for tomorrow's client review using fixtures \u2014 a foreman assigns a crew and a member finds tomorrow's site.",
+      "should_trigger": true
+    },
+    {
+      "id": "fidelity-question",
+      "query": "We need to judge layout and motion for the assignment flow \u2014 should this be code or is a clickable mock enough for the question?",
+      "should_trigger": true
+    },
+    {
+      "id": "task-flow-replay",
+      "query": "Make the invite flow experienceable end to end with realistic content, including the pending and failure states we need to judge.",
+      "should_trigger": true
+    },
+    {
+      "id": "revise-against-goal",
+      "query": "This prototype confuses pending invites with delivered ones \u2014 revise it against the original goal and replay the task.",
+      "should_trigger": true
+    },
+    {
+      "id": "honest-boundaries",
+      "query": "Put our scheduling idea in code with clear real, simulated, and deferred boundaries so we can learn from interaction.",
+      "should_trigger": true
+    },
+    {
+      "expected_skill": "slice",
+      "id": "mock-to-real",
+      "near_miss": true,
+      "query": "This prototype path works with fixtures \u2014 harden it with real persistence, server-side permission checks, and reload-proof recovery.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "readiness",
+      "id": "pilot-safety",
+      "near_miss": true,
+      "query": "The client saw the preview and wants to pilot with real data Friday \u2014 can we call this pilot-safe?",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "craft",
+      "id": "mediocre-ui",
+      "near_miss": true,
+      "query": "This dense scheduling screen is hard to scan \u2014 refine the hierarchy and visual treatment before review.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "states",
+      "id": "missing-states",
+      "query": "Audit this project list for missing loading, empty, and error states and specify the recovery for each.",
+      "should_trigger": false,
+      "near_miss": false
+    },
+    {
+      "expected_skill": "tokens",
+      "id": "token-foundation",
+      "query": "Set up the initial semantic color roles and type and spacing scales for our new dashboard.",
+      "should_trigger": false,
+      "near_miss": false
+    }
+  ],
+  "skill_name": "prototype"
+}

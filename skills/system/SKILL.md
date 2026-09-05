@@ -64,6 +64,14 @@ Verify representative consumers across supported themes, sizes, and states. Do n
 ### Guardrails
 - Register new components in the inventory before merge; new tokens need light/dark pairs.
 
+## Gotchas
+
+- Inspect actual consumers and docs first; do not treat every exception as drift.
+- Separate evidence from hypotheses; do not claim visual improvement from source checks alone.
+- Prioritize by user consequence and spread; fix broken keyboard paths before minor color variance.
+- Decide reuse, extension, or new component per change; do not silently rewrite or duplicate registries.
+- Retire APIs only with a migration route; record durable conventions in existing guidance.
+
 ## Boundaries
 
 - Do not use on a brand-new project with no UI yet — use `$tokens` instead.

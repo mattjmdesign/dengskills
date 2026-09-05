@@ -39,12 +39,20 @@ A planning request needs a clear structure; a build request needs a rendered res
 
 ## Layout plan
 
-**Surface:** Dashboard plus public marketing site; shadcn/ui primitives already installed
-**Shells:** `MarketingLayout`, `DashboardLayout`, `AuthLayout`
-**Regions in reading order:** Dashboard: sidebar → header → main; marketing: nav → hero → proof → features → pricing → footer; auth: centered card with no nav chrome
-**Shared dimensions:** Content 1280px; sidebar 256px; header 56px; gutters 24px desktop / 16px mobile
-**Responsive behavior:** Sidebar becomes a Sheet below lg; marketing sections stack below md; tables scroll locally with shrinkable cells
-**Acceptance checks:** Long labels wrap without breaking headers; empty, loading, and error states hold shell dimensions; persistent regions do not shift when overlays open
+**Surface:** Dashboard plus public site; detected primitives reused, no new shell library
+**Shells:** Detected marketing, dashboard, and auth preserved; no new shell added
+**Regions in reading order:** Dashboard: nav → header → main; marketing: nav → hero → proof → features → footer; auth: centered card with no chrome
+**Shared dimensions:** Reuse detected shell tokens; limits set from actual table width and longest labels
+**Responsive behavior:** Nav becomes drawer at narrow widths from content pressure; sections stack; tables scroll locally with shrinkable cells
+**Acceptance checks:** Long labels wrap without breaking headers; empty and error states hold shell size; persistent regions do not shift when overlays open
+
+## Gotchas
+
+- Inventory real routes, tokens, and primitives first; do not create a new shell without a repeated relationship.
+- Derive limits from actual content; do not hardcode shared dimensions in multiple places.
+- Map regions in reading order with scroll ownership; do not hide page overflow to conceal a sizing defect.
+- Define narrow-screen behavior by content pressure; do not apply one template to reading, comparison, and workspace surfaces.
+- Use real labels and empty/loading/error states for checks; do not invent testimonials or metrics to fill sections.
 
 ## Boundaries
 

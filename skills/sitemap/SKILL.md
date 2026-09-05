@@ -46,6 +46,14 @@ Conventions: lowercase kebab-case; collections as routes; shareable view state i
 Access: dashboard requires login; admin requires admin role; enforce with server checks on `/projects/:id`, not hidden links.
 Migration/unknowns: preserve existing marketing URLs; confirm "Projects" vs "Jobs" vocabulary before locking URLs; reserve `/reports` and `/api-keys` without building them.
 
+## Gotchas
+
+- Do not treat route groups or hidden links as authorization boundaries; require server checks on direct requests.
+- Do not place credentials, personal input, or private drafts in URL parameters.
+- Do not mirror database tables as navigation; start from vocabulary, frequency, and task relationships.
+- Do not invent future routes without a current reason; reserve names without building them.
+- Do not redirect to unvalidated return URLs; validate destinations before redirecting after login.
+
 ## Boundaries
 
 - Do not use when the question is one task sequence — use `$flow` instead.

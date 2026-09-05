@@ -80,6 +80,15 @@ Do not publish, message stakeholders, alter permissions, or claim compliance as 
 ### Next artifact
 `$states` on dashboard and project list; then a written client note on pilot limits.
 
+## Gotchas
+
+- Let one blocker decide the level; do not average a fail away across passing areas.
+- Treat login as identity only; it proves nothing about authorization — verify server enforcement on every consequential action.
+- Treat hidden UI as no enforcement; probe the endpoint directly as an unauthorized identity.
+- Record accepted risk only with a named authorized person and revisit signal; otherwise log a proposed deferral with owner.
+- Remember rollback leaves stored changes and external effects in place; name the recovery decision explicitly.
+- Stay inside the review scope; do not publish, message stakeholders, or claim compliance as a side effect.
+
 ## Boundaries
 
 - Do not use when nothing is runnable — use `$slice` to build one real path first.

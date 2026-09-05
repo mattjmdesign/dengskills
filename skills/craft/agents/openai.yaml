@@ -2,3 +2,5 @@ interface:
   display_name: "Craft Interfaces"
   short_description: "Elevate interface design and verify UI quality"
   default_prompt: "Use $craft to elevate this interface through professional design authorship, responsive resilience, accessibility, and rendered verification."
+policy:
+  allow_implicit_invocation: true

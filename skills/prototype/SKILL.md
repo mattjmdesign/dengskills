@@ -53,6 +53,14 @@ State the artifact, how to try it, what is real/simulated/deferred, what the ite
 **What the iteration taught:** The change banner was missed below the map; moving it above the assignment card made the task recognizable in replay
 **Next decision:** Confirm the change-acknowledgement rule with operations; use `$slice` if this path now needs real persistence and enforcement
 
+## Gotchas
+
+- Treat a role switch or local save as a demo of experience, not proof of authorization or persistence.
+- Keep fixtures isolated from live data; do not invent customers, metrics, or capabilities.
+- Complete one task through its outcome; do not present disconnected screens as a validated flow.
+- Label real, simulated, and deferred behavior explicitly; do not let a working surface imply backend readiness.
+- Replay the rendered result at narrow and wide sizes; do not judge the iteration from source alone.
+
 ## Boundaries
 
 - Do not use when the user, outcome, or scope is vague — use `$intent` first.

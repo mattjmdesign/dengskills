@@ -1,0 +1,65 @@
+{
+  "cases": [
+    {
+      "id": "launch-judgment",
+      "query": "Our client saw the preview and wants to launch Friday \u2014 review whether this dashboard is actually production-ready.",
+      "should_trigger": true
+    },
+    {
+      "id": "pilot-data",
+      "query": "We want a five-user pilot on real data \u2014 assess the blocking risks for that use, not just polish.",
+      "should_trigger": true
+    },
+    {
+      "id": "hidden-permissions",
+      "query": "Admin settings are just hidden from the nav \u2014 are we actually safe on permissions for a pilot?",
+      "should_trigger": true
+    },
+    {
+      "id": "supported-use",
+      "query": "Name the supported use for this preview \u2014 demo, pilot, or production \u2014 with must-fix items for the next level.",
+      "should_trigger": true
+    },
+    {
+      "id": "accepted-risk",
+      "query": "Review this build for pilot readiness and separate must-fix blockers from risks we could explicitly accept.",
+      "should_trigger": true
+    },
+    {
+      "expected_skill": "slice",
+      "id": "pilot-safety",
+      "near_miss": true,
+      "query": "Implement the delete path with server-side permission checks and reload-proof persistence.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "states",
+      "id": "missing-states",
+      "near_miss": true,
+      "query": "Inventory the missing empty and error states on the dashboard \u2014 coverage only, no release judgment.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "system",
+      "id": "token-drift",
+      "near_miss": true,
+      "query": "Audit our tokens and components for drift and propose a migration \u2014 no launch decision needed.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "craft",
+      "id": "mediocre-ui",
+      "query": "This dashboard looks rough \u2014 refine the composition and visual polish before the demo.",
+      "should_trigger": false,
+      "near_miss": false
+    },
+    {
+      "expected_skill": "prototype",
+      "id": "mock-prototype",
+      "query": "Build a clickable mock of the new onboarding flow with fixtures so we can try it tomorrow.",
+      "should_trigger": false,
+      "near_miss": false
+    }
+  ],
+  "skill_name": "readiness"
+}

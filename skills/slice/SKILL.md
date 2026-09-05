@@ -51,6 +51,15 @@ State the working change, evidence, contract/migration notes, and any operationa
 **Contract / migration:** `PATCH /projects/:id` accepts `{name}` only, validates length server-side, enforces membership plus editor role, returns 403/404 without disclosing membership; no migration — existing rows unchanged; 409 on stale revision with client reload
 **Unverified dependency:** Audit export to the client's SIEM remains unproven — endpoint unavailable in this environment; local audit row writes and is shown as pending export
 
+## Gotchas
+
+- Treat authentication as identity only; it proves nothing about authorization or scope — enforce both on the server.
+- Use the service's idempotency or reconciliation mechanism for repeated writes; a disabled submit button is not duplicate protection.
+- Do not trust a submitted organization ID as membership evidence; check membership server-side.
+- Distinguish accepted background work from completed work; do not report pending as done.
+- Remember an application rollback does not reverse stored changes or external effects; plan recovery accordingly.
+- Keep secrets and raw sensitive payloads out of logs and diagnostics.
+
 ## Boundaries
 
 - Do not use to explore options without persistence or enforcement — use `$prototype` instead.

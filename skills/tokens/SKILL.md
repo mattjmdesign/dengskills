@@ -40,11 +40,19 @@ Check text enlargement, focus visibility, and theme transitions in context. Avoi
 ## Token foundation
 
 **Source:** `src/styles/globals.css` (`@theme inline`)
-**Roles:** `--color-background` / `--color-foreground`; `--color-muted` / `--color-muted-foreground`; `--color-border`, `--color-ring`; `--color-primary` / `--color-primary-foreground`; `--color-destructive`, `--color-success`, `--color-warning`
-**Type / spacing / radius:** `--font-sans` (Inter), `--font-mono` (JetBrains Mono); 4px scale 4/8/12/16/24/32/48; `--radius-md: 8px`; 2px focus ring
-**Themes:** Light `:root` plus `.dark` overrides for every semantic role; verify each foreground/background pair, do not invert mechanically
-**Usage:** Button consumes `--color-primary` pair; dashboard card consumes `--color-card` pair with `--radius-md` and `--shadow-card`
-**Checks:** AA contrast per pair in both themes; focus ring visible on Button; 200% text enlargement without clipping
+**Detected:** body `--font-sans` (current stack); mono `--font-mono` (current); spacing scale in use; radius in use; existing surface/action/border/focus roles
+**Preserve:** keep detected type, spacing, radius, and theme pairs unchanged; reuse format and naming
+**Change (justified):** add only the missing status pair the task requires; no new type or radius scales
+**Usage:** Button consumes the detected action pair; dashboard card consumes the detected surface pair with the existing radius
+**Checks:** measured contrast per pair in shipped themes; focus visible; text enlargement without clipping
+
+## Gotchas
+
+- Verify actual foreground/background pairs in every supported theme; a token name does not prove contrast.
+- Treat OKLCH as a perceptual adjustment tool only; it does not prove contrast — measure each pair.
+- Reuse the current format and naming; inspect consumers before adding a role.
+- Verify each theme pair directly; do not mechanically invert light values for dark.
+- Mint a token only for genuine repetition; a one-off measured dimension stays a literal.
 
 ## Boundaries
 

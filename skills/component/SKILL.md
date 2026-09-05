@@ -52,6 +52,14 @@ Verify behavior in its real parent, including long content and keyboard interact
 **Tokens / responsive:** Uses `--color-success`, `--color-warning`, `--color-muted`, `--color-primary` pairs; no raw hex.
 **Acceptance:** All four statuses render correct label and colors; passes contrast in both themes; holds layout in a 320px container.
 
+## Gotchas
+
+- Do not combine contradictory booleans for state; prefer one explicit state value.
+- Do not truncate essential status labels without an equivalent accessible path.
+- Do not embed domain status mapping in a primitive; keep it in feature code.
+- Do not create a duplicate before inspecting existing components, callers, and system inventory.
+- Do not assign server authorization or persistence to the component contract.
+
 ## Boundaries
 
 - Do not use when the product has no tokens yet — use `$tokens` first.

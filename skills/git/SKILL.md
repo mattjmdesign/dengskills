@@ -39,12 +39,21 @@ Validate that the plan preserves others' work and lets a reviewer reproduce the 
 
 ## Git workflow plan
 
-**Base / integration branches:** `main` (production) from `dev` (integration); short `feat/*` and `fix/*` branches
-**Change boundaries:** Token and component changes separate from behavior/data; content and tooling separate; small demoable work ships as one vertical slice
-**Shared-file ownership:** Design lead owns tokens during the redesign; each agent states its scope in the PR; never hand-edit `pnpm-lock.yaml`
-**Checks:** `pnpm check` plus Playwright smoke on the touched flow
-**Preview / review path:** Per-PR preview; squash merge to `dev` after human review; `dev` stays deployable
+**Base / integration branches:** Detected from repo policy; preserved, no new long-lived branch proposed
+**Change boundaries:** Token change separate from behavior/data; small demoable work ships as one short-lived change
+**Shared-file ownership:** Design lead owns tokens during redesign; each agent states scope in review; regenerate lockfile via package manager
+**Checks:** Detected lint plus smoke on touched flow
+**Preview / review path:** Per-change preview; merge after human review; integration branch stays deployable
 **Integration order:** Shared token change first with consumer review, then page-specific work
+
+## Gotchas
+
+- Read the repo branch and release policy first; do not assume a long-lived dev branch is required.
+- Prefer short-lived changes around reviewable outcomes; do not prescribe fixed branch names.
+- Plan only; do not push, merge, or delete branches on a planning request.
+- Update lockfiles through the package manager; do not hand-edit hashes.
+- State shared-file ownership explicitly; do not treat coordination notes as file locks.
+- Follow established merge and approval rules; do not invent blanket rebase or approval bans.
 
 ## Boundaries
 
