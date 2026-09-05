@@ -1,7 +1,7 @@
 interface:
   display_name: "Requirements"
   short_description: "Turn product intent into testable requirements"
-  brand_color: "#2563EB"
+  brand_color: "#B45309"
   default_prompt: "Use $requirements to turn this product brief into frontend requirements."
 
 policy:

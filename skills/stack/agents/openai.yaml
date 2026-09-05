@@ -1,7 +1,7 @@
 interface:
   display_name: "Stack fit"
-  short_description: "Choose a frontend framework from product needs"
-  brand_color: "#2563EB"
+  short_description: "Choose the technical path from product constraints"
+  brand_color: "#B45309"
   default_prompt: "Use $stack to choose the right frontend framework for this product concept."
 
 policy:

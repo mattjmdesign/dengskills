@@ -1,5 +1,6 @@
 interface:
   display_name: "Craft Interfaces"
+  brand_color: "#B45309"
   short_description: "Elevate interface design and verify UI quality"
   default_prompt: "Use $craft to elevate this interface through professional design authorship, responsive resilience, accessibility, and rendered verification."
 policy:

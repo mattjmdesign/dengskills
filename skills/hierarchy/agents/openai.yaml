@@ -1,7 +1,7 @@
 interface:
   display_name: "Content hierarchy"
   short_description: "Prioritize page content and actions"
-  brand_color: "#2563EB"
+  brand_color: "#B45309"
   default_prompt: "Use $hierarchy to define the hierarchy for this page or screen."
 
 policy:

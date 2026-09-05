@@ -1,5 +1,6 @@
 interface:
   display_name: "Build a real slice"
+  brand_color: "#B45309"
   short_description: "Connect one workflow from UI to real persistence"
   default_prompt: "Use $slice to implement this workflow through the existing UI, server permissions, persistence, recovery, and verification."
 policy:

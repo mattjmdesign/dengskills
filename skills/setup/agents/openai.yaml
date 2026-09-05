@@ -1,7 +1,7 @@
 interface:
   display_name: "Project setup"
   short_description: "Plan repo structure, tooling, and standards"
-  brand_color: "#2563EB"
+  brand_color: "#B45309"
   default_prompt: "Use $setup to plan the repository foundation for this product-grade prototype."
 
 policy:

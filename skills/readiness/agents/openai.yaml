@@ -1,7 +1,7 @@
 interface:
   display_name: "Release readiness"
-  short_description: "Score a live slice: demo, pilot, or production"
-  brand_color: "#2563EB"
+  short_description: "Assess whether a preview is safe for its intended use"
+  brand_color: "#B45309"
   default_prompt: "Use $readiness on this preview and tell me if it is a demo, a pilot, or production."
 
 policy:

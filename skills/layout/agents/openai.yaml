@@ -1,7 +1,7 @@
 interface:
   display_name: "Layout"
   short_description: "Plan skeletons, shells, dimensions, and primitives"
-  brand_color: "#111827"
+  brand_color: "#B45309"
   default_prompt: "Use $layout to plan the layout skeleton and component system before building pages."
 
 policy:

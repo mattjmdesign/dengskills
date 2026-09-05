@@ -1,7 +1,7 @@
 interface:
   display_name: "Git workflow"
   short_description: "Plan branches, PR slices, and agent-safe git"
-  brand_color: "#2563EB"
+  brand_color: "#B45309"
   default_prompt: "Use $git to define a branch and PR workflow for this team or redesign."
 
 policy:

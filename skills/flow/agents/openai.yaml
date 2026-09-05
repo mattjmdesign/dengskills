@@ -1,7 +1,7 @@
 interface:
   display_name: "User flow"
   short_description: "Map happy paths and edge-case branches"
-  brand_color: "#2563EB"
+  brand_color: "#B45309"
   default_prompt: "Use $flow to map the user flow for this feature or task."
 
 policy:

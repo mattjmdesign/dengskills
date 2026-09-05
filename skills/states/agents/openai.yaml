@@ -1,7 +1,7 @@
 interface:
   display_name: "State coverage"
   short_description: "Find missing loading, error, and edge states"
-  brand_color: "#2563EB"
+  brand_color: "#B45309"
   default_prompt: "Use $states to identify missing gap states for this screen or feature."
 
 policy:

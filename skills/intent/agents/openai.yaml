@@ -1,7 +1,7 @@
 interface:
   display_name: "Product intent"
   short_description: "Clarify vague product ideas before build"
-  brand_color: "#2563EB"
+  brand_color: "#B45309"
   default_prompt: "Use $intent to turn this rough app idea into a buildable product intent brief."
 
 policy:

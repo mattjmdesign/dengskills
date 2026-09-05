@@ -1,5 +1,6 @@
 interface:
   display_name: "Prototype in code"
+  brand_color: "#B45309"
   short_description: "Build a client idea into a runnable prototype"
   default_prompt: "Use $prototype to make this client goal into a runnable prototype, then review and refine it with clear real/mock boundaries."
 policy:

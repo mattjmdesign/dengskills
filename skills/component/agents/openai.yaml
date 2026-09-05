@@ -1,7 +1,7 @@
 interface:
   display_name: "Component contract"
   short_description: "Specify component API, states, and a11y"
-  brand_color: "#2563EB"
+  brand_color: "#B45309"
   default_prompt: "Use $component to write a component specification before implementation."
 
 policy:

@@ -1,7 +1,7 @@
 interface:
   display_name: "Agent context"
   short_description: "Create repo instructions for coding agents"
-  brand_color: "#2563EB"
+  brand_color: "#B45309"
   default_prompt: "Use $context to draft an AGENTS.md for this repository."
 
 policy:
