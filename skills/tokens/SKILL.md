@@ -53,6 +53,7 @@ Check text enlargement, focus visibility, and theme transitions in context. Avoi
 - Reuse the current format and naming; inspect consumers before adding a role.
 - Verify each theme pair directly; do not mechanically invert light values for dark.
 - Mint a token only for genuine repetition; a one-off measured dimension stays a literal.
+- Publish the exact token and class names agents may use; an undocumented system gets reinvented from description alone.
 
 ## Boundaries
 

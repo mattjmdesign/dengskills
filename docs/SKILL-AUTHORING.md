@@ -31,6 +31,31 @@ Every sentence must pass: **would a competent agent likely get this
 wrong without us saying it?** If not, remove it. Over-comprehensive
 skills degrade performance by competing for model attention.
 
+## Prove guidance with the eval loop
+
+Every line of guidance earns its place through observed failure:
+
+1. **Baseline first.** Freeze a realistic prompt with fixed inputs and
+   render settings. Generate once without the new guidance and keep
+   the output, however rough.
+2. **Run a matched comparison.** Same prompt, inputs, model, and
+   viewport with the guidance loaded. Score both blind against a
+   short rubric: did the facts survive, is the reader's decision
+   clear, is the recurring correction resolved.
+3. **Encode in the narrowest place.** Judgment goes into prose as a
+   rule, reusable mechanics into scripts or stylesheets, and anything
+   mechanically checkable into a deterministic check. One correction,
+   one home.
+4. **Rerun the affected scenarios.** A fix that helps one artifact can
+   quietly hurt another; verify before keeping it.
+5. **Count complaints over time.** Group repeated review feedback,
+   encode the fix, and watch whether that complaint becomes rarer.
+   If it doesn't, the fix is wrong — unclear, unloading, missing a
+   primitive, or needing a check instead of prose.
+
+Keep a small holdout set hidden while editing so descriptions don't
+overfit the test prompts. Final changes stay human-reviewed.
+
 ## Descriptions are a routing interface
 
 Frontmatter `description` is all the agent sees when deciding whether

@@ -92,7 +92,7 @@ codex plugin marketplace add mattjmdesign/dengskills
 codex plugin add dengskills
 ```
 
-Claude plugin skill names are namespaced by the pack.
+The portable `plugin.json` ([Agent Plugins 1.0](https://agent-plugins.org)) also loads directly in ChatGPT, Cursor, GitHub Copilot, Kiro, and VS Code — no repackaging. Claude plugin skill names are namespaced by the pack.
 
 OpenCode (including the desktop app) uses skills rather than plugin manifests — install the skills for it:
 
